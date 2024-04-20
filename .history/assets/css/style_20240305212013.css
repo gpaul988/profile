@@ -886,7 +886,7 @@ a:active {
 
 a:link,
 a:visited {
-  color: var(--light-blue);
+  color: var(--dark);
 }
 
 a:hover,
