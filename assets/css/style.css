@@ -878,7 +878,7 @@ h2.section-title {
   letter-spacing: 1px;
   font-weight: 500;
 text-align: center;
-    color: #00b8e6;
+    color: var(--light);
 }
 
 a:link,
@@ -890,7 +890,7 @@ a:active {
 
 a:link,
 a:visited {
-  color: var(--light-blue);
+  color: var(--light);
 }
 
 a:hover,
@@ -898,19 +898,27 @@ a:active {
   colour: var(--light);
 }
 
-p.section-tail {
+text-center,
+p.section {
   font-family: 'candara', sans-serif;
   font-size: 1.1rem;
   font-weight: 200;
   text-align: center;
+    color: #ffffff;
 }
 
 strong {
   font-family: 'candara', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-align: center;
+    text-justify: auto;
+    text-align-all: center;
+    font-weight: normal;
+    color: #ffffff;
 }
-
+.fa.fa-arrow-down.w3-large {
+    color: #ffffff;
+}
 #contact-details {
   font-family: 'candara',
   sans-serif;
