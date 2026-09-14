@@ -29,6 +29,11 @@
   --surface: #ffffff;
   --surface-text: #1f2937;
   --surface-text-muted: #4b5563;
+  --page-bg: #07141d;
+  --page-bg-2: #111827;
+  --panel-bg: rgba(15, 23, 42, 0.8);
+  --panel-soft: rgba(15, 23, 42, 0.55);
+  --panel-border: rgba(148, 163, 184, 0.22);
   --size: clamp(10rem, 1rem + 40vmin, 30rem);
 	--gap: calc(var(--size) / 14);
 	--duration: 60s;
@@ -85,6 +90,9 @@ body {
 
 body {
   color: var(--surface-text);
+  background:
+    radial-gradient(circle at top, rgba(36, 111, 196, 0.2), transparent 35%),
+    linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-2) 100%);
 }
 
 a {
@@ -92,12 +100,22 @@ a {
   color: inherit;
 }
 
+section,
+.container,
+.container-fluid {
+  position: relative;
+}
+
 .bg-gray {
   background-color: var(--light-grey);
 }
 
 .bg-main {
-	background-color: #0a0a0acf;
+	background: rgba(7, 20, 29, 0.8);
+  border-top: 1px solid rgba(148, 163, 184, 0.24);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.28);
 }
 
 .text-mark {
@@ -138,6 +156,9 @@ a {
 .section-title {
   letter-spacing: 2.35px;
   color: var(--dark-grey);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 #value {
@@ -145,8 +166,10 @@ a {
   padding-bottom: 6rem;
   position: relative;
   background:
-     linear-gradient(rgba(12, 16, 20, 0.8), rgba(12, 16, 20, 0.82)),
+     linear-gradient(rgba(8, 15, 25, 0.82), rgba(8, 15, 25, 0.9)),
      url('../images/bg.jpg') center center / cover no-repeat fixed;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
 }
 
 #process {
@@ -154,8 +177,9 @@ a {
   padding-top: 5rem;
   padding-bottom: 5rem;
   background:
-     linear-gradient(rgba(10, 10, 12, 0.72), rgba(10, 10, 12, 0.8)),
+     linear-gradient(rgba(10, 10, 12, 0.75), rgba(10, 10, 12, 0.85)),
      url('../images/bg4.jpeg') center center / cover no-repeat fixed;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
 }
 
 #testimonials {
@@ -163,7 +187,7 @@ a {
   padding-top: 6rem;
   padding-bottom: 6rem;
   background:
-     linear-gradient(rgba(12, 16, 20, 0.74), rgba(12, 16, 20, 0.8)),
+     linear-gradient(rgba(12, 16, 20, 0.8), rgba(12, 16, 20, 0.88)),
      url('../images/bg4.png') center center / cover no-repeat fixed;
 }
 
@@ -178,6 +202,37 @@ a {
 #process .section-title,
 #testimonials .section-title {
   color: #ffffff;
+}
+
+#projects {
+  background: linear-gradient(180deg, rgba(7, 20, 29, 0.94), rgba(13, 24, 35, 0.96));
+  padding-bottom: 5rem;
+}
+
+#projects .section-title,
+#projects .section-text,
+#projects .project-description,
+#projects .text-muted,
+#projects .text-mark,
+#projects .fab.fa-github,
+#projects .fa-github,
+#projects .project-item h2,
+#projects .project-item h4,
+#projects .project-item p,
+#projects .project-item li,
+#projects .project-item strong,
+#projects .project-item .text-mark,
+#projects .project-item ul {
+  color: #edf8ff;
+}
+
+#projects .section-text,
+#projects .project-description,
+#projects .project-item p,
+#projects .project-item h4,
+#projects .project-item li,
+#projects .project-item strong {
+  text-shadow: 0 2px 12px rgba(15, 23, 42, 0.3);
 }
 
 #value .eyebrow,
@@ -224,6 +279,8 @@ body {
   margin: 0px auto;
   overflow-x: hidden;
   overflow-y: auto;
+  line-height: 1.7;
+  background-attachment: fixed;
 }
 
 em {
@@ -478,18 +535,19 @@ a.dropdown-item {
 
 a.cta-btn,
 a#resumeBtn, .project-button {
-  background-color: var(--dark-violet);
+  background: linear-gradient(135deg, #1d4ed8, #22d3ee);
   color: #fafafa;
-  box-shadow: 2px -2px 5px var(--grey);
-  padding: 12px;
+  box-shadow: 0 14px 32px rgba(34, 211, 238, 0.25);
+  padding: 14px 22px;
   border: none;
-  border-radius: 50px;
+  border-radius: 999px;
   text-decoration: none;
   font-family: 'candara', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1.25px;
   margin: 0 auto;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 a>button.project-button {
@@ -498,11 +556,12 @@ a>button.project-button {
 
 a.cta-btn:hover,
 a#resumeBtn:hover, .project-button:hover {
-  background-color: var(--blue);
+  background: linear-gradient(135deg, #2563eb, #67e8f9);
   border: none;
   text-decoration: none;
   color: #fafafa;
-  padding: 13px;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(59, 130, 246, 0.35);
 }
 
 
@@ -594,12 +653,15 @@ p {
 
 /* ---------- Cover Page Navigation */
 #welcome {
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3)),
+  background: linear-gradient(135deg, rgba(6, 15, 24, 0.7), rgba(12, 42, 52, 0.5)),
   url('../images/deskspace.jpg') no-repeat center fixed;
   background-size: cover;
   min-height: 30vh;
 	overflow: hidden;
 	height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul#nav {
@@ -612,11 +674,13 @@ ul#nav {
 	padding: clamp(2rem, 5vw, 6rem);
 	margin-bottom: 20vh;
 	height: auto;
+	max-width: 1200px;
+	width: 100%;
 }
 
 #nav>li {
-	color: var(--light);
-	opacity: .65;
+	color: #ecfeff;
+	opacity: .9;
 	font-family: 'Cambria', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 3px;
@@ -625,22 +689,23 @@ ul#nav {
 	text-decoration: none;
 	text-align: center;
 	list-style: none;
+	text-shadow: 0 10px 35px rgba(15, 23, 42, 0.5);
 }
 
 #nav>li:hover {
-	color: var(--blue);
+	color: #9ae6ff;
 	opacity: 1;
 	letter-spacing: 6px;
 	font-weight: 900;
 }
 
 #nav>li>h6 {
-  color: var(--light);
-	opacity: 100;
+  color: #dffaff;
+	opacity: 1;
 	font-family: 'Cambria', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 5px;
-	font-size: clamp(1.5rem, 0.5vw, 0.5rem);
+	font-size: clamp(1.1rem, 2vw, 1.6rem);
 	font-weight: 300;
 	text-decoration: none;
 	text-align: center;
@@ -648,7 +713,7 @@ ul#nav {
 }
 
 #nav>li>h6:hover {
-	color: var(--blue);
+	color: #9ae6ff;
 	opacity: 100;
 	letter-spacing: 6px;
 	font-weight: 900;
@@ -765,15 +830,14 @@ img {
 
 /*-------------------------------- About Section */
 #about {
-    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(230, 230, 230, 0.75), rgba(255, 255, 255, 0.5)), url('../images/bg.jpg') no-repeat center center fixed;
+    background: linear-gradient(135deg, rgba(11, 18, 32, 0.76), rgba(15, 118, 110, 0.42), rgba(8, 15, 28, 0.84)), url('../images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(10px);
     overflow: hidden;
     max-width: 100%;
-    height: 100vh;
-    min-height: 100%;
+    min-height: 100vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -784,19 +848,21 @@ img {
     -ms-flex-align: center;
     align-items: center;
     position: relative;
+    padding: 5rem 0;
 }
 h4.display-5 {
     font-family: 'Cambria', sans-serif;
     font-weight: bolder;
-    font-size: clamp(2.3rem, 1.1vw, 2.3rem);;
+    font-size: clamp(2.3rem, 1.1vw, 2.3rem);
     letter-spacing: 2.3px;
+    color: #d6fff9;
 }
 h5.role-heading {
     font-family: 'arial', sans-serif;
     font-size: clamp(0.7rem, 0.5vw, 0.7rem);
     font-weight: 100;
     letter-spacing: 2px;
-    color: var(--purple);
+    color: #9ae6ff;
 }
 
 #portrait2 {
@@ -806,19 +872,18 @@ h5.role-heading {
 }
 
 .profile-card {
-    /* Box shadow #71 copied from https://getcssscan.com/css-box-shadow-examples */
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-    background: rgba( 250, 250, 250, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    max-width: 500px;
+    box-shadow: 0 24px 60px rgba(3, 7, 18, 0.38);
+    background: rgba(15, 23, 42, 0.48);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px );
+    border-radius: 24px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    max-width: 540px;
     margin: auto;
     text-align: center;
     transform: translatey(0px);
     animation: float 6s ease-in-out infinite;
+    padding: 2rem 1.25rem 2.5rem;
 }
 
 @keyframes float {
@@ -838,11 +903,12 @@ h5.role-heading {
 
 .profile-about p {
     font-family: "candara", sans-serif;
-    color: #0a0a0a;
+    color: rgba(255, 255, 255, 0.86);
     font-weight: 100;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin: 30px 40px;
+    line-height: 1.8;
 }
 
 .profile-card .profile-header {
@@ -887,12 +953,13 @@ a.cretification:hover {
 	font-size: 1rem;
 	color: var(--light);
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.836), rgba(0, 0, 0, 0.946), rgba(26, 25, 25, 0.712), rgba(18, 18, 18, 0.68)), url('../images/bg4.jpeg');
+    background: linear-gradient(135deg, rgba(5, 12, 18, 0.9), rgba(17, 24, 39, 0.88), rgba(8, 42, 52, 0.82)), url('../images/bg4.jpeg');
     background-repeat: no-repeat;
 	  background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 4rem;
 }
 
 h2.display-2 {
@@ -1166,6 +1233,7 @@ p.text-muted {
   min-height: 100vh;
   max-width: 100%;
   overflow: hidden;
+  background: linear-gradient(180deg, rgba(7, 20, 29, 0.96), rgba(15, 23, 42, 0.98));
 }
 
 h2.section-title {
@@ -1191,6 +1259,16 @@ h2.section-title {
   font-weight: 500;
 text-align: center;
     color: var(--light);
+}
+
+#contact .section,
+#contact strong,
+#contact .fa-arrow-down,
+#contact a,
+#contact #email a,
+#contact .text-center p,
+#contact .text-center strong {
+  color: #edf8ff;
 }
 
 a:link,
