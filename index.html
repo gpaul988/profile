@@ -26,7 +26,6 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
         <!--Favicon Link-->
         <link rel="shortcut icon" type="image/ico" href="assets/images/icons8-full-stack-64.png"/>
         <!---->
@@ -915,7 +914,7 @@
     <div class="row d-flex my-0 mx-auto align-items-center py-2 justify-content-center">
         <div class="col-12 col-xl-10 text-start">
             <div class="card shadow-lg border-0 mb-5 contact-card">
-                <form class="form contact-form" method="POST" id="contact-form" action="submit" novalidate>
+                <form class="form contact-form" method="POST" id="contact-form" action="https://formspree.io/f/xjyvnjzn" novalidate>
                     <div class="contact-form-grid">
                         <div class="form-group">
                             <label for="from_name">Full Name</label>
@@ -1009,11 +1008,7 @@
         </div>
     </div>
 </section>
-<!-- Email JS Script -->
-<script type="text/javascript">
-    emailjs.init('GSZV2fnl8QLrrSMpi')
-</script>
-<!--Trigger AOS Animations-->
+<!-- Trigger AOS Animations -->
 <script>
     AOS.init();
 </script>
