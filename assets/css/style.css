@@ -38,7 +38,8 @@
 
 ::-moz-selection { /* Code for Firefox */
   color: #ffffff;
-  background: var(--violet);
+  background: #0d6efd;
+  text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.9);
 }
 
 
@@ -53,7 +54,28 @@
 
 ::selection {
   color: #ffffff;
-  background: var(--violet);
+  background: #0d6efd;
+  text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.9);
+}
+
+.nav-link i::selection,
+.nav-link svg::selection,
+.fab::selection,
+.fas::selection,
+.fa-brands::selection,
+.fa-solid::selection {
+  color: #ffffff;
+  background: #0d6efd;
+  text-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.95);
+}
+
+.nav-link i,
+.nav-link svg,
+.fab,
+.fas,
+.fa-brands,
+.fa-solid {
+  -webkit-text-stroke: 0.2px rgba(255, 255, 255, 0.35);
 }
 
 html,
