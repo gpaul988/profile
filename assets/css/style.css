@@ -790,8 +790,59 @@ img {
 .project-item {
   margin: 0 auto;
   overflow: hidden;
-  max-width: 100%;
+  width: min(85%, 1200px);
+  max-width: 1200px;
   vertical-align: middle;
+  padding-left: clamp(0.75rem, 2vw, 1.5rem);
+  padding-right: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.img-wrapper,
+.img-wrapper--reverse {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  height: auto;
+  overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .project-item {
+    width: calc(100% - 1.5rem);
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .project-details,
+  .project-item .col-12 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-item .col-12 {
+    margin-bottom: 1rem;
+  }
+
+  .img-wrapper,
+  .img-wrapper--reverse,
+  .project-img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .portfolio-image {
@@ -933,7 +984,110 @@ strong {
     sans-serif;
     font-size: 1.1rem;
     letter-spacing: .2px;
-    margin: 5px 30px;
+   margin: 0 auto;
+   max-width: 100%;
+   padding: 1.5rem;
+}
+
+.contact-card {
+   border-radius: 22px;
+   background: rgba(255, 255, 255, 0.06);
+   backdrop-filter: blur(8px);
+   border: 1px solid rgba(255, 255, 255, 0.12);
+   padding: 0.75rem 0 0.25rem;
+   max-width: 1000px;
+   margin: 0 auto;
+}
+
+.contact-form-grid {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 1.2rem 1.5rem;
+}
+
+#contact-form .form-group {
+   margin-bottom: 0.25rem;
+}
+
+#contact-form .form-group-wide {
+   grid-column: 1 / -1;
+}
+
+#contact-form label {
+   display: block;
+   margin-bottom: 0.5rem;
+   color: var(--light);
+   font-weight: 700;
+   letter-spacing: 0.04em;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form select {
+   width: 100%;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   border-radius: 12px;
+   padding: 0.9rem 1rem;
+   background: rgba(255, 255, 255, 0.06);
+   color: var(--light);
+   font-size: 1rem;
+   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#contact-form select {
+   appearance: none;
+   background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%);
+   background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px);
+   background-size: 6px 6px, 6px 6px;
+   background-repeat: no-repeat;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+   color: rgba(255, 255, 255, 0.6);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus,
+#contact-form select:focus {
+   outline: none;
+   border-color: rgba(90, 211, 158, 0.9);
+   box-shadow: 0 0 0 0.2rem rgba(90, 211, 158, 0.2);
+   background: rgba(255, 255, 255, 0.08);
+}
+
+#contact-form textarea {
+   min-height: 170px;
+   resize: vertical;
+}
+
+#contact-form button[type="submit"] {
+   min-width: 220px;
+   padding: 1rem 2rem;
+   border-radius: 999px;
+   border: 1px solid rgba(255, 255, 255, 0.15);
+   background: linear-gradient(135deg, var(--violet), var(--blue));
+   color: var(--light);
+   font-weight: 700;
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
+   cursor: pointer;
+   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+#contact-form button[type="submit"]:hover {
+   transform: translateY(-1px);
+   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+   opacity: 0.98;
+}
+
+#contact-form button[type="submit"]:active {
+   transform: translateY(0);
+}
+
+#contact-form button[type="submit"]:disabled {
+   opacity: 0.8;
+   cursor: wait;
 }
 
 .w3-col.m8.w3-panel {
@@ -942,6 +1096,21 @@ strong {
    font-size: 1.1rem;
    letter-spacing: 1px;
    font-weight: 300;
+}
+
+@media (max-width: 767.98px) {
+   #contact-form {
+       padding: 1rem;
+   }
+
+   .contact-form-grid {
+       grid-template-columns: 1fr;
+       gap: 1rem;
+   }
+
+   #contact-form button[type="submit"] {
+       width: 100%;
+   }
 }
 
 img {

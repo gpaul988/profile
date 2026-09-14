@@ -747,57 +747,91 @@
 <!-- Contact Form -->
 <section class="container bgimg-3 my-0 mx-auto" id="contact">
     <div class="row my-0 mx-auto my-3">
-        <div class="col-12 my-3">
+        <div class="col-12 my-3 text-center text-md-start">
             <h2 class="section-title ms-sm-4 display-1 text-Bold" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1200">Contact Me</h2>
-            <div class="ms-sm-4 mt-2 mt-md-1">
-              </div>
-    </div>
-          <div class="row d-block d-md-flex" id="contact-details">
-      <div class="col-12 offset-4 col-md-7 offset-xs-0 offset-md-4">
-        <div class="w3-margin-bottom">
-          <i class="fas fa-map-marker w3-large my-2" data-aos="zoom-in" data-aos-duration="2000"></i>
-          <span id="address" data-aos="zoom-in" data-aos-duration="2000">Port Harcourt, Rivers State, Nigeria</span>
-          <br>
-          <i class="fas fa-phone w3-large my-2" data-aos="zoom-in" data-aos-duration="2000"></i>
-          <span id="phone" data-aos="zoom-in" data-aos-duration="2000"><a href="tel:+2347063045790">+234-706-304-5790</a> </span>
-          <br>
-          <i class="fas fa-envelope w3-large my-2" data-aos="zoom-in" data-aos-duration="2000"></i>
-          <span id="email" data-aos="zoom-in" data-aos-duration="2000"><a href="mailto:graham@grahamspaul.net.ng">graham@grahamspaul.net.ng</a> </span>
         </div>
-      </div>
     </div>
-    <div class="text-center">
-      <p class="section">
-        Got a project in mind? Tell me all about it in the message area below. Don't forget your name & your email,
-        so I can get back to you at my earliest convenience.
-      </p>
-      <strong class="mt-4 text-center">Drop me a line </strong>
-      <span><i class="fa fa-arrow-down w3-large"></i></span>
-    </div>
-                <hr>
+
+    <div class="row d-flex justify-content-center" id="contact-details">
+        <div class="col-12 col-md-8 text-center">
+            <div class="w3-margin-bottom">
+                <div class="mb-3">
+                    <i class="fas fa-map-marker w3-large my-2" data-aos="zoom-in" data-aos-duration="2000"></i>
+                    <span id="address" data-aos="zoom-in" data-aos-duration="2000">Port Harcourt, Rivers State, Nigeria</span>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-phone w3-large my-2" data-aos="zoom-in" data-aos-duration="2000"></i>
+                    <span id="phone" data-aos="zoom-in" data-aos-duration="2000"><a href="tel:+2347063045790">+234-706-304-5790</a></span>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-envelope w3-large my-2" data-aos="zoom-in" data-aos-duration="2000"></i>
+                    <span id="email" data-aos="zoom-in" data-aos-duration="2000"><a href="mailto:graham@grahamspaul.net.ng">graham@grahamspaul.net.ng</a></span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row d-flex my-0 mx-auto align-items-center py-2 align-items-center justify-content-center">
-        <div class="col-12 col-sm-8 text-start">
-            <div class="card shadow-lg border-0 mb-5">
-                <form class="form" method="POST" id="contact-form" action="submit">
-                    <div class="form-group m-3 m-md-5">
-                        <label for="from_name">Your Name</label>
-                        <input type="text" name="from_name" id="from_name" class="w3-input">
+
+    <div class="text-center px-3">
+      <p class="section mb-3">
+        Got a project in mind? Tell me all about it in the message area below. Don't forget your name & your email,
+        so I can get back to you at my earliest convenience.
+      </p>
+      <strong class="mt-4 text-center">Drop me a line</strong>
+      <span><i class="fa fa-arrow-down w3-large d-block mt-2"></i></span>
+    </div>
+
+    <div class="row d-flex my-0 mx-auto align-items-center py-2 justify-content-center">
+        <div class="col-12 col-xl-10 text-start">
+            <div class="card shadow-lg border-0 mb-5 contact-card">
+                <form class="form contact-form" method="POST" id="contact-form" action="submit" novalidate>
+                    <div class="contact-form-grid">
+                        <div class="form-group">
+                            <label for="from_name">Full Name</label>
+                            <input type="text" name="from_name" id="from_name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company_name">Company / Brand</label>
+                            <input type="text" name="company_name" id="company_name" placeholder="Your company or brand name">
+                        </div>
+                        <div class="form-group">
+                            <label for="reply_to">Email Address</label>
+                            <input type="email" name="reply_to" id="reply_to" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="tel" name="phone_number" id="phone_number" placeholder="Optional">
+                        </div>
+                        <div class="form-group form-group-wide">
+                            <label for="project_type">Project Type</label>
+                            <select name="project_type" id="project_type" required>
+                                <option value="" selected disabled>Select a project type</option>
+                                <option value="Website Design">Website Design</option>
+                                <option value="Landing Page">Landing Page</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="Portfolio">Portfolio</option>
+                                <option value="Brand Refresh">Brand Refresh</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-wide">
+                            <label for="budget">Budget Range</label>
+                            <select name="budget" id="budget">
+                                <option value="" selected disabled>Select a budget range</option>
+                                <option value="Under $500">Under $500</option>
+                                <option value="$500 - $1,000">$500 - $1,000</option>
+                                <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                                <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                                <option value="$5,000+">$5,000+</option>
+                                <option value="Not sure yet">Not sure yet</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-wide">
+                            <label for="message">Project Details</label>
+                            <textarea name="message" id="message" rows="6" placeholder="Tell me about your goals, audience, timeline, and any inspiration or requirements." required></textarea>
+                        </div>
                     </div>
-                    <div class="form-group m-3 m-md-5">
-                        <label for="message">Your Message</label>
-                        <textarea type="text" name="message" id="message" class="w3-input"></textarea>
-                    </div>
-                    <div class="form-group m-3 m-md-5">
-                        <label for="reply_to">Your Email</label>
-                        <input type="text" name="reply_to" id="reply_to" class="w3-input">
-                    </div>
-                    <div class="form-group text-center my-4 pt-3">
-                        <button class="btn">
-                            <input type="submit" id="button" value="Send Email">
-                        </button>
+                    <div class="form-group text-center my-4 pt-2">
+                        <button type="submit" id="button" class="btn">Send Enquiry</button>
                     </div>
                 </form>
             </div>

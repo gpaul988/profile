@@ -1,21 +1,31 @@
 const btn = document.getElementById('button');
+const form = document.getElementById('contact-form');
 
-const form =
-    document.getElementById('contact-form')
-        .addEventListener('submit', function (event) {
-            event.preventDefault();
+if (form && btn) {
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-            btn.value = 'Sending...';
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
 
-            const serviceID = 'default_service';
-            const templateID = 'template_cdmu20h';
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
 
-            emailjs.sendForm(serviceID, templateID, this)
-                .then(() => {
-                    btn.value = 'Send Email';
-                    alert('Sent!');
-                }, (err) => {
-                    btn.value = 'Send Email';
-                    alert(JSON.stringify(err));
-                });
-        });
+        const serviceID = 'default_service';
+        const templateID = 'template_cdmu20h';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.textContent = 'Send Email';
+                btn.disabled = false;
+                form.reset();
+                alert('Sent!');
+            }, (err) => {
+                btn.textContent = 'Send Email';
+                btn.disabled = false;
+                alert(JSON.stringify(err));
+            });
+    });
+}
