@@ -1472,6 +1472,30 @@ strong {
    transform: translateY(0);
 }
 
+.form-status {
+   margin-top: 1rem;
+   padding: 0.9rem 1rem;
+   border-radius: 12px;
+   font-size: 0.96rem;
+   line-height: 1.5;
+   display: none;
+   border: 1px solid transparent;
+}
+
+.form-status.is-success {
+   display: block;
+   background: rgba(21, 194, 120, 0.12);
+   border-color: rgba(21, 194, 120, 0.35);
+   color: #e9fff5;
+}
+
+.form-status.is-error {
+   display: block;
+   background: rgba(255, 112, 112, 0.1);
+   border-color: rgba(255, 112, 112, 0.28);
+   color: #ffe8e8;
+}
+
 #contact-form button[type="submit"]:disabled {
    opacity: 0.8;
    cursor: wait;

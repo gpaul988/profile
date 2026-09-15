@@ -1,6 +1,17 @@
 const btn = document.querySelector('#contact-form button[type="submit"]');
 const form = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjyvnjzn';
+
+const setFormStatus = (message, type) => {
+    if (!formStatus) {
+        return;
+    }
+
+    formStatus.className = 'form-status';
+    formStatus.classList.add(type === 'success' ? 'is-success' : 'is-error');
+    formStatus.textContent = message;
+};
 
 if (form && btn) {
     form.addEventListener('submit', async function (event) {
@@ -12,12 +23,13 @@ if (form && btn) {
         }
 
         if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes('your-form-id')) {
-            alert('Please add your Formspree form ID before deploying this site.');
+            setFormStatus('Please add your Formspree form ID before deploying this site.', 'error');
             return;
         }
 
         btn.textContent = 'Sending...';
         btn.disabled = true;
+        setFormStatus('Sending your message...', 'success');
 
         try {
             const response = await fetch(FORMSPREE_ENDPOINT, {
@@ -35,11 +47,11 @@ if (form && btn) {
 
             btn.textContent = 'Sent';
             form.reset();
-            alert('Your message has been sent successfully.');
+            setFormStatus('Thanks for reaching out. Your message has been sent successfully and I will get back to you within 24–48 hours.', 'success');
         } catch (error) {
             console.error('Formspree submission failed:', error);
             btn.textContent = 'Try Again';
-            alert(error.message || 'Something went wrong while sending the message. Please try again.');
+            setFormStatus('Something went wrong while sending your message. Please try again or email me directly at graham@grahamspaul.net.ng.', 'error');
         } finally {
             btn.disabled = false;
         }
