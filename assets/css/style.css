@@ -554,6 +554,46 @@ a.nav-link, #navbarCollapse, .navbar-dark .navbar-nav .nav-link {
   color: var(--light);
 }
 
+.social-icon,
+.navbar .nav-link i,
+.navbar .nav-link svg,
+.navbar .fa-brands,
+.navbar .fa-solid,
+.navbar .fab,
+.navbar .fas,
+.navbar .nav-item .nav-link i,
+.navbar .nav-item .nav-link svg,
+.navbar .nav-item .nav-link .fa-github,
+.navbar .nav-item .nav-link .fa-linkedin,
+.navbar .nav-item .nav-link .fa-twitter,
+.navbar .nav-item .nav-link .fa-envelope {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  font-size: 1.25rem !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  fill: currentColor !important;
+}
+
+.social-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  vertical-align: middle;
+}
+
+.large-github-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+.navbar .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
   color: var(--violet);
   /* text-shadow: 1px -1px 12px rgb(134, 37, 203); */
