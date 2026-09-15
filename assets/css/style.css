@@ -55,6 +55,19 @@
 .display-5,
 .display-6 {
   font-weight: 500;
+  line-height: 1.1;
+}
+
+.display-1 { font-size: clamp(2.4rem, 5vw, 5rem); }
+.display-2 { font-size: clamp(2.1rem, 4vw, 4rem); }
+.display-3 { font-size: clamp(1.9rem, 3vw, 3.2rem); }
+.display-4 { font-size: clamp(1.7rem, 2.7vw, 2.8rem); }
+.display-5 { font-size: clamp(1.5rem, 2.1vw, 2.2rem); }
+.display-6 { font-size: clamp(1.2rem, 1.8vw, 1.8rem); }
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 4rem);
+  line-height: 1.12;
 }
 
 ::selection {
@@ -486,6 +499,21 @@ hr {
   padding: 2rem 2.5rem;
 }
 
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-row a {
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+}
+
 .cta-button {
   display: inline-flex;
   align-items: center;
@@ -496,7 +524,7 @@ hr {
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   white-space: nowrap;
 }
 
@@ -569,13 +597,15 @@ a>button.project-button {
 }
 
 a.cta-btn:hover,
-a#resumeBtn:hover, .project-button:hover {
-  background: linear-gradient(135deg, #2563eb, #67e8f9);
-  border: none;
+a#resumeBtn:hover,
+.project-button:hover,
+.btn:hover {
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.28), rgba(14, 165, 233, 0.18));
+  border-color: rgba(251, 146, 60, 0.6);
   text-decoration: none;
   color: #fafafa;
-  transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(59, 130, 246, 0.35);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 38px -12px rgba(251, 146, 60, 0.7), 0 18px 34px rgba(15, 23, 42, 0.5);
 }
 
 
@@ -607,22 +637,106 @@ hr.folio-hr {
   background-color: #777;
 }
 
-.btn {
-  font-family: 'candara', sans-serif;
-  background-color: var(--black);
-  text-transform: uppercase;
-  box-shadow: 1px 4px 14px 1px rgba(46, 46, 46, 0.818);
-  letter-spacing: 2px;
-  font-weight: 520;
-  padding: 15px 25px;
-  border: none;
-  color: var(--light);
+@keyframes beam-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.btn:hover {
-  background-color: var(--violet);
+@keyframes dots-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 24px 24px;
+  }
+}
+
+.btn,
+.project-button,
+.cta-button,
+a.cta-btn,
+a#resumeBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 3.9rem;
+  min-width: clamp(180px, 15vw, 240px);
+  padding: 1.05rem 2.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(9, 12, 16, 0.72);
   color: var(--light);
+  font-family: 'candara', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(0.8rem, 0.72vw, 1.02rem);
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 18px 34px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.btn::before,
+.project-button::before,
+.cta-button::before,
+a.cta-btn::before,
+a#resumeBtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, transparent 0 300deg, rgba(234, 88, 12, 0.95) 360deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: beam-spin 3s linear infinite;
+  z-index: 0;
+}
+
+.btn::after,
+.project-button::after,
+.cta-button::after,
+a.cta-btn::after,
+a#resumeBtn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(39, 39, 42, 0.86), rgba(9, 12, 16, 0.9));
+  background-image: radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+  background-size: 12px 12px;
+  opacity: 0.32;
+  animation: dots-move 8s linear infinite;
+  z-index: -1;
+}
+
+.btn span,
+.project-button span,
+.cta-button span,
+a.cta-btn span,
+a#resumeBtn span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  font-family: 'candara', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 1px 4px 14px 1px rgba(46, 46, 46, 0.818);
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  padding: 1.1rem 2rem;
   border: none;
+  color: var(--light);
 }
 
 /*-------------------------------- Headers and text */
@@ -1531,11 +1645,21 @@ strong {
 
    .cta-panel {
        flex-direction: column;
-       align-items: flex-start;
+       align-items: center;
+       text-align: center;
    }
 
+   .btn-row {
+       justify-content: center;
+   }
+
+   .btn,
+   .project-button,
+   .cta-button,
+   a.cta-btn,
+   a#resumeBtn,
    #contact-form button[type="submit"] {
-       width: 100%;
+       width: min(100%, 280px);
        min-width: 0;
    }
 }
