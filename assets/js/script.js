@@ -75,6 +75,33 @@ const setProjectStatus = (message, type) => {
     projectStatus.textContent = message;
 };
 
+const getSubmissionError = async (response, fallbackMessage) => {
+    const responseText = await response.text();
+    if (responseText) {
+        try {
+            const data = JSON.parse(responseText);
+            if (data.errors && Array.isArray(data.errors)) {
+                const messages = data.errors
+                    .map((item) => item && item.message)
+                    .filter(Boolean)
+                    .join(' ');
+                if (messages) {
+                    return messages;
+                }
+            }
+            if (data.error) {
+                return data.error;
+            }
+        } catch {
+            if (responseText.length < 240) {
+                return responseText;
+            }
+        }
+    }
+
+    return fallbackMessage;
+};
+
 const closeProjectModal = () => {
     if (!projectModal) {
         return;
@@ -120,15 +147,21 @@ if (projectModal && openProjectButton && closeProjectButton && projectForm) {
         setProjectStatus('Sending your project details...', 'success');
 
         try {
-            const response = await fetch(FORMSPREE_ENDPOINT, {
+            const projectEndpoint = projectForm.getAttribute('action') || FORMSPREE_ENDPOINT;
+            const response = await fetch(projectEndpoint, {
                 method: 'POST',
                 body: new FormData(projectForm),
-                headers: { Accept: 'application/json' }
+                headers: {
+                    Accept: 'application/json'
+                }
             });
 
             if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.error || 'Your enquiry could not be sent.');
+                const message = await getSubmissionError(
+                    response,
+                    'Formspree rejected the enquiry. Please check the required fields and try again.'
+                );
+                throw new Error(message);
             }
 
             projectForm.reset();
@@ -137,7 +170,7 @@ if (projectModal && openProjectButton && closeProjectButton && projectForm) {
         } catch (error) {
             console.error('Project enquiry submission failed:', error);
             submitButton.textContent = 'Try Again';
-            setProjectStatus('Something went wrong. Please try again or email graham@grahamspaul.net.ng directly.', 'error');
+            setProjectStatus(error.message || 'Something went wrong. Please try again or email graham@grahamspaul.net.ng directly.', 'error');
         } finally {
             submitButton.disabled = false;
         }
