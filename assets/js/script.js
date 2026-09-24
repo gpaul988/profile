@@ -171,7 +171,8 @@ if (projectModal && openProjectButton && closeProjectButton && projectForm) {
 
             projectForm.reset();
             submitButton.textContent = 'Sent';
-            setProjectStatus('Your enquiry was accepted by Formspree. Please check the Formspree dashboard for the submission; email notifications depend on its verified recipient settings.', 'success');
+            setProjectStatus('Thank you for sharing your project vision. Your enquiry has been received successfully, and I will be in touch within 24–48 hours with the next steps.', 'success');
+            setTimeout(closeProjectModal, 1800);
         } catch (error) {
             console.error('Project enquiry submission failed:', error);
             submitButton.textContent = 'Try Again';
