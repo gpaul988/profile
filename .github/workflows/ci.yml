@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate HTML structure
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Parser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.main = 0
+                  self.h1 = 0
+              def handle_starttag(self, tag, attrs):
+                  if tag == 'main':
+                      self.main += 1
+                  if tag == 'h1':
+                      self.h1 += 1
+          parser = Parser()
+          html = Path('index.html').read_text(encoding='utf-8')
+          parser.feed(html)
+          parser.close()
+          assert parser.main == 1, 'Expected one <main> landmark.'
+          assert parser.h1 == 1, 'Expected one <h1> heading.'
+          print('HTML validation passed.')
+          PY
+
+      - name: Check for security header config
+        run: |
+          test -f _headers
+          grep -q 'Strict-Transport-Security' _headers
+          grep -q 'Content-Security-Policy' _headers
