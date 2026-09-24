@@ -311,10 +311,124 @@
                 <p class="eyebrow">Ready to build?</p>
                 <h2 class="section-title display-5">Let’s create a polished digital presence your audience will trust.</h2>
             </div>
-            <a href="#contact" class="cta-button">Start a project</a>
+            <button type="button" class="cta-button" id="open-project-intake" aria-haspopup="dialog" aria-controls="project-intake-modal">
+                Start a project
+            </button>
         </div>
     </div>
 </section>
+<div class="project-modal" id="project-intake-modal" role="dialog" aria-modal="true" aria-labelledby="project-intake-title" hidden>
+    <div class="project-modal__backdrop" data-close-project-modal></div>
+    <div class="project-modal__dialog" role="document">
+        <button type="button" class="project-modal__close" id="close-project-intake" aria-label="Close project enquiry form">&times;</button>
+        <p class="eyebrow">Project enquiry</p>
+        <h2 id="project-intake-title">Let’s plan your next build</h2>
+        <p class="project-modal__intro">Share a few details and I’ll reply with the next steps within 24–48 hours.</p>
+        <form class="project-intake-form" id="project-intake-form" method="POST" action="https://formspree.io/f/xjyvnjzn">
+            <div class="project-intake-grid">
+                <div class="form-group">
+                    <label for="intake-name">Full name</label>
+                    <input type="text" name="from_name" id="intake-name" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="intake-email">Email address</label>
+                    <input type="email" name="reply_to" id="intake-email" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="intake-company">Company or brand</label>
+                    <input type="text" name="company_name" id="intake-company" autocomplete="organization">
+                </div>
+                <div class="form-group">
+                    <label for="intake-phone">Phone or WhatsApp</label>
+                    <input type="tel" name="phone_number" id="intake-phone" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="intake-website">Current website</label>
+                    <input type="url" name="website" id="intake-website" placeholder="https://">
+                </div>
+                <div class="form-group">
+                    <label for="intake-type">Project type</label>
+                    <select name="project_type" id="intake-type" required>
+                        <option value="" selected disabled>Select one</option>
+                        <option>Website design</option>
+                        <option>Landing page</option>
+                        <option>E-commerce</option>
+                        <option>Web application</option>
+                        <option>Website redesign</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="intake-budget">Estimated budget</label>
+                    <select name="budget" id="intake-budget" required>
+                        <option value="" selected disabled>Select a range</option>
+                        <option>Under $500</option>
+                        <option>$500 - $1,000</option>
+                        <option>$1,000 - $3,000</option>
+                        <option>$3,000 - $5,000</option>
+                        <option>$5,000+</option>
+                        <option>Not sure yet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="intake-timeline">Preferred timeline</label>
+                    <select name="timeline" id="intake-timeline" required>
+                        <option value="" selected disabled>Select a timeline</option>
+                        <option>ASAP</option>
+                        <option>Within 2 weeks</option>
+                        <option>Within 1 month</option>
+                        <option>Within 2-3 months</option>
+                        <option>Flexible</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="intake-contact-method">Preferred contact method</label>
+                    <select name="preferred_contact_method" id="intake-contact-method" required>
+                        <option value="" selected disabled>Select one</option>
+                        <option>Email</option>
+                        <option>Phone call</option>
+                        <option>WhatsApp</option>
+                        <option>Video call</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="intake-decision-date">Decision or launch deadline</label>
+                    <input type="date" name="decision_deadline" id="intake-decision-date">
+                </div>
+                <div class="form-group project-intake-form__wide">
+                    <label for="intake-audience">Target audience</label>
+                    <input type="text" name="target_audience" id="intake-audience" placeholder="Who should this project serve?">
+                </div>
+                <div class="form-group project-intake-form__wide">
+                    <label for="intake-goals">Project goals and details</label>
+                    <textarea name="project_details" id="intake-goals" rows="5" placeholder="What would you like to build, improve, or achieve?" required></textarea>
+                </div>
+                <div class="form-group project-intake-form__wide">
+                    <label for="intake-features">Important features or services</label>
+                    <textarea name="features_needed" id="intake-features" rows="3" placeholder="For example: booking, payments, CMS, integrations, SEO, or a portfolio."></textarea>
+                </div>
+                <div class="form-group project-intake-form__wide">
+                    <label for="intake-reference">Inspiration or reference links</label>
+                    <textarea name="reference_links" id="intake-reference" rows="2" placeholder="Share links to websites or visual references you like."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="intake-referral">How did you hear about me?</label>
+                    <select name="referral_source" id="intake-referral">
+                        <option value="" selected>Select an option</option>
+                        <option>Google or search engine</option>
+                        <option>GitHub</option>
+                        <option>LinkedIn</option>
+                        <option>Referral</option>
+                        <option>Social media</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn project-intake-form__submit">Send project enquiry</button>
+            <div id="project-intake-status" class="form-status" aria-live="polite"></div>
+        </form>
+    </div>
+</div>
 <!--Skills Section-->
 <section class="container-fluid skills" id="skills">
     <div class="row">

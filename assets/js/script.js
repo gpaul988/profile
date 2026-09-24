@@ -57,3 +57,89 @@ if (form && btn) {
         }
     });
 }
+
+const projectModal = document.getElementById('project-intake-modal');
+const openProjectButton = document.getElementById('open-project-intake');
+const closeProjectButton = document.getElementById('close-project-intake');
+const projectForm = document.getElementById('project-intake-form');
+const projectStatus = document.getElementById('project-intake-status');
+let lastFocusedElement;
+
+const setProjectStatus = (message, type) => {
+    if (!projectStatus) {
+        return;
+    }
+
+    projectStatus.className = 'form-status';
+    projectStatus.classList.add(type === 'success' ? 'is-success' : 'is-error');
+    projectStatus.textContent = message;
+};
+
+const closeProjectModal = () => {
+    if (!projectModal) {
+        return;
+    }
+
+    projectModal.hidden = true;
+    document.body.classList.remove('project-modal-open');
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
+};
+
+if (projectModal && openProjectButton && closeProjectButton && projectForm) {
+    openProjectButton.addEventListener('click', () => {
+        lastFocusedElement = document.activeElement;
+        projectModal.hidden = false;
+        document.body.classList.add('project-modal-open');
+        projectForm.querySelector('input')?.focus();
+    });
+
+    closeProjectButton.addEventListener('click', closeProjectModal);
+    projectModal.addEventListener('click', (event) => {
+        if (event.target.hasAttribute('data-close-project-modal')) {
+            closeProjectModal();
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !projectModal.hidden) {
+            closeProjectModal();
+        }
+    });
+
+    projectForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!projectForm.checkValidity()) {
+            projectForm.reportValidity();
+            return;
+        }
+
+        const submitButton = projectForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        setProjectStatus('Sending your project details...', 'success');
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                body: new FormData(projectForm),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || 'Your enquiry could not be sent.');
+            }
+
+            projectForm.reset();
+            submitButton.textContent = 'Sent';
+            setProjectStatus('Thanks — your project enquiry has been sent successfully.', 'success');
+        } catch (error) {
+            console.error('Project enquiry submission failed:', error);
+            submitButton.textContent = 'Try Again';
+            setProjectStatus('Something went wrong. Please try again or email graham@grahamspaul.net.ng directly.', 'error');
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+}
