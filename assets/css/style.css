@@ -803,14 +803,39 @@ h1#title {
   color: var(--violet);
 }
 
+#name {
+  margin: 0;
+  color: #ecfeff;
+  background: linear-gradient(110deg, #ffffff 0%, #dffaff 35%, #9ae6ff 58%, #ffffff 78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Alex Brush', 'Edwardian Script ITC', 'Snell Roundhand', cursive;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-style: normal;
+  font-variant-caps: normal;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  word-spacing: 0.05em;
+  font-kerning: normal;
+  font-feature-settings: "liga", "clig", "calt";
+  text-rendering: optimizeLegibility;
+  font-size: clamp(2.15rem, 7.17vw, 5.05rem);
+  line-height: 1;
+  text-shadow: 0 0 1.5rem rgba(40, 221, 252, 0.28);
+}
+
 #subtitle {
   text-align: center;
-  font-size: 1.5rem;
-  letter-spacing: 8px;
-  font-family: 'Futura-PT',
-     sans-serif;
-  font-weight: 500;
-  text-align: center;
+  font-size: 2.1rem;
+  letter-spacing: clamp(0.18em, 0.8vw, 0.35em);
+  font-family: 'Poppins', 'Futura-PT', sans-serif;
+  font-weight: 600;
+  line-height: 1.35;
+  text-shadow: 0 0 1.25rem rgba(40, 221, 252, 0.24);
 }
 
 li,
@@ -870,14 +895,16 @@ ul#nav {
 #nav>li>h6 {
   color: #dffaff;
 	opacity: 1;
-	font-family: 'Cambria', sans-serif;
+	font-family: 'Playfair Display', Georgia, serif;
 	text-transform: uppercase;
-	letter-spacing: 5px;
-	font-size: clamp(1.1rem, 2vw, 1.6rem);
-	font-weight: 300;
+	letter-spacing: clamp(0.12em, 0.55vw, 0.25em);
+	font-size: clamp(1.08rem, 1.96vw, 1.57rem);
+	font-weight: 600;
+	line-height: 1.35;
 	text-decoration: none;
 	text-align: center;
 	list-style: none;
+	text-shadow: 0 0 1.25rem rgba(40, 221, 252, 0.24);
 }
 
 #nav>li>h6:hover {
