@@ -33,6 +33,14 @@ focus indicators use 3:1 against adjacent colors. The dark page background
 in `assets/css/style.css`. New colors should be checked with a WCAG contrast
 checker before being used for text, controls, or focus indicators.
 
+## Formspree delivery
+
+The contact and project enquiry forms submit to the Formspree form identified
+in `index.html`. The Formspree dashboard must have the recipient email verified
+and notification emails enabled. Submitted enquiries are available in the
+Formspree dashboard even if an email notification is delayed or filtered as
+spam.
+
 <p align="center">
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=gpaul988&show_icons=true&locale=en&layout=compact" alt="gpaul988" /></p>
 <p align="center">

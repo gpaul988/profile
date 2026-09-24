@@ -330,14 +330,15 @@
         <p class="project-modal__intro">Share a few details and I’ll reply with the next steps within 24–48 hours.</p>
         <form class="project-intake-form" id="project-intake-form" method="POST" action="https://formspree.io/f/xjyvnjzn">
             <input type="hidden" name="_subject" value="New project enquiry from grahamspaul.cm">
+            <input type="hidden" name="_replyto" id="intake-reply-to">
             <div class="project-intake-grid">
                 <div class="form-group">
                     <label for="intake-name">Full name</label>
-                    <input type="text" name="from_name" id="intake-name" autocomplete="name" required>
+                    <input type="text" name="name" id="intake-name" autocomplete="name" required>
                 </div>
                 <div class="form-group">
                     <label for="intake-email">Email address</label>
-                    <input type="email" name="reply_to" id="intake-email" autocomplete="email" required>
+                    <input type="email" name="email" id="intake-email" autocomplete="email" required>
                 </div>
                 <div class="form-group">
                     <label for="intake-company">Company or brand</label>

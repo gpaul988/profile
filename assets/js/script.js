@@ -63,6 +63,8 @@ const openProjectButton = document.getElementById('open-project-intake');
 const closeProjectButton = document.getElementById('close-project-intake');
 const projectForm = document.getElementById('project-intake-form');
 const projectStatus = document.getElementById('project-intake-status');
+const projectEmailInput = document.getElementById('intake-email');
+const projectReplyToInput = document.getElementById('intake-reply-to');
 let lastFocusedElement;
 
 const setProjectStatus = (message, type) => {
@@ -147,6 +149,9 @@ if (projectModal && openProjectButton && closeProjectButton && projectForm) {
         setProjectStatus('Sending your project details...', 'success');
 
         try {
+            if (projectEmailInput && projectReplyToInput) {
+                projectReplyToInput.value = projectEmailInput.value;
+            }
             const projectEndpoint = projectForm.getAttribute('action') || FORMSPREE_ENDPOINT;
             const response = await fetch(projectEndpoint, {
                 method: 'POST',
@@ -166,7 +171,7 @@ if (projectModal && openProjectButton && closeProjectButton && projectForm) {
 
             projectForm.reset();
             submitButton.textContent = 'Sent';
-            setProjectStatus('Thanks — your project enquiry has been sent successfully.', 'success');
+            setProjectStatus('Your enquiry was accepted by Formspree. Please check the Formspree dashboard for the submission; email notifications depend on its verified recipient settings.', 'success');
         } catch (error) {
             console.error('Project enquiry submission failed:', error);
             submitButton.textContent = 'Try Again';
