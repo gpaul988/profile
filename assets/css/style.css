@@ -900,10 +900,11 @@ ul#nav {
 #nav>li>h6 {
   color: #dffaff;
 	opacity: 1;
+	margin: -0.75rem 0 0;
 	font-family: 'Playfair Display', Georgia, serif;
 	text-transform: uppercase;
 	letter-spacing: clamp(0.12em, 0.55vw, 0.25em);
-	font-size: clamp(1.08rem, 1.96vw, 1.57rem);
+	font-size: clamp(0.76rem, 1.37vw, 1.10rem);
 	font-weight: 600;
 	line-height: 1.35;
 	text-decoration: none;
