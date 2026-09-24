@@ -806,14 +806,7 @@ h1#title {
 #name {
   margin: 0;
   color: #ecfeff;
-  background: linear-gradient(110deg, #ffffff 0%, #dffaff 35%, #9ae6ff 58%, #ffffff 78%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Alex Brush', 'Edwardian Script ITC', 'Snell Roundhand', cursive;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 0.02em;
+  font-family: var(--title-font, 'Alex Brush'), 'Edwardian Script ITC', 'Snell Roundhand', cursive;
   font-weight: 400;
   font-style: normal;
   font-variant-caps: normal;
@@ -824,8 +817,20 @@ h1#title {
   font-feature-settings: "liga", "clig", "calt";
   text-rendering: optimizeLegibility;
   font-size: clamp(2.15rem, 7.17vw, 5.05rem);
-  line-height: 1;
+  line-height: 1.2;
+  padding: 0.15em 0.1em 0.25em;
+  overflow: visible;
+  overflow-wrap: break-word;
   text-shadow: 0 0 1.5rem rgba(40, 221, 252, 0.28);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  #name {
+    background: linear-gradient(110deg, #ffffff 0%, #dffaff 35%, #9ae6ff 58%, #ffffff 78%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 #subtitle {
