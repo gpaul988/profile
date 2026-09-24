@@ -973,7 +973,7 @@ h1#title {
   font-kerning: normal;
   font-feature-settings: "liga", "clig", "calt";
   text-rendering: optimizeLegibility;
-  font-size: clamp(2.15rem, 7.17vw, 5.05rem);
+  font-size: clamp(2.35rem, 7.8vw, 5.5rem);
   line-height: 1.2;
   padding: 0.15em 0.1em 0.25em;
   overflow: visible;
@@ -1057,7 +1057,7 @@ ul#nav {
 #nav>li>h6 {
   color: #dffaff;
 	opacity: 1;
-	margin: -0.75rem 0 0;
+	margin: -0.75rem 0 0.04rem;
 	font-family: 'Playfair Display', Georgia, serif;
 	text-transform: uppercase;
 	letter-spacing: clamp(0.12em, 0.55vw, 0.25em);
@@ -1075,6 +1075,56 @@ ul#nav {
 	opacity: 100;
 	letter-spacing: 6px;
 	font-weight: 900;
+}
+
+.github-update {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  max-width: min(34rem, 90vw);
+  margin: 0.02rem auto 0;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(158, 246, 226, 0.28);
+  border-radius: 999px;
+  color: #dffaff;
+  background: rgba(7, 20, 29, 0.64);
+  box-shadow: 0 0 1.5rem rgba(40, 221, 252, 0.1);
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.68rem, 1.2vw, 0.82rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.github-update a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(158, 246, 226, 0.65);
+  text-underline-offset: 0.18em;
+}
+
+.github-update__dot {
+  flex: 0 0 auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #53beae;
+  box-shadow: 0 0 0.75rem rgba(83, 190, 174, 0.9);
+}
+
+.github-update.is-new {
+  border-color: rgba(40, 221, 252, 0.72);
+  box-shadow: 0 0 1.5rem rgba(40, 221, 252, 0.24);
+}
+
+.github-update.is-new .github-update__dot {
+  background: var(--light);
+  box-shadow: 0 0 0.9rem rgba(40, 221, 252, 1);
+}
+
+.github-update.is-error {
+  border-color: rgba(255, 160, 122, 0.4);
 }
 
 #nav>li>span {

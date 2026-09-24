@@ -1,7 +1,7 @@
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: public, max-age=0, must-revalidate
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' https://cdn.jsdelivr.net https://kit.fontawesome.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://use.typekit.net https://www.w3schools.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://use.typekit.net https://ka-p.fontawesome.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-src 'none'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' https://cdn.jsdelivr.net https://kit.fontawesome.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://use.typekit.net https://www.w3schools.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://use.typekit.net https://ka-p.fontawesome.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://api.github.com; form-action 'self' https://formspree.io; frame-src 'none'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
