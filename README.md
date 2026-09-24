@@ -24,6 +24,15 @@ My experience includes working with a wide range of technologies, from Python an
 
 - 📫 How to reach me **graham@grahamspaul.me**
 
+## Accessibility
+
+The site follows WCAG 2.1 AA contrast targets: normal text uses a minimum
+contrast ratio of 4.5:1, large text uses 3:1, and interactive controls and
+focus indicators use 3:1 against adjacent colors. The dark page background
+(`--page-bg` / `--page-bg-2`) is paired with the light text and accent tokens
+in `assets/css/style.css`. New colors should be checked with a WCAG contrast
+checker before being used for text, controls, or focus indicators.
+
 <p align="center">
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=gpaul988&show_icons=true&locale=en&layout=compact" alt="gpaul988" /></p>
 <p align="center">
