@@ -7,13 +7,19 @@
     <meta name="description" content="Tell Graham about your project or book a free 30-minute consultation call.">
     <meta name="theme-color" content="#07141d">
     <link rel="canonical" href="https://grahamspaul.cm/contact.html">
-    <link rel="icon" type="image/png" href="assets/images/icons8-full-stack-64-white.png">
+    <link rel="icon" type="image/png" href="assets/images/gray1.png">
+    <link rel="apple-touch-icon" href="assets/images/gray1.png">
     <link rel="stylesheet" href="assets/css/style.css?v=20260927">
 </head>
 <body class="contact-page">
     <header class="contact-page-header">
         <nav class="contact-page-header__inner" aria-label="Contact page navigation">
-            <a class="contact-page-brand" href="index.html" aria-label="Graham S. Paul home">GSP<span>.</span></a>
+            <a class="contact-page-brand" href="index.html" aria-label="Graham S. Paul home">
+                <span class="site-avatar site-avatar--animated">
+                    <img src="assets/images/gray.jpg" alt="">
+                </span>
+                <span class="contact-page-wordmark"><strong>Graham S. Paul</strong><small>Full-Stack Engineer</small></span>
+            </a>
             <div class="contact-page-header__links">
                 <a href="index.html">Back to portfolio</a>
                 <a href="mailto:graham@grahamspaul.net.ng">Email me</a>
@@ -90,17 +96,25 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="services_needed">Services needed</label>
+                            <label for="services_needed">What do you need help with?</label>
                             <select name="services_needed" id="services_needed" required>
-                                <option value="" selected disabled>Select a service</option>
+                                <option value="" selected disabled>Select the support you need</option>
                                 <option>Website Design</option>
+                                <option>Website Development</option>
+                                <option>Branding</option>
+                                <option>Product Design</option>
+                                <option>Backend Development</option>
+                                <option>Bug Fixes and Troubleshooting</option>
                                 <option>Landing Page Design</option>
+                                <option>E-commerce Development</option>
                                 <option>UI/UX Design</option>
-                                <option>Front-End Development</option>
                                 <option>CMS Setup</option>
                                 <option>SEO Optimization</option>
-                                <option>Full Website Build</option>
-                                <option>Brand Refresh</option>
+                                <option>Website Maintenance and Support</option>
+                                <option>API and Third-Party Integrations</option>
+                                <option>Performance and Accessibility Improvements</option>
+                                <option>Technical Consultation</option>
+                                <option>Other</option>
                                 <option>Not sure yet</option>
                             </select>
                         </div>
@@ -159,9 +173,28 @@
         </section>
     </main>
 
-    <footer class="contact-page-footer">
-        <a href="index.html">← Return to Graham’s portfolio</a>
-        <span>© <span id="current-year">2026</span> Graham S. Paul</span>
+    <footer class="site-footer">
+        <div class="site-footer__main">
+            <a class="site-footer__identity" href="index.html">
+                <span class="site-avatar site-avatar--animated">
+                    <img src="assets/images/gray.jpg" alt="">
+                </span>
+                <span><strong>Graham S. Paul</strong><small>Full-Stack Engineer &amp; Software Developer</small></span>
+            </a>
+            <p class="site-footer__about">I build thoughtful digital experiences, websites, and applications that help ideas move forward.</p>
+            <div class="site-footer__links" aria-label="Connect with Graham">
+                <a href="mailto:graham@grahamspaul.net.ng">Email</a>
+                <a href="https://github.com/gpaul988" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://gitlab.com/gpaul988" target="_blank" rel="noopener noreferrer">GitLab</a>
+                <a href="https://linkedin.com/in/grahamspaul" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://twitter.com/1grahamspaul" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="site-footer__bottom">
+            <span>© 2026 Graham S. Paul. All rights reserved.</span>
+            <a href="index.html">Back to portfolio ↑</a>
+        </div>
     </footer>
     <script src="assets/js/script.js"></script>
 </body>

@@ -30,6 +30,19 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('action="https://formspree.io/f/xjyvnjzn"', html)
         self.assertIn('id="book-a-call"', html)
         self.assertIn('src="https://cal.com/grahamspaul/30min', html)
+        self.assertIn('class="site-footer"', html)
+        self.assertIn('assets/images/gray.jpg', html)
+        self.assertIn('What do you need help with?', html)
+        self.assertIn('<select name="services_needed" id="services_needed" required>', html)
+        self.assertIn('<option>Backend Development</option>', html)
+        self.assertIn('<option>Bug Fixes and Troubleshooting</option>', html)
+
+    def test_home_and_contact_share_footer(self):
+        home = Path('index.html').read_text(encoding='utf-8')
+        contact = Path('contact.html').read_text(encoding='utf-8')
+        self.assertIn('class="site-footer"', home)
+        self.assertIn('class="site-footer"', contact)
+        self.assertIn('assets/images/gray.jpg', home)
 
 
 if __name__ == '__main__':
