@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200" fill="none">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1800" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101d3c"/>
+      <stop offset=".52" stop-color="#102a3b"/>
+      <stop offset="1" stop-color="#07141d"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientTransform="matrix(555 342 -280 454 1324 251)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1bb9bc" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#1bb9bc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientTransform="matrix(459 267 -223 383 348 957)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1bb9bc" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#1bb9bc" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ribbon" x1="213" y1="922" x2="1537" y2="257" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#63e5dc" stop-opacity="0"/>
+      <stop offset=".48" stop-color="#63e5dc" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#63e5dc" stop-opacity=".12"/>
+    </linearGradient>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#b4eced" fill-opacity=".22"/>
+    </pattern>
+  </defs>
+  <path fill="url(#base)" d="M0 0h1800v1200H0z"/>
+  <path fill="url(#glowA)" d="M0 0h1800v1200H0z"/>
+  <path fill="url(#glowB)" d="M0 0h1800v1200H0z"/>
+  <path fill="url(#dots)" opacity=".45" d="M0 0h1800v1200H0z"/>
+  <circle cx="1310" cy="405" r="405" stroke="#74e7de" stroke-opacity=".15" stroke-width="1.5"/>
+  <circle cx="1310" cy="405" r="320" stroke="#74e7de" stroke-opacity=".12" stroke-width="1.5"/>
+  <circle cx="1310" cy="405" r="228" stroke="#63e5dc" stroke-opacity=".14" stroke-width="1.5"/>
+  <path d="M-104 1002c264-220 412-266 598-205 186 61 280 192 468 128 188-64 249-291 430-394 183-105 335-84 512-235" stroke="url(#ribbon)" stroke-width="2"/>
+  <path d="M-86 1073c276-229 448-294 646-219 197 75 284 193 471 126 186-67 259-295 440-393 182-98 304-86 472-224" stroke="url(#ribbon)" stroke-opacity=".58" stroke-width="1.5"/>
+  <path d="M155 189h265m-132-132v264m1098 673h202m-101-101v202" stroke="#a4e6e6" stroke-opacity=".18" stroke-width="1.5"/>
+  <circle cx="288" cy="189" r="5" fill="#71e5d9" fill-opacity=".72"/>
+  <circle cx="1420" cy="774" r="5" fill="#71e5d9" fill-opacity=".75"/>
+</svg>

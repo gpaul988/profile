@@ -20,9 +20,9 @@ My experience includes working with a wide range of technologies, from Python an
 - 💬 Ask me about: **MVC Frameworks, overseeing development projects, SCRUM master-ing, kan-ban boards, backend development, hackathons, version control, collaboration, pull request, issues, WIkis, frontend development, UX Design, user stories, user research, wireframes, troubleshooting, testing & debugging... to name a few :)**
 
 - 📄 Know about my experiences:
-  - [Resume](https://drive.google.com/file/d/1LB0MrB-0BaNymWXHqpIwghNwSwslgqTv/view?usp=sharing)
+  - [Resume](assets/grahamcv.pdf)
 
-- 📫 How to reach me **graham@grahamspaul.me**
+- 📫 How to reach me **graham@grahamspaul.net.ng**
 
 ## Accessibility
 
@@ -47,7 +47,7 @@ project enquiry form and the Cal.com call-booking calendar.
 <p align="center">
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=gpaul988&show_icons=true&locale=en&layout=compact" alt="gpaul988" /></p>
 <p align="center">
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=alissatroiano&" alt="alissatroiano" />
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=gpaul988" alt="GitHub contribution streak for gpaul988" />
 </p>
 
 ***
@@ -78,16 +78,16 @@ project enquiry form and the Cal.com call-booking calendar.
 
 <div align="center">
 
-![Mr.Robot](assets/images/mrrobot.gif)
+![Graham S. Paul](assets/images/gray.webp)
 
 </div>
 
 <div align="center">
 
 [![Github](https://img.shields.io/badge/-Github-181717?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/gpaul988)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/grahamspaul/)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/grahamspaul1/)
 [![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/1grahamspaul)
-[![Email](https://img.shields.io/badge/-Email-3e91a3?style=for-the-badge&logo=Minutemailer&logoColor=white)](mailto:graham@grahamspaul.me)
+[![Email](https://img.shields.io/badge/-Email-3e91a3?style=for-the-badge&logo=Minutemailer&logoColor=white)](mailto:graham@grahamspaul.net.ng)
 </div>
 <h2 align="center">You can also find me:</h2>
 <div align="center">

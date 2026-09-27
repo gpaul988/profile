@@ -47,7 +47,7 @@ if (form && btn) {
 
             btn.textContent = 'Sent';
             form.reset();
-            setFormStatus('Thanks for reaching out. Your message has been sent successfully and I will get back to you within 24–48 hours.', 'success');
+            setFormStatus('Thanks for reaching out. Your message has been sent successfully. I will review your enquiry and reply with clear next steps.', 'success');
         } catch (error) {
             console.error('Formspree submission failed:', error);
             btn.textContent = 'Try Again';
@@ -59,13 +59,100 @@ if (form && btn) {
 }
 
 const projectModal = document.getElementById('project-intake-modal');
-const openProjectButton = document.getElementById('open-project-intake');
+const openProjectButtons = document.querySelectorAll('[data-open-project-intake]');
 const closeProjectButton = document.getElementById('close-project-intake');
 const projectForm = document.getElementById('project-intake-form');
 const projectStatus = document.getElementById('project-intake-status');
 const projectEmailInput = document.getElementById('intake-email');
 const projectReplyToInput = document.getElementById('intake-reply-to');
+const referralSourceInput = document.getElementById('intake-referral');
+const referralDetails = document.getElementById('intake-referral-details');
+const welcomeOfferModal = document.getElementById('welcome-offer-modal');
+const welcomeOfferCloseButtons = document.querySelectorAll('[data-close-welcome-offer], #close-welcome-offer, #dismiss-welcome-offer');
+const welcomeOfferReopenButton = document.getElementById('reopen-welcome-offer');
+const offerCodeInput = document.getElementById('intake-offer-code');
+const welcomeOfferStorageKey = 'graham-welcome-offer-state';
 let lastFocusedElement;
+
+const readWelcomeOfferState = () => {
+    try {
+        return window.sessionStorage.getItem(welcomeOfferStorageKey);
+    } catch (error) {
+        if (error instanceof DOMException && error.name === 'SecurityError') {
+            console.warn('Welcome offer dismissal could not be saved in this browser session.', error);
+            return null;
+        }
+        throw error;
+    }
+};
+
+const saveWelcomeOfferState = (state) => {
+    try {
+        window.sessionStorage.setItem(welcomeOfferStorageKey, state);
+    } catch (error) {
+        if (error instanceof DOMException && (error.name === 'SecurityError' || error.name === 'QuotaExceededError')) {
+            console.warn('Welcome offer state could not be saved in this browser session.', error);
+            return;
+        }
+        throw error;
+    }
+};
+
+const getWelcomeOfferFocusableElements = () => Array.from(welcomeOfferModal?.querySelectorAll(
+    'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled])'
+) ?? []).filter((element) => !element.closest('[hidden]'));
+
+const closeWelcomeOffer = (showReopenButton = true) => {
+    if (!welcomeOfferModal) {
+        return;
+    }
+
+    welcomeOfferModal.hidden = true;
+    document.body.classList.remove('welcome-offer-open');
+    if (welcomeOfferReopenButton) {
+        welcomeOfferReopenButton.hidden = !showReopenButton;
+        if (showReopenButton) {
+            welcomeOfferReopenButton.focus();
+        }
+    }
+};
+
+const openWelcomeOffer = () => {
+    if (!welcomeOfferModal) {
+        return;
+    }
+
+    welcomeOfferModal.hidden = false;
+    document.body.classList.add('welcome-offer-open');
+    if (welcomeOfferReopenButton) {
+        welcomeOfferReopenButton.hidden = true;
+    }
+    welcomeOfferModal.querySelector('#close-welcome-offer')?.focus();
+};
+
+if (welcomeOfferModal && welcomeOfferReopenButton) {
+    const savedWelcomeOfferState = readWelcomeOfferState();
+    if (savedWelcomeOfferState !== 'dismissed' && savedWelcomeOfferState !== 'claimed') {
+        window.setTimeout(() => {
+            if (projectModal && !projectModal.hidden) {
+                welcomeOfferReopenButton.hidden = false;
+                return;
+            }
+            openWelcomeOffer();
+        }, 1200);
+    } else {
+        welcomeOfferReopenButton.hidden = false;
+    }
+
+    welcomeOfferCloseButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            saveWelcomeOfferState('dismissed');
+            closeWelcomeOffer();
+        });
+    });
+
+    welcomeOfferReopenButton.addEventListener('click', openWelcomeOffer);
+}
 
 const setProjectStatus = (message, type) => {
     if (!projectStatus) {
@@ -111,28 +198,97 @@ const closeProjectModal = () => {
 
     projectModal.hidden = true;
     document.body.classList.remove('project-modal-open');
-    if (lastFocusedElement) {
+    if (lastFocusedElement?.isConnected) {
         lastFocusedElement.focus();
     }
 };
 
-if (projectModal && openProjectButton && closeProjectButton && projectForm) {
-    openProjectButton.addEventListener('click', () => {
-        lastFocusedElement = document.activeElement;
+if (projectModal && openProjectButtons.length > 0 && closeProjectButton && projectForm) {
+    const getModalFocusableElements = () => Array.from(projectModal.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter((element) => !element.closest('[hidden]'));
+
+    const openProjectModal = (event) => {
+        const claimingWelcomeOffer = event.currentTarget.hasAttribute('data-claim-welcome-offer');
+        lastFocusedElement = claimingWelcomeOffer ? welcomeOfferReopenButton : document.activeElement;
+        if (claimingWelcomeOffer) {
+            saveWelcomeOfferState('claimed');
+            closeWelcomeOffer(true);
+            if (referralSourceInput) {
+                referralSourceInput.value = 'Website welcome offer';
+                referralSourceInput.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            if (offerCodeInput) {
+                offerCodeInput.value = 'WELCOME20';
+            }
+        } else if (offerCodeInput) {
+            offerCodeInput.value = '';
+        }
         projectModal.hidden = false;
         document.body.classList.add('project-modal-open');
-        projectForm.querySelector('input')?.focus();
-    });
+        projectForm.querySelector('#intake-name')?.focus();
+        event.currentTarget.blur();
+    };
+
+    openProjectButtons.forEach((button) => button.addEventListener('click', openProjectModal));
 
     closeProjectButton.addEventListener('click', closeProjectModal);
     projectModal.addEventListener('click', (event) => {
-        if (event.target.hasAttribute('data-close-project-modal')) {
+        if (event.target instanceof Element && event.target.hasAttribute('data-close-project-modal')) {
             closeProjectModal();
         }
     });
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !projectModal.hidden) {
+        if (welcomeOfferModal && !welcomeOfferModal.hidden) {
+            if (event.key === 'Escape') {
+                saveWelcomeOfferState('dismissed');
+                closeWelcomeOffer();
+                return;
+            }
+
+            if (event.key === 'Tab') {
+                const focusableElements = getWelcomeOfferFocusableElements();
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (firstElement && event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (lastElement && !event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+            return;
+        }
+
+        if (projectModal.hidden) {
+            return;
+        }
+
+        if (event.key === 'Escape') {
             closeProjectModal();
+        } else if (event.key === 'Tab') {
+            const focusableElements = getModalFocusableElements();
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (!firstElement || !lastElement) {
+                event.preventDefault();
+                projectModal.querySelector('.project-modal__dialog')?.focus();
+            } else if (event.shiftKey && document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+        }
+    });
+
+    referralSourceInput?.addEventListener('change', () => {
+        if (referralDetails) {
+            referralDetails.hidden = referralSourceInput.value !== 'Referral';
         }
     });
 
@@ -171,7 +327,7 @@ if (projectModal && openProjectButton && closeProjectButton && projectForm) {
 
             projectForm.reset();
             submitButton.textContent = 'Sent';
-            setProjectStatus('Thank you for sharing your project vision. Your enquiry has been received successfully, and I will be in touch within 24–48 hours with the next steps.', 'success');
+            setProjectStatus('Thank you for sharing your project vision. Your enquiry has been received successfully. I will review it and reply with clear next steps.', 'success');
             setTimeout(closeProjectModal, 1800);
         } catch (error) {
             console.error('Project enquiry submission failed:', error);

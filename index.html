@@ -5,13 +5,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Graham Sobiribo Paul is a full-stack engineer and software developer building modern websites, web apps, and digital experiences for businesses and startups.">
-        <meta name="theme-color" content="#0a0a0a">
+        <meta name="theme-color" content="#07141d">
         <link rel="canonical" href="https://grahamspaul.cm/">
+        <meta name="robots" content="index, follow">
         <meta property="og:title" content="Graham Sobiribo Paul | Full-Stack Engineer">
         <meta property="og:description" content="I design and build modern, responsive web experiences that help businesses grow online.">
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://grahamspaul.cm/">
-        <meta property="og:image" content="assets/images/grey1.jpg">
+        <meta property="og:image" content="https://grahamspaul.cm/assets/images/grey1.jpg">
+        <meta property="og:image:alt" content="Portrait of Graham Sobiribo Paul, full-stack engineer">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Graham Sobiribo Paul | Full-Stack Engineer">
+        <meta name="twitter:description" content="I design and build modern, responsive web experiences that help businesses grow online.">
+        <meta name="twitter:image" content="https://grahamspaul.cm/assets/images/grey1.jpg">
         <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -25,7 +31,7 @@
               "sameAs": [
                 "https://github.com/gpaul988",
                 "https://gitlab.com/gpaul988",
-                "https://linkedin.com/in/grahamspaul",
+                "https://linkedin.com/in/grahamspaul1",
                 "https://twitter.com/1grahamspaul"
               ]
             },
@@ -46,96 +52,62 @@
         <!--Import Futura from Adobe Fonts-->
         <link rel="stylesheet" href="https://use.typekit.net/xwz5atb.css">
         <!-- W3 Schools Starter Stylesheet -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <!--Load Font Awesome -->
-       <script src="https://kit.fontawesome.com/e23f9626da.js" crossorigin="anonymous"></script>
+       <script src="https://kit.fontawesome.com/e23f9626da.js" crossorigin="anonymous" defer></script>
         <!--Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Amatic+SC:wght@700&family=Ballet&family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Great+Vibes&family=Italianno&family=Libre+Baskerville:wght@700&family=Parisienne&family=Playfair+Display:ital,wght@0,700;1,700&family=Rouge+Script&family=Yeseva+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
         <!--AOS Animations -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260927"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260927-project-header-layout"/>
         <!--Favicon Link-->
         <link rel="icon" type="image/png" href="assets/images/gray1.png"/>
         <link rel="apple-touch-icon" href="assets/images/gray1.png"/>
         <!---->
     </head>
-    <body>
-        <!--Fixed Bottom Nav-->
-        <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-main">
-            <div class="container-fluid">
-                <a class="navbar-brand nav-link site-avatar-brand" href="index.html" aria-label="Graham S. Paul home">
+    <body class="home-page" data-theme="dark">
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <header class="home-page-header">
+            <nav class="home-page-header__inner" aria-label="Main navigation">
+                <a class="home-page-brand" href="index.html" aria-label="Graham S. Paul home">
                     <span class="site-avatar site-avatar--animated">
-                        <img src="assets/images/gray.jpg" alt="">
+                        <img src="assets/images/gray.webp" alt="" width="1120" height="958">
                     </span>
-                    <span class="site-avatar-brand__name">Graham S. Paul</span>
+                    <span class="home-page-wordmark"><strong>Graham S. Paul</strong><small>Full-Stack Engineer</small></span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#projects">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-main" href="assets/grahamcv.pdf" target="_blank" id="resume-nav-link">
-                                <i class="fas fa-download"></i>
-                                Resume
-            
-                            </a>
-                        </li>
-                      <li class="nav-item">
-                            <a class="nav-link text-main" href="https://intranet.alxswe.com/certificates/SP9RmzTGhf" target="_blank" id="certificate-nav-link">
-                                <i class="fas fa-download"></i>
-                                Certifications
-            
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav d-flex ms-auto text-light list-group list-group-horizontal">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/gpaul988" target="_blank" aria-label="GitHub">
-                                <svg class="social-icon github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.11.79-.25.79-.56v-2.12c-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.35.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.2-3.09-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.19a11.12 11.12 0 0 1 5.84 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.59.23 2.76.11 3.05.75.8 1.2 1.83 1.2 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" fill="currentColor"/>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://gitlab.com/gpaul988" target="_blank" aria-label="GitLab">
-                                <i class="fab fa-gitlab mx-3"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://linkedin.com/in/grahamspaul1" target="_blank">
-                                <i class="fab fa-linkedin mx-3"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://twitter.com/1grahamspaul" target="_blank">
-                                <i class="fab fa-twitter mx-3"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="mailto:graham@grahamspaul.net.ng">
-                                <i class="fas fa-envelope mx-3"></i>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="home-page-header__links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="assets/grahamcv.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    <a href="privacy.html">Privacy</a>
+                    <button class="site-theme-toggle" id="home-theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+                        <svg class="site-theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                        </svg>
+                        <svg class="site-theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path>
+                        </svg>
+                        <span class="site-theme-toggle__text">Light mode</span>
+                    </button>
                 </div>
-            </div>
+            </nav>
+        </header>
+        <nav class="site-bottom-nav" aria-label="Primary quick navigation">
+            <a class="site-bottom-nav__brand" href="index.html" aria-label="Graham S. Paul home">
+                <span class="site-avatar site-avatar--animated">
+                    <img src="assets/images/gray.webp" alt="" width="1120" height="958">
+                </span>
+                <span class="site-bottom-nav__name">Graham S. Paul</span>
+            </a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="contact.html">Contact</a>
         </nav>
         <main id="main-content">
         <!-- Jumbotron -->
@@ -148,53 +120,53 @@
                             <h1 id="name">Graham Sobiribo Paul</h1>
                             </li>
 <li>
-    <h6 class="subtitle my-3 my-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500"
-            id="subtitle">FULL-STACK ENGINEER | SOFTWARE DEVELOPER</h6>
+    <p class="subtitle my-3 my-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500"
+            id="subtitle">FULL-STACK ENGINEER | SOFTWARE DEVELOPER</p>
+    <p class="hero-summary">I build responsive web applications that turn complex business needs into reliable, easy-to-use digital products.</p>
     <div class="github-update" id="github-update" role="status" aria-live="polite" aria-atomic="true">
         <span class="github-update__dot" aria-hidden="true"></span>
         <span id="github-update-text">Checking GitHub and GitLab for the latest update...</span>
     </div>
+    <div class="hero-actions" role="group" aria-label="Hero actions">
+        <a class="project-button" href="#projects"><span>View projects</span></a>
+        <a class="project-button hero-actions__secondary" href="contact.html"><span>Let's work together</span></a>
+    </div>
            </ul></div></div></section>
 <!-- end-jumbotron -->
 <!-- Container (About Section) -->
-<section class="container-fluid py-10 my-0 mx-auto" id="about">
-    <div class="row">
-        <div class="col-12 p-3 mt-lg-4">
-            <div class="card profile-card pb-5">
-                <!--Header-->
-                <div class="card-body border-0 profile-header">
-                    <!--Custom Avatar Goes Here-->
-                    <a>
-                        <img class="img-fluid" src="assets/images/grey1.jpg" alt="Avatar">
-                    </a>
-                </div>
-                <!--./end-header-->
-                <div class="profile-body">
-                    <!--Name-->
-                    <h4 class="display-5">Graham Sobiribo Paul</h4>
-                    <!--Role-->
-                    <h5 class="role-heading display-6">Full-Stack engineer | Software developer </h5>
-                    <!--About-->
-                    <div class="profile-about">
-                        <p>I'm a creative, results-driven full-stack engineer / software developer with experience participating in the full
-                software development life-cycle, from planning to launch. Comfortable in Frontend and Backend
-                development, I'm passionate about developing robust, full-stack applications that solve business needs.
-                        </p>
+<section class="container-fluid py-10 my-0 mx-auto" id="about" aria-labelledby="about-title">
+        <div class="about-section-inner">
+            <header class="about-section-heading">
+                <p class="eyebrow">A little about me</p>
+                <h2 id="about-title">Engineering thoughtful digital products, from first sketch to launch.</h2>
+            </header>
+            <div class="about-profile-layout">
+                <figure class="about-portrait">
+                    <img src="assets/images/grey1.jpg" alt="Portrait of Graham Sobiribo Paul" width="683" height="1024" loading="lazy" decoding="async">
+                    <figcaption>
+                        <span class="about-portrait__index" aria-hidden="true">PROFILE / 01</span>
+                        <span class="about-portrait__name">Graham Sobiribo Paul</span>
+                        <span class="about-portrait__role">Full-Stack Engineer</span>
+                    </figcaption>
+                </figure>
+                <article class="about-profile-card" aria-labelledby="about-profile-name">
+                    <p class="about-profile-card__eyebrow">Product-minded engineering</p>
+                    <h3 id="about-profile-name">Good software starts with understanding the people who need it.</h3>
+                    <div class="about-profile-copy">
+                        <p>I work across the full product lifecycle: understanding the brief, shaping the interface, building the backend, and preparing the product for launch. I focus on responsive, maintainable applications that solve real business needs.</p>
+                        <p>Clear communication and close collaboration are part of the work. They help me make thoughtful technical decisions and keep the finished experience useful, reliable, and easy to navigate.</p>
                     </div>
-                    <!--./end-about-->
-                    <!--Resume-->
-                    <div class="btn-row mb-3">
-                        <a href="assets/grahamcv.pdf" target="_blank"> <button class="project-button">Resume</button>
-                            </a>
-                        <a href="https://intranet.alxswe.com/certificates/SP9RmzTGhf" target="_blank">
-                                <button class="project-button">Certification</button>
-                            </a>
-
+                    <ul class="about-focus-list" aria-label="Areas of focus">
+                        <li>Product thinking</li>
+                        <li>Front-end and backend</li>
+                        <li>Performance and usability</li>
+                    </ul>
+                    <div class="about-profile-actions">
+                        <a class="project-button" href="assets/grahamcv.pdf" target="_blank" rel="noopener noreferrer"><span>View resume</span></a>
+                        <a class="about-profile-link" href="https://intranet.alxswe.com/certificates/SP9RmzTGhf" target="_blank" rel="noopener noreferrer">View certification <span aria-hidden="true">↗</span></a>
                     </div>
-                    <!--./end-resume-->
-                </div>
+                </article>
             </div>
-        </div>
         </div>
 </section>
 
@@ -215,8 +187,8 @@
             </div>
             <div class="col-12 col-md-3">
                 <div class="metric-card" data-aos="fade-up" data-aos-duration="1000">
-                    <span class="metric-number">100%</span>
-                    <span class="metric-label">Responsive and mobile-friendly experiences</span>
+                    <span class="metric-number">Responsive</span>
+                    <span class="metric-label">Interfaces designed to work across screen sizes</span>
                 </div>
             </div>
             <div class="col-12 col-md-3">
@@ -236,28 +208,28 @@
                 <div class="service-card" data-aos="fade-up" data-aos-duration="800">
                     <div class="service-icon"><i class="fas fa-palette"></i></div>
                     <h3>Website Design</h3>
-                    <p>Modern, conversion-focused website design that balances aesthetics, clarity, and business goals.</p>
+                    <p>Plan and design clear, conversion-aware interfaces around your users, content, and business goals.</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-3">
                 <div class="service-card" data-aos="fade-up" data-aos-duration="900">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Front-End Development</h3>
-                    <p>Responsive interfaces with clean structure, speed, and a polished experience across devices.</p>
+                    <p>Build responsive interfaces with maintainable code and reliable behavior across screen sizes.</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-3">
                 <div class="service-card" data-aos="fade-up" data-aos-duration="1000">
                     <div class="service-icon"><i class="fas fa-server"></i></div>
                     <h3>Full-Stack Build</h3>
-                    <p>End-to-end product development using scalable architecture, APIs, and business-ready features.</p>
+                    <p>Connect front-end experiences, backend workflows, APIs, and data around your project requirements.</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-3">
                 <div class="service-card" data-aos="fade-up" data-aos-duration="1100">
                     <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Optimization & Growth</h3>
-                    <p>Performance improvements, UX refinements, and digital polishing that help your brand stand out.</p>
+                    <p>Improve page speed, accessibility, search visibility, and key user journeys on existing sites.</p>
                 </div>
             </div>
         </div>
@@ -272,10 +244,10 @@
                     <p class="eyebrow">Why work with me</p>
                     <h2 class="section-title display-5">Clear strategy, clean code, and a client-first process</h2>
                     <ul class="feature-list">
-                        <li>Business-focused development with attention to user experience.</li>
-                        <li>Transparent communication from discovery to deployment.</li>
-                        <li>Responsive, high-performance experiences tailored to your audience.</li>
-                        <li>Strong problem-solving mindset built for real-world product needs.</li>
+                        <li>Turn business goals into clearly scoped, useful web features.</li>
+                        <li>Keep decisions, priorities, and progress clear throughout delivery.</li>
+                        <li>Build responsive interfaces with maintainable front-end and backend structure.</li>
+                        <li>Check key user flows and screen sizes before launch.</li>
                     </ul>
                 </div>
             </div>
@@ -288,21 +260,21 @@
                             <span>01</span>
                             <div>
                                 <h4>Discovery</h4>
-                                <p>We define the goals, audience, requirements, and outcomes before design and development begin.</p>
+                                <p>Clarify users, goals, scope, required features, constraints, and success measures before work begins.</p>
                             </div>
                         </div>
                         <div class="process-step">
                             <span>02</span>
                             <div>
                                 <h4>Design & Build</h4>
-                                <p>I create a strong visual direction and turn it into a responsive, functional product.</p>
+                                <p>Agree on a visual direction, then build the interface and functionality in reviewable stages, incorporating feedback against the agreed scope.</p>
                             </div>
                         </div>
                         <div class="process-step">
                             <span>03</span>
                             <div>
                                 <h4>Launch & Improve</h4>
-                                <p>After launch, I help refine performance, polish details, and support ongoing improvements.</p>
+                                <p>Test key flows and responsive layouts, prepare deployment, and identify any follow-up support or improvements needed after release.</p>
                             </div>
                         </div>
                     </div>
@@ -319,7 +291,7 @@
                 <p class="eyebrow">Ready to build?</p>
                 <h2 class="section-title display-5">Let’s create a polished digital presence your audience will trust.</h2>
             </div>
-            <button type="button" class="cta-button" id="open-project-intake" aria-haspopup="dialog" aria-controls="project-intake-modal">
+            <button type="button" class="cta-button" id="open-project-intake" data-open-project-intake aria-haspopup="dialog" aria-controls="project-intake-modal">
                 Start a project
             </button>
         </div>
@@ -331,10 +303,11 @@
         <button type="button" class="project-modal__close" id="close-project-intake" aria-label="Close project enquiry form">&times;</button>
         <p class="eyebrow">Project enquiry</p>
         <h2 id="project-intake-title">Let’s plan your next build</h2>
-        <p class="project-modal__intro">Share a few details and I’ll reply with the next steps within 24–48 hours.</p>
+        <p class="project-modal__intro">Share a few details and I’ll review your enquiry and reply with clear next steps.</p>
         <form class="project-intake-form" id="project-intake-form" method="POST" action="https://formspree.io/f/xjyvnjzn">
             <input type="hidden" name="_subject" value="New project enquiry from grahamspaul.cm">
             <input type="hidden" name="_replyto" id="intake-reply-to">
+            <input type="hidden" name="offer_code" id="intake-offer-code">
             <div class="project-intake-grid">
                 <div class="form-group">
                     <label for="intake-name">Full name</label>
@@ -360,11 +333,14 @@
                     <label for="intake-type">Project type</label>
                     <select name="project_type" id="intake-type" required>
                         <option value="" selected disabled>Select one</option>
-                        <option>Website design</option>
-                        <option>Landing page</option>
+                        <option>Website Design</option>
+                        <option>Landing Page</option>
                         <option>E-commerce</option>
-                        <option>Web application</option>
-                        <option>Website redesign</option>
+                        <option>Web Application</option>
+                        <option>Website Redesign</option>
+                        <option>Portfolio Site</option>
+                        <option>Business Website</option>
+                        <option>Brand Refresh</option>
                         <option>Other</option>
                     </select>
                 </div>
@@ -423,21 +399,90 @@
                 </div>
                 <div class="form-group">
                     <label for="intake-referral">How did you hear about me?</label>
-                    <select name="referral_source" id="intake-referral">
-                        <option value="" selected>Select an option</option>
-                        <option>Google or search engine</option>
+                    <select name="referral_source" id="intake-referral" required>
+                        <option value="" selected disabled>Select an option</option>
+                        <option>Google or another search engine</option>
                         <option>GitHub</option>
                         <option>LinkedIn</option>
-                        <option>Referral</option>
                         <option>Social media</option>
+                        <option>Referral</option>
+                        <option>Returning client</option>
                         <option>Other</option>
                     </select>
+                </div>
+                <div class="form-group project-intake-form__wide" id="intake-referral-details" hidden>
+                    <label for="intake-referred-by">Who referred you? (optional)</label>
+                    <input type="text" name="referred_by" id="intake-referred-by" autocomplete="name" placeholder="Name of the person who referred you">
                 </div>
             </div>
             <button type="submit" class="btn project-intake-form__submit">Send project enquiry</button>
             <div id="project-intake-status" class="form-status" aria-live="polite"></div>
         </form>
     </div>
+</div>
+<div class="welcome-offer" id="welcome-offer-modal" role="dialog" aria-modal="true" aria-labelledby="welcome-offer-title" aria-describedby="welcome-offer-description" hidden>
+    <button class="welcome-offer__backdrop" type="button" data-close-welcome-offer aria-label="Dismiss welcome offer"></button>
+    <section class="welcome-offer__card" role="document">
+        <span class="welcome-offer__border-beams" aria-hidden="true"></span>
+        <button class="welcome-offer__close" id="close-welcome-offer" type="button" aria-label="Close welcome offer">&times;</button>
+        <div class="welcome-offer__identity">
+            <span class="site-avatar site-avatar--animated welcome-offer__avatar">
+                <img src="assets/images/gray.webp" alt="Graham S. Paul" width="1120" height="958">
+            </span>
+            <p class="welcome-offer__eyebrow">A welcome from Graham</p>
+        </div>
+        <p class="welcome-offer__badge"><span aria-hidden="true">✦</span> 20% OFF YOUR FIRST PROJECT</p>
+        <h2 id="welcome-offer-title">Let’s build something great together.</h2>
+        <p class="welcome-offer__description" id="welcome-offer-description">Get 20% off your first project. Tell me what you have in mind, and I’ll confirm the scope and your discounted quote before we begin.</p>
+        <button class="welcome-offer__claim" id="claim-welcome-offer" type="button" data-open-project-intake data-claim-welcome-offer aria-haspopup="dialog" aria-controls="project-intake-modal">Claim your welcome offer</button>
+        <p class="welcome-offer__chat-label">Have a question? Chat with me</p>
+        <div class="welcome-offer__chat-actions">
+            <a class="welcome-offer__chat-link welcome-offer__chat-link--whatsapp" href="https://wa.me/2347063045790?text=Hi%20Graham%2C%20I%27d%20like%20to%20ask%20about%20your%2020%25%20welcome%20offer." target="_blank" rel="noopener noreferrer" aria-label="Chat with Graham on WhatsApp at @grahamspaul">
+                <span class="welcome-offer__chat-icon" aria-hidden="true">WA</span>
+                <span><strong>WhatsApp</strong><small>@grahamspaul</small></span>
+            </a>
+            <a class="welcome-offer__chat-link welcome-offer__chat-link--telegram" href="https://t.me/grahamspaul" target="_blank" rel="noopener noreferrer" aria-label="Chat with Graham on Telegram at @grahamspaul">
+                <span class="welcome-offer__chat-icon" aria-hidden="true">TG</span>
+                <span><strong>Telegram</strong><small>@grahamspaul</small></span>
+            </a>
+        </div>
+        <button class="welcome-offer__dismiss" id="dismiss-welcome-offer" type="button">I’ll explore the portfolio</button>
+    </section>
+</div>
+<button class="welcome-offer-reopen" id="reopen-welcome-offer" type="button" aria-haspopup="dialog" aria-controls="welcome-offer-modal" hidden>
+    <span class="welcome-offer-reopen__spark" aria-hidden="true">✦</span>
+    <span>Welcome offer · 20% off</span>
+</button>
+<div class="quick-chat" id="quick-chat">
+    <div class="quick-chat__panel" id="quick-chat-panel" hidden>
+        <div class="quick-chat__panel-heading">
+            <span class="quick-chat__panel-status"><span aria-hidden="true"></span> WHATSAPP <i aria-hidden="true"></i> TELEGRAM</span>
+            <p class="quick-chat__heading">Choose a channel</p>
+            <p class="quick-chat__panel-note">Pick the app you use most. Your message opens a direct chat.</p>
+        </div>
+        <a class="quick-chat__link" href="https://wa.me/2347063045790" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp at @grahamspaul">
+            <span class="quick-chat__icon quick-chat__icon--whatsapp" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M20.3 11.8a8.1 8.1 0 0 1-12 7.1L4 20l1.2-4.1a8.1 8.1 0 1 1 15.1-4.1Z"/><path d="M9 8.5c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .5l-.5.6c-.2.2-.2.4-.1.6.5.9 1.2 1.5 2.1 1.9.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.2.1.3.3.3.5 0 .4-.2 1.1-.7 1.4-.5.4-1.1.6-1.8.5-1-.1-2.2-.6-3.4-1.6-1-.8-1.8-1.9-2.1-2.9-.4-1-.1-1.9.4-2.7Z"/></svg>
+            </span>
+            <span class="quick-chat__link-copy"><strong>WhatsApp</strong><small>@grahamspaul</small></span>
+            <span class="quick-chat__link-action">MESSAGE <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="quick-chat__link" href="https://t.me/grahamspaul" target="_blank" rel="noopener noreferrer" aria-label="Chat on Telegram at @grahamspaul">
+            <span class="quick-chat__icon quick-chat__icon--telegram" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="m21 4-3.2 16-6.1-4.7-3.3 3.1.5-5.4L19 6.2 7.1 12.1 3 10.7 21 4Z"/><path d="m9 13 8-5"/></svg>
+            </span>
+            <span class="quick-chat__link-copy"><strong>Telegram</strong><small>@grahamspaul</small></span>
+            <span class="quick-chat__link-action">MESSAGE <span aria-hidden="true">↗</span></span>
+        </a>
+    </div>
+    <button class="quick-chat__toggle" id="quick-chat-toggle" type="button" aria-expanded="false" aria-controls="quick-chat-panel" aria-label="Open chat options">
+        <span class="quick-chat__toggle-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2 1-4.3A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg>
+            <span></span>
+        </span>
+        <span class="quick-chat__toggle-copy"><small>LET’S CONNECT</small><strong>Chat with me</strong></span>
+        <span class="quick-chat__toggle-chevron" aria-hidden="true">+</span>
+    </button>
 </div>
 <!--Skills Section-->
 <section class="container-fluid skills" id="skills">
@@ -770,7 +815,7 @@
                 </symbol>
                 <symbol id="js" viewBox="0 0 128 128">
                     <path fill="#fafafa" d="M1.408 1.408h125.184v125.185H1.408z"></path>
-                    <path fill="rgb(156, 70, 218)" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"></path>
+                    <path fill="#28ddfc" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"></path>
                 </symbol>
                 <symbol id="docker" viewBox="0 0 128 128">
                     <path d="M86 118.4c0-.3.1-.6 0-.9-.2-.3-.3-.5-.5-.7-.5-.6-1-1.1-1.6-1.7l-5.9-6 4.6-4.7 2.5-2.7c.4-.4.9-1.2.9-1.8v-.4c0-.9-.4-1.4-1.3-1.6l.2.1h-.7c-.6 0-2.3 1.6-2.7 2.1-1.5 1.5-2.5 2.9-4.5 4.4V92.6c0-1.1-.6-1.6-1.7-1.6H75c-1.1 0-2 .5-2 1.6v25.9c0 1.1.9 1.5 2 1.5h.3c1.1 0 1.7-.5 1.7-1.5v-4.6l3 2.9c.9.9 1.8 1.5 2.6 2.3.4.4 1.2.9 1.8.9h.3c1 0 1.3-.5 1.5-1.3l-.2.1v-.4zM125.1 98h-.4c-2.2 0-4.2.6-6 1.9-3 2.2-4.7 5.1-4.7 8.9v9.8c0 1.1.4 1.4 1.5 1.4h.3c1.1 0 2.2-.4 2.2-1.4v-9.2c0-2 .4-3.9 1.9-5.4 1.2-1.2 2.7-2.2 4.4-2.2 1.3 0 2.8-.3 2.8-1.9 0-1.2-.9-1.9-2-1.9zm-15.4 5c-1.1-1.8-2.6-3.2-4.5-4.1-3.5-1.7-7.2-1.9-10.6.1l-.5.3c-1.4.8-2.6 1.8-3.5 3.1-2.6 3.8-2.9 8.1-.6 12.1l.2.4c1 1.7 2.3 3.1 4 4 3.6 2 7.5 2.2 11.1.2l.3-.2c1-.6 1.2-1.6.7-2.6-.2-.4-.6-.7-1-.9h-.2c-.7-.1-2.6.7-3.3 1-1.4.2-3 .3-4.4-.2l7.6-6.6c1.1-1 2.3-2.1 3.5-3 1-.8 2-1.9 1.2-3.3v-.3zm-6.9 3.6l-8.5 7.3c-.3-.3-.5-.7-.7-1-.6-1-1-2.2-1-3.4-.1-3 1-5.5 3.7-7 2-1.2 4.2-1.4 6.4-.6 1.1.4 2.4 1.1 3.1 2.1-1 .9-2.1 1.7-3 2.6zM22 91h-.3c-1.1 0-1.7.4-1.7 1.5v8.1c-2-1.8-4.4-2.5-7.2-2.5H12c-1.9 0-3.7.3-5.4 1.3-3.6 2.1-5.6 5.2-5.6 9.4v.8c0 1.9.5 3.5 1.5 5.2 2.1 3.6 5.4 5.4 9.5 5.4h.8c1.9 0 3.9-.3 5.5-1.2 3.6-2.1 5.7-5.2 5.7-9.3v-17c0-1.3-.9-1.7-2-1.7zm-3.1 21.8c-1.5 2.5-3.7 3.9-6.6 3.9-1.2 0-2.4-.3-3.4-.9-2.6-1.4-4.1-3.7-4.1-6.7 0-1.1.2-2.1.7-3.1 1.4-2.9 3.7-4.5 6.9-4.5 1.6 0 3 .5 4.2 1.4 2.1 1.5 3.3 3.5 3.3 6.1.1 1.4-.3 2.6-1 3.8zM37.6 98H37c-1.9 0-3.8.3-5.4 1.3-3.6 2.1-5.6 5.2-5.6 9.4v.8c0 1.9.5 3.5 1.5 5.2 2.1 3.6 5.4 5.4 9.6 5.4h.8c1.9 0 3.8-.3 5.5-1.2 3.6-2.1 5.7-5.2 5.7-9.3v-.8c0-1.8-.6-3.3-1.4-4.8-2.2-4-5.7-6-10.1-6zm6.4 14.8c-1.5 2.4-3.6 3.9-6.5 3.9-1.3 0-2.6-.3-3.8-1-2.5-1.5-3.9-3.6-3.9-6.5 0-1.1.2-2.1.7-3.1 1.4-2.9 3.7-4.5 6.9-4.5 1.5 0 2.8.4 4 1.2 2.2 1.5 3.5 3.6 3.5 6.3.1 1.2-.2 2.5-.9 3.7zm24.5-13.4l-.1.1c-1.7-1.1-3.6-1.5-5.6-1.5H62c-1.9 0-3.8.3-5.4 1.3-3.6 2.1-5.6 5.2-5.6 9.3v.8c0 1 .2 1.9.4 2.9 1.6 5.5 5.9 8.6 11.7 8.2 1.6-.1 5.9-.6 5.9-3v-.4c0-.9-.7-1.7-1.5-1.9l-.1-.2h-.7l-.2.3c-.9.4-2.4 1.2-3.4 1.2-1.2 0-2.5 0-3.6-.6-2.9-1.4-4.6-3.7-4.6-6.9 0-1.1.2-2.1.7-3.1 1.4-2.8 3.7-4.6 6.9-4.5.6 0 1.7.3 2.3.6.5.2 1.8 1 2.4 1h.2l.1-.2c.9-.2 1.6-.9 1.6-1.8v-.4c0-.4-.2-.7-.4-1l-.2-.2zM5.8 68.2l.1.2c7.9 13.4 21.7 19 36.8 19 29.2 0 53.3-13.1 64.3-40.6 7.4.4 15-1.8 18.6-8.9l.9-1.8-1.8-1c-4.3-2.5-10-2.8-14.8-1.4-.6-5.2-4-9.7-8-12.9l-1.6-1.3-1.3 1.6c-2.7 3.1-3.5 8.3-3.1 12.3.3 2.9 1.2 5.9 3 8.3-1.4.8-2.9 1.9-4.3 2.4-2.8 1-5.9 2-8.9 2H79V32H66V7H51v12H26v13H13v14H1.8l-.2 1.5c-.5 6.4.3 12.6 3 18.5l1.2 2.2zM66 35h11v11H66V35zM53 9h11v11H53V9zm0 13h11v11H53V22zm0 13h11v11H53V35zM40 22h11v11H40V22zm0 13h11v11H40V35zm1.1 31.2c0 1.7-1.4 3.1-3.1 3.1-1.7 0-3.1-1.4-3.1-3.1 0-1.7 1.4-3.1 3.1-3.1 1.7.1 3.1 1.4 3.1 3.1zM28 22h10v11H28V22zm0 13h10v11H28V35zm-13 0h11v11H15V35zm2.4 38c1.6 0 3.2 0 4.7-.1 3.9-.2 7.3-.7 10.1-1.5 2.3 5.3 6.5 10.2 14 13.8l-3.5.1c-15.8-.1-24.3-5.4-31.3-12.4 2.1.1 4.1.1 6 .1zM38 68.4c1.2 0 2.2-1 2.2-2.2 0-.3-.1-.6-.2-.8-.2.3-.4.5-.8.5-.5 0-.9-.4-.9-.9 0-.3.2-.6.4-.8-.1-.1-.4-.2-.7-.2-1.2 0-2.2 1-2.2 2.2.1 1.2 1 2.2 2.2 2.2z" fill="#fafafa"/>
@@ -846,40 +891,35 @@
 </section>
 <!--./end-skills-section-->
 <!-- Container (Portfolio Section) -->
-<section class="container-fluid my-0 mx-auto  align-items-center justify-content-center d-block" id="projects">
-    <div class="row">
-        <div class="col-12 my-3">
-            <h2 class="section-title text-start ms-sm-2 ps-sm-1 ps-md-2 display-1 py-3 mt-5 mb-0 pt-5 md-3" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1200">My Projects</h2>
-          <p class="section-text text-start ms-sm-2 ps-sm-1 ps-md-2 display-1 py-3 mt-1 mb-1 pt-0">Here are some of my latest development projects! Hover over the images for a fun effect. To view the live deployed project, click "View Project." To checkout the repository for the project click, "View Source Code". To see the rest of my development work, check out my GitHub</p>
-        <p class="text-left ms-sm-2 ps-sm-1 ps-md-2">
-          <a href="https://github.com/gpaul988/" target="_blank" aria-label="GitHub profile">
-              <svg class="social-icon github-icon large-github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.11.79-.25.79-.56v-2.12c-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.35.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.2-3.09-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.19a11.12 11.12 0 0 1 5.84 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.59.23 2.76.11 3.05.75.8 1.2 1.83 1.2 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" fill="currentColor"/>
-              </svg>
-          </a>
-        </p>
-            <div class=" ms-sm-4 ps-sm-3 ps-md-3 ">
-                <hr>
+<section class="container-fluid my-0 mx-auto align-items-center justify-content-center d-block" id="projects" aria-labelledby="projects-title">
+    <header class="project-section-heading">
+        <div class="project-section-heading__top">
+            <p class="eyebrow">Selected work <span aria-hidden="true">/</span> Portfolio</p>
+            <p class="project-section-heading__count"><strong>08</strong><span>Featured projects</span></p>
+        </div>
+        <div class="project-section-heading__body">
+            <h2 class="section-title" id="projects-title">Built with purpose.<br><span>Made to work.</span></h2>
+            <div class="project-section-heading__intro">
+                <p class="section-text">From client platforms to independent builds, each project pairs thoughtful user experience with practical engineering. Explore the live work and public repositories.</p>
+                <a class="project-github-link" href="https://github.com/gpaul988/" target="_blank" rel="noopener noreferrer">
+                    <span>Explore more on GitHub</span><span aria-hidden="true">↗</span>
+                </a>
             </div>
         </div>
-    </div>
+    </header>
     <!--LeoBella Estates-->
     <div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
         <div class="col-12 col-md-5 project-details">
             <h2 class="display-5 my-2">LeoBellaEstates</h2>
             <h4 class="text-muted">Real Estate Platform</h4>
-            <p class="my-3 project-description pe-md-3">
-                LeoBella Estates is a modern real estate platform that helps users discover and explore properties with ease.
-            </p>
-            <p class="text-mark">CONTENT MANAGEMENT SYSTEM (cms)</p>
+            <p class="my-3 project-description pe-md-3">A real-estate website that helps prospective buyers and renters discover available properties.</p>
+            <p class="text-mark">Platform: Content management system</p>
             <div class="btn-row mb-3">
-                <a href="https://leobellaestates.com/" target="_blank">
-                    <button class="project-button">Live Page</button>
-                </a>
+                <a class="project-button" href="https://leobellaestates.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the LeoBella Estates live site"><span>Visit live site</span></a>
             </div>
         </div>
         <div class="col-12 col-md-7">
-            <img src="assets/images/leo.png" class="img-wrapper--reverse img-fluid project-img" alt="LeoBellaEstates"/>
+            <img src="assets/images/leo.webp" class="img-wrapper--reverse img-fluid project-img" alt="LeoBella Estates property listings website preview" width="1920" height="1080" loading="lazy" decoding="async">
         </div>
     </div>
     <!--GSPEC EFFECTOR-->
@@ -887,16 +927,14 @@
         <div class="col-12 col-md-5 justify-content-start">
             <h2 class="display-5 my-2">GSPEC Effector</h2>
             <h4 class="text-muted">Business Consulting & Infrastructure Solutions</h4>
-            <p class="my-3 project-description">GSPEC Effector is a comprehensive business consulting and infrastructure solutions provider, offering tailored strategies and innovative approaches to drive organizational success.</p>
-            <p class="text-mark">CONTENT MANAGEMENT SYSTEM (CMS)</p>
+            <p class="my-3 project-description">A corporate website presenting GSPEC Effector’s business consulting and infrastructure services to prospective clients.</p>
+            <p class="text-mark">Platform: Content management system</p>
             <div class="btn-row mb-3">
-                <a href="https://gspeceffector.com/" target="_blank">
-                    <button class="project-button">Live Project</button>
-                </a>
+                <a class="project-button" href="https://gspeceffector.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the GSPEC Effector live site"><span>Visit live site</span></a>
             </div>
         </div>
         <div class="col-12 col-md-7 my-0 mx-auto justify-content-end">
-            <img src="assets/images/gspec.png" class="img-wrapper img-fluid project-img" alt="gspec"/>
+            <img src="assets/images/gspec.webp" class="img-wrapper img-fluid project-img" alt="GSPEC Effector business consulting website preview" width="1920" height="1080" loading="lazy" decoding="async">
         </div>
     </div>
     <!--POAWDLTD-->
@@ -904,32 +942,15 @@
         <div class="col-12 col-md-5 project-details">
             <h2 class="display-5 my-2">POAWD LTD</h2>
             <h4 class="text-muted">Healthcare Recruitment agency</h4>
-            <p class="my-3 project-description pe-md-3">
-                <strong>CLIENT: </strong>
-                POAWD ltd. UK Healthcare agency
-        
-            </p>
-            <p>
-                <strong>SERVICES</strong>
-            </p>
-            <ul class="text-start">
-                <li>Health & Social Care workforce Solutions</li>
-                <li>Rapid Nurse Mobilization</li>
-                <li>Special Staffing Solution</li>
-                <li>Workforce Managed Services</li>
-            </ul>
-            <strong>TECHNOLOGIES: </strong>
-            <p class="text-mark pe-5">Content Management System (CMS)
-        </p>
+            <p class="my-3 project-description pe-md-3">A CMS-powered website presenting POAWD’s healthcare recruitment and workforce services to UK organizations.</p>
+            <p class="text-mark">Platform: Content management system</p>
             <div class="btn-row mb-3">
-                <a href="https://www.poawdltd.co.uk" target="_blank">
-                    <button class="project-button">Live Page</button>
-                </a>
+                <a class="project-button" href="https://www.poawdltd.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Visit the POAWD live site"><span>Visit live site</span></a>
                
             </div>
         </div>
         <div class="col-12 col-md-7">
-            <img src="assets/images/poawd.jpeg" class="img-wrapper--reverse img-fluid project-img" alt="poawd"/>
+            <img src="assets/images/poawd.webp" class="img-wrapper--reverse img-fluid project-img" alt="POAWD healthcare recruitment website preview" width="1920" height="1071" loading="lazy" decoding="async">
         </div>
     </div>
         <!--Paints-->
@@ -937,21 +958,15 @@
         <div class="col-12 col-md-5 justify-content-start">
             <h2 class="display-5 my-2">Paints</h2>
             <h4 class="text-muted"> Art Gallery </h4>
-            <strong class="text-mark">1st Place - Code Institute Hackathon, 06/17/22</strong>
-            <p class="my-3 project-description">Paints is an online gallery of various kinds art throughout
-          history. The gallery provides information about each artist along with photo representation of a
-          quintessential art piece from their repertoire. Paints features an art gallery, a team page, and a "Get
-          Involved" section where users can find & support local artists.</p>
-            <p class="text-mark">HTML, CSS, Bootstrap, JavaScript
-        </p>
+            <p class="text-mark">1st place · Code Institute Hackathon</p>
+            <p class="my-3 project-description">An online art gallery featuring works and artist information, with a Get Involved section highlighting ways to support local artists.</p>
+            <p class="text-mark">HTML · CSS · Bootstrap · JavaScript</p>
             <div class="btn-row mb-3">
-                <a href="https://grey-infotech-ltd.github.io/Paints" target="_blank">
-                    <button class="project-button">Live
-              Project</button>
-                </a>
-               </a></div></div>
+                <a class="project-button" href="https://grey-infotech-ltd.github.io/Paints" target="_blank" rel="noopener noreferrer" aria-label="Visit the Paints live site"><span>Visit live site</span></a>
+                <a class="project-source-link" href="https://github.com/GREY-INFOTECH-LTD/Paints" target="_blank" rel="noopener noreferrer" aria-label="View Paints source code">View source <span aria-hidden="true">↗</span></a>
+            </div></div>
 <div class="col-12 col-md-7 my-0 mx-auto justify-content-end">
-    <img src="assets/images/paints.png" class="img-wrapper img-fluid project-img" alt="paints"/>
+    <img src="assets/images/paints.webp" class="img-wrapper img-fluid project-img" alt="Paints online art gallery website preview" width="1024" height="658" loading="lazy" decoding="async">
 </div>
 </div>
 <!--Melody-->
@@ -959,18 +974,14 @@
     <div class="col-12 col-md-5 justify-content-start">
         <h2 class="display-5 my-2">Melody</h2>
         <h4 class="text-muted">React Music Player</h4>
-        <p class="my-3 me-3 me-md-5 project-description">Melody is a front-end React application that uses the YouTube
-          Data API to fetch & stream videos by video ID or title </p>
-        <p class="text-mark">React, JavaScript, HTML, CSS, JavaScript
-        </p>
+        <p class="my-3 me-3 me-md-5 project-description">A React music player that uses the YouTube Data API to find and play videos by title or video ID.</p>
+        <p class="text-mark">React · JavaScript · YouTube Data API</p>
         <div class="btn-row mb-3">
-            <a href="https://melody01.netlify.app/" target="_blank">
-                <button class="project-button">Live
-              Project</button>
-            </a>
-            </a></div></div>
+            <a class="project-button" href="https://melody01.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Melody live site"><span>Visit live site</span></a>
+            <a class="project-source-link" href="https://github.com/GREY-INFOTECH-LTD/Melody" target="_blank" rel="noopener noreferrer" aria-label="View Melody source code">View source <span aria-hidden="true">↗</span></a>
+        </div></div>
 <div class="col-12 col-md-7 my-0 mx-auto justify-content-end">
-    <img src="assets/images/melody.png" class="img-wrapper--reverse img-fluid project-img" alt="melody"/>
+    <img src="assets/images/melody.webp" class="img-wrapper--reverse img-fluid project-img" alt="Melody React music player interface preview" width="711" height="405" loading="lazy" decoding="async">
 </div>
 </div>
 <!-- MyCharger -->
@@ -978,22 +989,16 @@
     <div class="col-12 col-md-5 justify-content-start">
         <h2 class="display-5 my-2">MyCharger</h2>
         <h4 class="text-muted">EV-Fuel Calculator</h4>
-        <strong class="text-mark"> Code Institute Hackathon, 04/10/24</strong>
-        <p class="my-3 project-description">MyCharger is a web application that allows users to calculate the amount of
-          money they could save by switching from fuel to EV-powered vehicles. MyCharger includes a homepage, mission
-          statement, team page, EV/Fuel savings calculator, and an electric vehicle search tool. MyCharger was created
-          for Code Institute's April 2024 Earth Day Hackathon.</p>
-        <p class="text-mark">HTML, CSS, Bootstrap, JavaScript, JSON
-        </p>
+        <p class="text-mark">Code Institute · Earth Day Hackathon</p>
+        <p class="my-3 project-description">An EV savings calculator that compares estimated fuel and electric-vehicle costs, alongside a tool for exploring EV options.</p>
+        <p class="text-mark">HTML · CSS · Bootstrap · JavaScript · JSON</p>
         <div class="btn-row mb-3">
-            <a href="https://grey-infotech-ltd.github.io/MyCharger/" target="_blank">
-                <button class="project-button">Live
-              Project</button>
-            </a>
+            <a class="project-button" href="https://grey-infotech-ltd.github.io/MyCharger/" target="_blank" rel="noopener noreferrer" aria-label="Visit the MyCharger live site"><span>Visit live site</span></a>
+            <a class="project-source-link" href="https://github.com/GREY-INFOTECH-LTD/MyCharger" target="_blank" rel="noopener noreferrer" aria-label="View MyCharger source code">View source <span aria-hidden="true">↗</span></a>
                         </div>
     </div>
     <div class="col-12 col-md-7 my-0 mx-auto justify-content-end">
-        <img src="assets/images/mycharger.png" class="img-wrapper img-fluid project-img" alt="mycharger"/>
+        <img src="assets/images/mycharger.webp" class="img-wrapper img-fluid project-img" alt="MyCharger electric vehicle savings calculator preview" width="889" height="483" loading="lazy" decoding="async">
     </div>
 </div>
 <!--TwistWord-->
@@ -1001,20 +1006,16 @@
     <div class="col-12 col-md-5 project-details">
         <h2 class="display-5 my-2">TwistWord</h2>
         <h4 class="text-muted">JavaScript Word Game</h4>
-        <strong class="text-mark">Code Institute Hackathon, 02/23</strong>
-        <p class="my-3 me-3 me-md-5 project-description">“Love is in
-            The Air” Hackathon, "TwistWord" is
-            a Valentine's Day & love themed game.</p>
-        <p class="text-mark">JavaScript, HTML, CSS, Bootstrap, JSON</p>
+        <p class="text-mark">Code Institute · “Love Is in the Air” Hackathon</p>
+        <p class="my-3 me-3 me-md-5 project-description">A Valentine’s-themed word game created for a Code Institute hackathon.</p>
+        <p class="text-mark">JavaScript · HTML · CSS · Bootstrap · JSON</p>
         <div class="btn-row mb-3">
-            <a href="https://grey-infotech-ltd.github.io/TwistWord/" target="_blank">
-                <button class="project-button">Live
-                    Project</button>
-            </a>
+            <a class="project-button" href="https://grey-infotech-ltd.github.io/TwistWord/" target="_blank" rel="noopener noreferrer" aria-label="Visit the TwistWord live site"><span>Visit live site</span></a>
+            <a class="project-source-link" href="https://github.com/GREY-INFOTECH-LTD/TwistWord" target="_blank" rel="noopener noreferrer" aria-label="View TwistWord source code">View source <span aria-hidden="true">↗</span></a>
         </div>
     </div>
     <div class="col-12 col-md-7 my-0 mx-auto justify-content-end">
-        <img src="assets/images/twistword.png" class="img-fluid img-wrapper--reverse project-img" alt="twistword"/>
+        <img src="assets/images/twistword.webp" class="img-fluid img-wrapper--reverse project-img" alt="TwistWord word game interface preview" width="1280" height="777" loading="lazy" decoding="async">
     </div>
 </div>
 <!--Stretch-->
@@ -1022,19 +1023,15 @@
     <div class="col-12 col-md-5 project-details">
         <h2 class="display-5 my-2">Stretch</h2>
         <h4 class="text-muted">Yoga Website</h4>
-        <strong class="awards"> Code Institute</strong>
-        <p class="my-3 project-description">This responsive website was created for Stretch, a
-          fictional Yoga & Meditation studio in Nigeria
-</strong></p><p class="text-mark pb-3">JavaScript, HTML, CSS, Bootstrap 4, jQuery, Git</p>
+        <p class="my-3 project-description">A responsive concept website for a fictional yoga and meditation studio in Nigeria, created as a Code Institute milestone project.</p>
+        <p class="text-mark pb-3">HTML · CSS · Bootstrap 4 · jQuery</p>
 <div class="btn-row mb-3">
-    <a href="https://grey-infotech-ltd.github.io/Stretch/" target="_blank">
-        <button class="project-button">Live
-              Project</button>
-    </a>
+    <a class="project-button" href="https://grey-infotech-ltd.github.io/Stretch/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Stretch live site"><span>Visit live site</span></a>
+    <a class="project-source-link" href="https://github.com/GREY-INFOTECH-LTD/Stretch" target="_blank" rel="noopener noreferrer" aria-label="View Stretch source code">View source <span aria-hidden="true">↗</span></a>
     </div>
 </div>
 <div class="col-12 col-md-7">
-    <img src="assets/images/stretch.png" class="img-fluid img-wrapper--reverse project-img" alt="stretch"/>
+    <img src="assets/images/stretch.webp" class="img-fluid img-wrapper--reverse project-img" alt="Stretch yoga and meditation studio website preview" width="889" height="517" loading="lazy" decoding="async">
 </div>
 </div>
 <!--./end-infinity-->
@@ -1052,56 +1049,17 @@
     </div>
 </section>
         </main>
-<footer class="site-footer">
-    <div class="site-footer__main">
-        <a class="site-footer__identity" href="index.html">
-            <span class="site-avatar site-avatar--animated">
-                <img src="assets/images/gray.jpg" alt="">
-            </span>
-            <span><strong>Graham S. Paul</strong><small>Full-Stack Engineer &amp; Software Developer</small></span>
-        </a>
-        <p class="site-footer__about">I build thoughtful digital experiences, websites, and applications that help ideas move forward.</p>
-        <div class="site-footer__links" aria-label="Connect with Graham">
-            <a href="mailto:graham@grahamspaul.net.ng">Email</a>
-            <a href="https://github.com/gpaul988" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://gitlab.com/gpaul988" target="_blank" rel="noopener noreferrer">GitLab</a>
-            <a href="https://linkedin.com/in/grahamspaul" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://twitter.com/1grahamspaul" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </div>
-    <div class="site-footer__bottom">
-        <span>© 2026 Graham S. Paul. All rights reserved.</span>
-        <a href="#home">Back to portfolio ↑</a>
-    </div>
-</footer>
-<!-- Trigger AOS Animations -->
-<script>
-    AOS.init();
-</script>
-<script>
-    let index = 0;
-    displayImages();
-    function displayImages() {
-        let i;
-        const images = document.getElementsByClassName("image");
-        for (i = 0; i < images.length; i++) {
-            images[i].style.display = "none";
-        }
-        index++;
-        if (index > images.length) {
-            index = 1;
-        }
-        images[index - 1].style.display = "block";
-        setTimeout(displayImages, 5000);
-    }
-</script>
 <!--Load Scripts-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="assets/js/welcome.js" type="text/javascript"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/top.js"></script>
-<script src="assets/js/nav.js" type="text/javascript"></script>
-<script src="assets/js/title-font-rotation.js"></script>
-<script src="assets/js/github-updates.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMejwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous" defer></script>
+<script src="assets/js/welcome.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/script.js?v=20261018-enquiry-copy" defer></script>
+<script src="assets/js/site-theme.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/quick-chat.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/header-scroll.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/site-init.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/top.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/nav.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/title-font-rotation.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/github-updates.js?v=20260927-brand-palette" defer></script>
 </body></html>

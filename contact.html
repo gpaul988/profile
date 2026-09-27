@@ -7,22 +7,45 @@
     <meta name="description" content="Tell Graham about your project or book a free 30-minute consultation call.">
     <meta name="theme-color" content="#07141d">
     <link rel="canonical" href="https://grahamspaul.cm/contact.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact Graham S. Paul | Project Enquiry & Booking">
+    <meta property="og:description" content="Tell Graham about your project or book a complimentary 30-minute consultation call.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://grahamspaul.cm/contact.html">
+    <meta property="og:image" content="https://grahamspaul.cm/assets/images/grey1.jpg">
+    <meta property="og:image:alt" content="Portrait of Graham Sobiribo Paul, full-stack engineer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Graham S. Paul">
+    <meta name="twitter:description" content="Tell Graham about your project or book a complimentary 30-minute consultation call.">
+    <meta name="twitter:image" content="https://grahamspaul.cm/assets/images/grey1.jpg">
     <link rel="icon" type="image/png" href="assets/images/gray1.png">
     <link rel="apple-touch-icon" href="assets/images/gray1.png">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260927">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260927-project-header-layout">
 </head>
-<body class="contact-page">
+<body class="contact-page" data-theme="dark">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="contact-page-header">
         <nav class="contact-page-header__inner" aria-label="Contact page navigation">
             <a class="contact-page-brand" href="index.html" aria-label="Graham S. Paul home">
                 <span class="site-avatar site-avatar--animated">
-                    <img src="assets/images/gray.jpg" alt="">
+                    <img src="assets/images/gray.webp" alt="" width="1120" height="958">
                 </span>
                 <span class="contact-page-wordmark"><strong>Graham S. Paul</strong><small>Full-Stack Engineer</small></span>
             </a>
             <div class="contact-page-header__links">
                 <a href="index.html">Back to portfolio</a>
                 <a href="mailto:graham@grahamspaul.net.ng">Email me</a>
+                <a href="privacy.html">Privacy</a>
+                <button class="contact-theme-toggle" id="contact-theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+                    <svg class="contact-theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                    </svg>
+                    <svg class="contact-theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path>
+                    </svg>
+                    <span class="contact-theme-toggle__text">Light mode</span>
+                </button>
             </div>
         </nav>
     </header>
@@ -60,7 +83,7 @@
             <div class="contact-page-section-heading">
                 <p class="eyebrow">Project enquiry</p>
                 <h2 id="contact-form-title">Tell me about your project</h2>
-                <p>Include as much detail as you can. I’ll get back to you within 24–48 hours.</p>
+                <p>Include as much detail as you can. I’ll review your enquiry and reply with clear next steps.</p>
             </div>
             <div class="contact-card">
                 <form class="form contact-form" method="POST" id="contact-form" action="https://formspree.io/f/xjyvnjzn">
@@ -89,7 +112,9 @@
                                 <option>Website Design</option>
                                 <option>Landing Page</option>
                                 <option>E-commerce</option>
-                                <option>Portfolio</option>
+                                <option>Web Application</option>
+                                <option>Website Redesign</option>
+                                <option>Portfolio Site</option>
                                 <option>Business Website</option>
                                 <option>Brand Refresh</option>
                                 <option>Other</option>
@@ -101,6 +126,7 @@
                                 <option value="" selected disabled>Select the support you need</option>
                                 <option>Website Design</option>
                                 <option>Website Development</option>
+                                <option>Full-Stack Development</option>
                                 <option>Branding</option>
                                 <option>Product Design</option>
                                 <option>Backend Development</option>
@@ -150,6 +176,7 @@
                         <button type="submit" id="button" class="btn">Send project enquiry</button>
                     </div>
                     <div id="form-status" class="form-status" aria-live="polite"></div>
+                    <p class="contact-form-privacy">Submitting this form sends your details to Formspree so I can respond to your enquiry. <a href="privacy.html">Read the privacy notice</a>.</p>
                 </form>
             </div>
         </section>
@@ -172,37 +199,53 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="site-footer__main">
-            <a class="site-footer__identity" href="index.html">
-                <span class="site-avatar site-avatar--animated">
-                    <img src="assets/images/gray.jpg" alt="">
-                </span>
-                <span><strong>Graham S. Paul</strong><small>Full-Stack Engineer &amp; Software Developer</small></span>
-            </a>
-            <p class="site-footer__about">I build thoughtful digital experiences, websites, and applications that help ideas move forward.</p>
-            <div class="site-footer__links" aria-label="Connect with Graham">
-                <a href="mailto:graham@grahamspaul.net.ng">Email</a>
-                <a href="https://github.com/gpaul988" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://gitlab.com/gpaul988" target="_blank" rel="noopener noreferrer">GitLab</a>
-                <a href="https://linkedin.com/in/grahamspaul" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://twitter.com/1grahamspaul" target="_blank" rel="noopener noreferrer">Twitter</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-        <div class="site-footer__bottom">
-            <span>© 2026 Graham S. Paul. All rights reserved.</span>
-            <a href="index.html">Back to portfolio ↑</a>
-        </div>
-    </footer>
-    <nav class="contact-bottom-nav" aria-label="Quick navigation">
-        <a class="contact-bottom-nav__brand" href="index.html" aria-label="Return to portfolio">
-            <img src="assets/images/gray.jpg" alt="">
+    <nav class="site-bottom-nav" aria-label="Primary quick navigation">
+        <a class="site-bottom-nav__brand" href="index.html" aria-label="Graham S. Paul home">
+            <span class="site-avatar site-avatar--animated">
+                <img src="assets/images/gray.webp" alt="" width="1120" height="958">
+            </span>
+            <span class="site-bottom-nav__name">Graham S. Paul</span>
         </a>
-        <a href="index.html">Portfolio</a>
-        <a href="#contact-form-section">Enquiry</a>
-        <a href="#book-a-call">Book a call</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="contact.html">Contact</a>
     </nav>
-    <script src="assets/js/script.js"></script>
+    <div class="quick-chat" id="quick-chat">
+        <div class="quick-chat__panel" id="quick-chat-panel" hidden>
+            <div class="quick-chat__panel-heading">
+                <span class="quick-chat__panel-status"><span aria-hidden="true"></span> WHATSAPP <i aria-hidden="true"></i> TELEGRAM</span>
+                <p class="quick-chat__heading">Choose a channel</p>
+                <p class="quick-chat__panel-note">Pick the app you use most. Your message opens a direct chat.</p>
+            </div>
+            <a class="quick-chat__link" href="https://wa.me/2347063045790" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp at @grahamspaul">
+                <span class="quick-chat__icon quick-chat__icon--whatsapp" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false"><path d="M20.3 11.8a8.1 8.1 0 0 1-12 7.1L4 20l1.2-4.1a8.1 8.1 0 1 1 15.1-4.1Z"/><path d="M9 8.5c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .5l-.5.6c-.2.2-.2.4-.1.6.5.9 1.2 1.5 2.1 1.9.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.2.1.3.3.3.5 0 .4-.2 1.1-.7 1.4-.5.4-1.1.6-1.8.5-1-.1-2.2-.6-3.4-1.6-1-.8-1.8-1.9-2.1-2.9-.4-1-.1-1.9.4-2.7Z"/></svg>
+                </span>
+                <span class="quick-chat__link-copy"><strong>WhatsApp</strong><small>@grahamspaul</small></span>
+                <span class="quick-chat__link-action">MESSAGE <span aria-hidden="true">↗</span></span>
+            </a>
+            <a class="quick-chat__link" href="https://t.me/grahamspaul" target="_blank" rel="noopener noreferrer" aria-label="Chat on Telegram at @grahamspaul">
+                <span class="quick-chat__icon quick-chat__icon--telegram" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false"><path d="m21 4-3.2 16-6.1-4.7-3.3 3.1.5-5.4L19 6.2 7.1 12.1 3 10.7 21 4Z"/><path d="m9 13 8-5"/></svg>
+                </span>
+                <span class="quick-chat__link-copy"><strong>Telegram</strong><small>@grahamspaul</small></span>
+                <span class="quick-chat__link-action">MESSAGE <span aria-hidden="true">↗</span></span>
+            </a>
+        </div>
+        <button class="quick-chat__toggle" id="quick-chat-toggle" type="button" aria-expanded="false" aria-controls="quick-chat-panel" aria-label="Open chat options">
+            <span class="quick-chat__toggle-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2 1-4.3A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg>
+                <span></span>
+            </span>
+            <span class="quick-chat__toggle-copy"><small>LET’S CONNECT</small><strong>Chat with me</strong></span>
+            <span class="quick-chat__toggle-chevron" aria-hidden="true">+</span>
+        </button>
+    </div>
+    <script src="assets/js/script.js?v=20261018-enquiry-copy" defer></script>
+    <script src="assets/js/site-theme.js?v=20260927-brand-palette" defer></script>
+    <script src="assets/js/quick-chat.js?v=20260927-brand-palette" defer></script>
+    <script src="assets/js/header-scroll.js?v=20260927-brand-palette" defer></script>
+    <script src="assets/js/site-init.js?v=20260927-brand-palette" defer></script>
 </body>
 </html>
