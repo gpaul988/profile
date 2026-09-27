@@ -41,6 +41,294 @@
 	--scroll-end: calc(-100% - var(--gap));
 }
 
+.contact-page {
+  min-height: 100vh;
+  color: #edf8ff;
+}
+
+.contact-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(7, 20, 29, 0.84);
+  backdrop-filter: blur(16px);
+}
+
+.contact-page-header__inner,
+.contact-page-main,
+.contact-page-footer {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.contact-page-header__inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.contact-page-brand {
+  color: #edf8ff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.contact-page-brand span {
+  color: var(--light);
+}
+
+.contact-page-header__links,
+.contact-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.contact-page-header__links a,
+.contact-page-link,
+.contact-booking-fallback a,
+.contact-page-footer a {
+  color: #9ef6e2;
+}
+
+.contact-page-main {
+  padding-block: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.contact-page-intro {
+  max-width: 800px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.contact-page-intro .eyebrow,
+.contact-page-section-heading .eyebrow {
+  color: #9ef6e2;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-page-intro h1 {
+  margin: 0.75rem 0 1rem;
+  color: #f3faff;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.04;
+}
+
+.contact-page-intro > p:not(.eyebrow),
+.contact-page-section-heading > p:last-child {
+  max-width: 680px;
+  margin: 0 auto;
+  color: rgba(237, 248, 255, 0.76);
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.contact-page-actions {
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.contact-page-link {
+  font-weight: 700;
+}
+
+.contact-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-benefit-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.62);
+}
+
+.contact-benefit-card__icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(40, 221, 252, 0.14);
+  color: #9ef6e2;
+  font-weight: 800;
+}
+
+.contact-benefit-card h2 {
+  margin: 1rem 0 0.5rem;
+  color: #f3faff;
+  font-size: 1.15rem;
+}
+
+.contact-benefit-card p {
+  margin: 0;
+  color: rgba(237, 248, 255, 0.72);
+  line-height: 1.65;
+}
+
+.contact-page-form-section,
+.contact-booking-section {
+  margin-top: clamp(4rem, 9vw, 7rem);
+  scroll-margin-top: 110px;
+}
+
+.contact-page-section-heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contact-page-section-heading h2 {
+  margin: 0.5rem 0 0.75rem;
+  color: #f3faff;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.contact-page .contact-card {
+  max-width: 900px;
+  padding: 0.75rem;
+}
+
+.contact-page #contact-form {
+  max-width: 100%;
+  padding: 1.25rem;
+}
+
+.contact-page .contact-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-form-submit {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.contact-booking-frame {
+  height: 760px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 20px;
+  background: #101827;
+}
+
+.contact-booking-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contact-booking-fallback {
+  margin-top: 1rem;
+  color: rgba(237, 248, 255, 0.72);
+  text-align: center;
+}
+
+.contact-page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  color: rgba(237, 248, 255, 0.65);
+}
+
+.contact-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 5rem auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  width: min(1120px, calc(100% - 2.5rem));
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 24px;
+  background: linear-gradient(125deg, rgba(40, 221, 252, 0.1), rgba(15, 23, 42, 0.88));
+  color: #edf8ff;
+}
+
+.contact-cta .eyebrow {
+  margin-bottom: 0.5rem;
+  color: #9ef6e2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-cta h2 {
+  margin-bottom: 0.5rem;
+  color: #f3faff;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.contact-cta p:last-child {
+  margin-bottom: 0;
+  color: rgba(237, 248, 255, 0.75);
+}
+
+.contact-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-cta__secondary {
+  color: #9ef6e2;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .contact-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-page .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page-header__inner,
+  .contact-page-main,
+  .contact-page-footer {
+    width: min(100% - 1.5rem, 1120px);
+  }
+
+  .contact-page-header__links {
+    gap: 0.75rem;
+    font-size: 0.88rem;
+  }
+
+  .contact-page-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-booking-frame {
+    height: 700px;
+  }
+
+  .contact-page-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 ::-moz-selection { /* Code for Firefox */
   color: #ffffff;
   background: #0d6efd;

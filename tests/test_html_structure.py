@@ -24,6 +24,13 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertEqual(parser.main_count, 1, 'Expected exactly one <main> landmark.')
         self.assertEqual(parser.h1_count, 1, 'Expected exactly one <h1> heading.')
 
+    def test_contact_page_has_form_and_call_booking(self):
+        html = Path('contact.html').read_text(encoding='utf-8')
+        self.assertIn('id="contact-form"', html)
+        self.assertIn('action="https://formspree.io/f/xjyvnjzn"', html)
+        self.assertIn('id="book-a-call"', html)
+        self.assertIn('src="https://cal.com/grahamspaul/30min', html)
+
 
 if __name__ == '__main__':
     unittest.main()

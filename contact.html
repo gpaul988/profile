@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact & Book a Call | Graham S. Paul</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tell Graham about your project or book a free 30-minute consultation call.">
+    <meta name="theme-color" content="#07141d">
+    <link rel="canonical" href="https://grahamspaul.cm/contact.html">
+    <link rel="icon" type="image/png" href="assets/images/icons8-full-stack-64-white.png">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260927">
+</head>
+<body class="contact-page">
+    <header class="contact-page-header">
+        <nav class="contact-page-header__inner" aria-label="Contact page navigation">
+            <a class="contact-page-brand" href="index.html" aria-label="Graham S. Paul home">GSP<span>.</span></a>
+            <div class="contact-page-header__links">
+                <a href="index.html">Back to portfolio</a>
+                <a href="mailto:graham@grahamspaul.net.ng">Email me</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="contact-page-main">
+        <section class="contact-page-intro" aria-labelledby="contact-page-title">
+            <p class="eyebrow">Let’s build something meaningful</p>
+            <h1 id="contact-page-title">Start a conversation</h1>
+            <p>Share a little about your goals, or book a complimentary 30-minute call to talk through your idea and possible next steps.</p>
+            <div class="contact-page-actions">
+                <a class="btn" href="#contact-form-section">Request a project quote</a>
+                <a class="contact-page-link" href="#book-a-call">Book a call <span aria-hidden="true">↓</span></a>
+            </div>
+        </section>
+
+        <section class="contact-benefits" aria-label="What to expect">
+            <article class="contact-benefit-card">
+                <span class="contact-benefit-card__icon" aria-hidden="true">30</span>
+                <h2>Free 30-minute consultation</h2>
+                <p>No commitment. We’ll discuss your goals, requirements, and the best way to move forward.</p>
+            </article>
+            <article class="contact-benefit-card">
+                <span class="contact-benefit-card__icon" aria-hidden="true">01</span>
+                <h2>Direct collaboration</h2>
+                <p>Work directly with me throughout the conversation, with clear communication from the start.</p>
+            </article>
+            <article class="contact-benefit-card">
+                <span class="contact-benefit-card__icon" aria-hidden="true">→</span>
+                <h2>Clear next steps</h2>
+                <p>Leave with a better understanding of the scope, priorities, and practical next steps for your project.</p>
+            </article>
+        </section>
+
+        <section class="contact-page-form-section" id="contact-form-section" aria-labelledby="contact-form-title">
+            <div class="contact-page-section-heading">
+                <p class="eyebrow">Project enquiry</p>
+                <h2 id="contact-form-title">Tell me about your project</h2>
+                <p>Include as much detail as you can. I’ll get back to you within 24–48 hours.</p>
+            </div>
+            <div class="contact-card">
+                <form class="form contact-form" method="POST" id="contact-form" action="https://formspree.io/f/xjyvnjzn">
+                    <input type="hidden" name="_subject" value="New website project enquiry">
+                    <div class="contact-form-grid">
+                        <div class="form-group">
+                            <label for="from_name">Full name</label>
+                            <input type="text" name="from_name" id="from_name" autocomplete="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company_name">Company or brand</label>
+                            <input type="text" name="company_name" id="company_name" autocomplete="organization" placeholder="Your company or brand">
+                        </div>
+                        <div class="form-group">
+                            <label for="reply_to">Email address</label>
+                            <input type="email" name="reply_to" id="reply_to" autocomplete="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number">Phone number</label>
+                            <input type="tel" name="phone_number" id="phone_number" autocomplete="tel" placeholder="Optional">
+                        </div>
+                        <div class="form-group">
+                            <label for="project_type">Project type</label>
+                            <select name="project_type" id="project_type" required>
+                                <option value="" selected disabled>Select a project type</option>
+                                <option>Website Design</option>
+                                <option>Landing Page</option>
+                                <option>E-commerce</option>
+                                <option>Portfolio</option>
+                                <option>Business Website</option>
+                                <option>Brand Refresh</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="services_needed">Services needed</label>
+                            <select name="services_needed" id="services_needed" required>
+                                <option value="" selected disabled>Select a service</option>
+                                <option>Website Design</option>
+                                <option>Landing Page Design</option>
+                                <option>UI/UX Design</option>
+                                <option>Front-End Development</option>
+                                <option>CMS Setup</option>
+                                <option>SEO Optimization</option>
+                                <option>Full Website Build</option>
+                                <option>Brand Refresh</option>
+                                <option>Not sure yet</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Estimated budget</label>
+                            <select name="budget" id="budget">
+                                <option value="" selected disabled>Select a range</option>
+                                <option>Under $500</option>
+                                <option>$500 - $1,000</option>
+                                <option>$1,000 - $3,000</option>
+                                <option>$3,000 - $5,000</option>
+                                <option>$5,000+</option>
+                                <option>Not sure yet</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">Preferred timeline</label>
+                            <select name="timeline" id="timeline">
+                                <option value="" selected disabled>Choose a timeline</option>
+                                <option>ASAP</option>
+                                <option>Within 2 weeks</option>
+                                <option>Within 1 month</option>
+                                <option>Within 2–3 months</option>
+                                <option>Flexible</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-wide">
+                            <label for="message">Project goals and details</label>
+                            <textarea name="message" id="message" rows="6" placeholder="Tell me about your goals, audience, requirements, and any references." required></textarea>
+                        </div>
+                    </div>
+                    <div class="contact-form-submit">
+                        <button type="submit" id="button" class="btn">Send project enquiry</button>
+                    </div>
+                    <div id="form-status" class="form-status" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+
+        <section class="contact-booking-section" id="book-a-call" aria-labelledby="book-a-call-title">
+            <div class="contact-page-section-heading">
+                <p class="eyebrow">Schedule a conversation</p>
+                <h2 id="book-a-call-title">Book a call</h2>
+                <p>Choose a time that works for you. Your booking and timezone are handled securely by Cal.com.</p>
+            </div>
+            <div class="contact-booking-frame">
+                <iframe
+                    src="https://cal.com/grahamspaul/30min?embed=true&amp;layout=month_view&amp;theme=dark"
+                    title="Book a 30-minute call with Graham S. Paul"
+                    loading="lazy"
+                    allow="camera; microphone; fullscreen; payment"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+            <p class="contact-booking-fallback">If the calendar does not load, <a href="https://cal.com/grahamspaul/30min" target="_blank" rel="noopener noreferrer">open the booking page directly</a>.</p>
+        </section>
+    </main>
+
+    <footer class="contact-page-footer">
+        <a href="index.html">← Return to Graham’s portfolio</a>
+        <span>© <span id="current-year">2026</span> Graham S. Paul</span>
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
