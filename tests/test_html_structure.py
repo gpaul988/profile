@@ -36,6 +36,9 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('<select name="services_needed" id="services_needed" required>', html)
         self.assertIn('<option>Backend Development</option>', html)
         self.assertIn('<option>Bug Fixes and Troubleshooting</option>', html)
+        self.assertNotIn('If the calendar does not load', html)
+        self.assertIn('class="contact-bottom-nav"', html)
+        self.assertIn('href="#book-a-call">Book a call</a>', html)
 
     def test_home_and_contact_share_footer(self):
         home = Path('index.html').read_text(encoding='utf-8')

@@ -43,7 +43,19 @@
 
 .contact-page {
   min-height: 100vh;
+  padding-bottom: 5.25rem;
   color: #edf8ff;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main-content,
+.contact-page-main {
+  flex: 1 0 auto;
 }
 
 .contact-page-header {
@@ -179,8 +191,7 @@
 }
 
 .contact-page-header__links a,
-.contact-page-link,
-.contact-booking-fallback a {
+.contact-page-link {
   color: #9ef6e2;
 }
 
@@ -316,13 +327,9 @@
   border: 0;
 }
 
-.contact-booking-fallback {
-  margin-top: 1rem;
-  color: rgba(237, 248, 255, 0.72);
-  text-align: center;
-}
-
 .site-footer {
+  flex: 0 0 auto;
+  margin-top: auto;
   border-top: 1px solid rgba(148, 163, 184, 0.2);
   background: rgba(4, 12, 20, 0.88);
   color: #edf8ff;
@@ -394,6 +401,56 @@
 .site-footer__bottom a {
   color: #9ef6e2;
   text-decoration: none;
+}
+
+.contact-bottom-nav {
+  position: fixed;
+  z-index: 1000;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 3rem);
+  padding: 0.7rem 1.25rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(7, 20, 29, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.28);
+}
+
+.contact-bottom-nav > a:not(.contact-bottom-nav__brand) {
+  color: #28ddfc;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-bottom-nav > a:not(.contact-bottom-nav__brand):hover,
+.contact-bottom-nav > a:not(.contact-bottom-nav__brand):focus-visible {
+  color: #9ef6e2;
+}
+
+.contact-bottom-nav__brand {
+  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+}
+
+.contact-bottom-nav__brand img {
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid rgba(40, 221, 252, 0.75);
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .contact-cta {
@@ -470,6 +527,27 @@
   .contact-page-header__links {
     gap: 0.75rem;
     font-size: 0.88rem;
+  }
+
+  .contact-bottom-nav {
+    min-height: 68px;
+    justify-content: space-around;
+    gap: 0.5rem;
+    padding-inline: 0.5rem;
+  }
+
+  .contact-bottom-nav > a:not(.contact-bottom-nav__brand) {
+    font-size: 0.82rem;
+  }
+
+  .contact-bottom-nav__brand {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-bottom-nav__brand img {
+    width: 38px;
+    height: 38px;
   }
 
   .contact-page-actions {
