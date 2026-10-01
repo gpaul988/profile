@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-preloading">
     <head>
+        <script src="assets/js/preloader.js?v=20260929-studio-loader" defer></script>
         <title>Graham S. Paul | Full-Stack Developer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,13 +62,40 @@
         <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
         <!--AOS Animations -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260927-project-header-layout"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260930-experience-timeline"/>
         <!--Favicon Link-->
         <link rel="icon" type="image/png" href="assets/images/gray1.png"/>
         <link rel="apple-touch-icon" href="assets/images/gray1.png"/>
         <!---->
     </head>
     <body class="home-page" data-theme="dark">
+        <div class="site-preloader" id="site-preloader" role="status" aria-live="polite" aria-label="Loading page content" hidden>
+            <div class="site-preloader__content">
+                <div class="site-preloader__art" aria-hidden="true">
+                    <span class="site-preloader__art-index">FIELD NOTES / 001</span>
+                    <svg class="site-preloader__mark" viewBox="0 0 240 240" focusable="false">
+                        <circle class="site-preloader__orbit site-preloader__orbit--outer" cx="120" cy="120" r="108"></circle>
+                        <circle class="site-preloader__orbit site-preloader__orbit--inner" cx="120" cy="120" r="83"></circle>
+                        <path class="site-preloader__crosshair" d="M120 0v29m0 182v29M0 120h29m182 0h29"></path>
+                        <path class="site-preloader__orbit-path" d="M29 179A105 105 0 0 0 202 52"></path>
+                        <circle class="site-preloader__spark" cx="202" cy="52" r="5"></circle>
+                    </svg>
+                    <img class="site-preloader__favicon" src="assets/images/gray1.png" alt="" width="220" height="220">
+                    <span class="site-preloader__art-note">THINK<br>MAKE<br>REFINE</span>
+                </div>
+                <div class="site-preloader__copy">
+                    <p class="site-preloader__eyebrow"><span></span> Graham S. Paul <span> / </span> Independent digital practice</p>
+                    <p class="site-preloader__name">From first<br><span>principles.</span></p>
+                    <p class="site-preloader__caption">Thoughtful design. Practical engineering. Digital experiences made to work for real people.</p>
+                    <div class="site-preloader__progress-row">
+                        <span class="site-preloader__phase" aria-live="off">Understanding the brief</span>
+                        <span class="site-preloader__counter"><span>01</span> <i>/</i> 03</span>
+                    </div>
+                    <div class="site-preloader__progress" aria-hidden="true"><span></span></div>
+                </div>
+            </div>
+            <span class="site-preloader__edge-note">DESIGN <i>×</i> ENGINEERING <i>×</i> DETAIL</span>
+        </div>
         <a class="skip-link" href="#main-content">Skip to main content</a>
         <header class="home-page-header">
             <nav class="home-page-header__inner" aria-label="Main navigation">
@@ -92,7 +120,6 @@
                         <svg class="site-theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path>
                         </svg>
-                        <span class="site-theme-toggle__text">Light mode</span>
                     </button>
                 </div>
             </nav>
@@ -105,6 +132,7 @@
                 <span class="site-bottom-nav__name">Graham S. Paul</span>
             </a>
             <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
             <a href="index.html#skills">Skills</a>
             <a href="index.html#projects">Projects</a>
             <a href="contact.html">Contact</a>
@@ -280,6 +308,68 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="experience-section" id="experience" aria-labelledby="experience-title">
+    <div class="experience-section__glow" aria-hidden="true"></div>
+    <div class="experience-section__inner">
+        <header class="experience-heading">
+            <div class="experience-heading__main">
+                <p class="eyebrow">Experience</p>
+                <h2 id="experience-title">Where I've<br><span>built.</span></h2>
+            </div>
+            <div class="experience-heading__aside">
+                <p>From hands-on software engineering to leading full-stack delivery, my experience spans product development, consulting, and the systems that keep teams moving.</p>
+                <div class="experience-stats" aria-label="Career summary">
+                    <span>6 roles</span><span>Since 2018</span>
+                    <a href="assets/grahamcv.pdf" target="_blank" rel="noopener noreferrer">Full resume <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </header>
+        <div class="experience-timeline" data-experience-timeline>
+            <span class="experience-timeline__rail" aria-hidden="true"></span>
+            <span class="experience-timeline__progress" aria-hidden="true"></span>
+            <span class="experience-timeline__cursor" aria-hidden="true"></span>
+            <ol class="experience-list">
+                <li class="experience-entry" data-experience-entry>
+                    <span class="experience-entry__marker" aria-hidden="true"></span>
+                    <div class="experience-entry__company"><p class="experience-entry__period">Aug 2022 <span>—</span> Present</p><h3>POAWD Limited</h3><p class="experience-entry__location">England, United Kingdom</p></div>
+                    <div class="experience-entry__details"><p class="experience-entry__index">01 <span>/ 06</span><span class="experience-entry__current">Current</span></p><h4>Freelance Programmer</h4><ul><li>Design and maintain responsive WordPress websites and web applications.</li><li>Customize themes and plugins; integrate APIs, payment gateways, and third-party services.</li><li>Improve performance, SEO, security, and mobile usability; manage hosting and maintenance.</li></ul></div>
+                </li>
+                <li class="experience-entry" data-experience-entry>
+                    <span class="experience-entry__marker" aria-hidden="true"></span>
+                    <div class="experience-entry__company"><p class="experience-entry__period">Mar 2018 <span>—</span> Present</p><h3>Grey InfoTech Limited</h3><p class="experience-entry__location">Port Harcourt, Nigeria</p></div>
+                    <div class="experience-entry__details"><p class="experience-entry__index">02 <span>/ 06</span><span class="experience-entry__current">Current</span></p><h4>Senior Full-Stack Developer &amp; Engineer</h4><ul><li>Lead application design and delivery from requirements and architecture through deployment and maintenance.</li><li>Build with React, Next.js, TypeScript, Node.js, NestJS, Python, Django, FastAPI, PHP, Laravel, PostgreSQL, MongoDB, and Redis.</li><li>Design APIs, data models, authentication, and integrations; guide quality, security, and performance.</li><li>Translate business needs into secure, scalable software and automated workflows.</li></ul></div>
+                </li>
+                <li class="experience-entry" data-experience-entry>
+                    <span class="experience-entry__marker" aria-hidden="true"></span>
+                    <div class="experience-entry__company"><p class="experience-entry__period">Jun 2022 <span>—</span> Aug 2023</p><h3>Royal Ginad Group</h3><p class="experience-entry__location">Port Harcourt, Nigeria</p></div>
+                    <div class="experience-entry__details"><p class="experience-entry__index">03 <span>/ 06</span></p><h4>Freelance Web Developer</h4><ul><li>Developed and maintained Laravel and PHP applications backed by MySQL and REST APIs.</li><li>Built secure, responsive features and integrated databases, authentication, and external services.</li><li>Handled testing, optimization, deployment, and ongoing application support.</li></ul></div>
+                </li>
+                <li class="experience-entry" data-experience-entry>
+                    <span class="experience-entry__marker" aria-hidden="true"></span>
+                    <div class="experience-entry__company"><p class="experience-entry__period">Mar 2021 <span>—</span> Jun 2022</p><h3>Cane Services Limited</h3><p class="experience-entry__location">England, United Kingdom</p></div>
+                    <div class="experience-entry__details"><p class="experience-entry__index">04 <span>/ 06</span></p><h4>Freelance Programmer</h4><ul><li>Built secure e-commerce websites for catalogs, carts, checkout, payments, and order management.</li><li>Integrated payment, shipping, and third-party services; supported deployments, databases, and hosting.</li><li>Improved mobile experience, SEO, performance, and reliability with client teams.</li></ul></div>
+                </li>
+                <li class="experience-entry" data-experience-entry>
+                    <span class="experience-entry__marker" aria-hidden="true"></span>
+                    <div class="experience-entry__company"><p class="experience-entry__period">Apr 2021 <span>—</span> Sep 2022</p><h3>Invealth Partners Limited</h3><p class="experience-entry__location">Abuja, Nigeria</p></div>
+                    <div class="experience-entry__details"><p class="experience-entry__index">05 <span>/ 06</span></p><h4>Mid-Level Software / Web Developer &amp; IT Manager (Hybrid)</h4><ul><li>Designed secure web applications and software architecture for evolving business needs.</li><li>Managed IT and electronic data operations, network access, and backup systems.</li><li>Prioritized software lifecycle delivery and aligned system functionality with user needs.</li></ul></div>
+                </li>
+                <li class="experience-entry" data-experience-entry>
+                    <span class="experience-entry__marker" aria-hidden="true"></span>
+                    <div class="experience-entry__company"><p class="experience-entry__period">May 2019 <span>—</span> Mar 2021</p><h3>Bemztouch International Limited</h3><p class="experience-entry__location">Abuja, Nigeria</p></div>
+                    <div class="experience-entry__details"><p class="experience-entry__index">06 <span>/ 06</span></p><h4>Web Developer / IT Manager</h4><ul><li>Built and optimized secure web pages and script applications for changing business needs.</li><li>Managed IT systems and electronic data operations, network access, and backups.</li><li>Aligned technology operations with user needs and organizational policies.</li></ul></div>
+                </li>
+            </ol>
+        </div>
+        <div class="experience-credentials" aria-label="Education and certifications">
+            <p class="experience-credentials__heading">Education &amp; credentials</p>
+            <div><p class="experience-credentials__label">Education</p><h3>Bachelor of Computer Applications</h3><p>Bangalore University <span>·</span> 2014–2017</p></div>
+            <div><p class="experience-credentials__label">Certifications</p><h3>Software Engineering</h3><p>ALX Africa <span>·</span> 2023–2024</p></div>
+            <div><p class="experience-credentials__label">Cloud</p><h3>Oracle Cloud Infrastructure</h3><p>Oracle University <span>·</span> 2023</p></div>
         </div>
     </div>
 </section>
@@ -894,21 +984,23 @@
 <section class="container-fluid my-0 mx-auto align-items-center justify-content-center d-block" id="projects" aria-labelledby="projects-title">
     <header class="project-section-heading">
         <div class="project-section-heading__top">
-            <p class="eyebrow">Selected work <span aria-hidden="true">/</span> Portfolio</p>
+            <p class="eyebrow">Featured · latest releases</p>
             <p class="project-section-heading__count"><strong>08</strong><span>Featured projects</span></p>
         </div>
         <div class="project-section-heading__body">
-            <h2 class="section-title" id="projects-title">Built with purpose.<br><span>Made to work.</span></h2>
+            <h2 class="section-title" id="projects-title">Work in motion.<br><span>Built for what comes next.</span></h2>
             <div class="project-section-heading__intro">
-                <p class="section-text">From client platforms to independent builds, each project pairs thoughtful user experience with practical engineering. Explore the live work and public repositories.</p>
+                <p class="section-text">A closer look at selected work across websites, apps, and interactive experiences. Scroll to step inside each release.</p>
+                <p class="project-section-heading__scroll-note">Scroll to move through the releases</p>
                 <a class="project-github-link" href="https://github.com/gpaul988/" target="_blank" rel="noopener noreferrer">
                     <span>Explore more on GitHub</span><span aria-hidden="true">↗</span>
                 </a>
             </div>
         </div>
     </header>
+    <div class="project-reel__track" role="list" aria-label="Featured projects">
     <!--LeoBella Estates-->
-    <div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
         <div class="col-12 col-md-5 project-details">
             <h2 class="display-5 my-2">LeoBellaEstates</h2>
             <h4 class="text-muted">Real Estate Platform</h4>
@@ -923,7 +1015,7 @@
         </div>
     </div>
     <!--GSPEC EFFECTOR-->
-    <div class="row align-items-center justify-content-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row align-items-center justify-content-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
         <div class="col-12 col-md-5 justify-content-start">
             <h2 class="display-5 my-2">GSPEC Effector</h2>
             <h4 class="text-muted">Business Consulting & Infrastructure Solutions</h4>
@@ -938,7 +1030,7 @@
         </div>
     </div>
     <!--POAWDLTD-->
-    <div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
         <div class="col-12 col-md-5 project-details">
             <h2 class="display-5 my-2">POAWD LTD</h2>
             <h4 class="text-muted">Healthcare Recruitment agency</h4>
@@ -954,7 +1046,7 @@
         </div>
     </div>
         <!--Paints-->
-    <div class="row align-items-center justify-content-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row align-items-center justify-content-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
         <div class="col-12 col-md-5 justify-content-start">
             <h2 class="display-5 my-2">Paints</h2>
             <h4 class="text-muted"> Art Gallery </h4>
@@ -970,7 +1062,7 @@
 </div>
 </div>
 <!--Melody-->
-<div class="row align-items-center justify-content-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+<div class="row align-items-center justify-content-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
     <div class="col-12 col-md-5 justify-content-start">
         <h2 class="display-5 my-2">Melody</h2>
         <h4 class="text-muted">React Music Player</h4>
@@ -985,9 +1077,9 @@
 </div>
 </div>
 <!-- MyCharger -->
-<div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+<div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
     <div class="col-12 col-md-5 justify-content-start">
-        <h2 class="display-5 my-2">MyCharger</h2>
+        <h2 class="display-5 my-2 project-title--mycharger">MyCharger</h2>
         <h4 class="text-muted">EV-Fuel Calculator</h4>
         <p class="text-mark">Code Institute · Earth Day Hackathon</p>
         <p class="my-3 project-description">An EV savings calculator that compares estimated fuel and electric-vehicle costs, alongside a tool for exploring EV options.</p>
@@ -1002,7 +1094,7 @@
     </div>
 </div>
 <!--TwistWord-->
-<div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+<div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
     <div class="col-12 col-md-5 project-details">
         <h2 class="display-5 my-2">TwistWord</h2>
         <h4 class="text-muted">JavaScript Word Game</h4>
@@ -1019,7 +1111,7 @@
     </div>
 </div>
 <!--Stretch-->
-<div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-aos="fade-up" data-aos-duration="1000">
+<div class="row align-items-center d-block d-md-flex my-5 py-2 py-md-4 project-item" data-project-reveal role="listitem">
     <div class="col-12 col-md-5 project-details">
         <h2 class="display-5 my-2">Stretch</h2>
         <h4 class="text-muted">Yoga Website</h4>
@@ -1034,6 +1126,7 @@
     <img src="assets/images/stretch.webp" class="img-fluid img-wrapper--reverse project-img" alt="Stretch yoga and meditation studio website preview" width="889" height="517" loading="lazy" decoding="async">
 </div>
 </div>
+    </div>
 <!--./end-infinity-->
 </section>
 <!--./end-projects-->
@@ -1058,6 +1151,8 @@
 <script src="assets/js/quick-chat.js?v=20260927-brand-palette" defer></script>
 <script src="assets/js/header-scroll.js?v=20260927-brand-palette" defer></script>
 <script src="assets/js/site-init.js?v=20260927-brand-palette" defer></script>
+<script src="assets/js/project-scroll.js?v=20260930-featured-release-reel" defer></script>
+<script src="assets/js/experience-timeline.js?v=20260930-experience-timeline" defer></script>
 <script src="assets/js/top.js?v=20260927-brand-palette" defer></script>
 <script src="assets/js/nav.js?v=20260927-brand-palette" defer></script>
 <script src="assets/js/title-font-rotation.js?v=20260927-brand-palette" defer></script>

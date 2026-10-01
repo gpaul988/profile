@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-preloading">
 <head>
+    <script src="assets/js/preloader.js?v=20260929-studio-loader" defer></script>
     <title>Contact & Book a Call | Graham S. Paul</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,9 +21,36 @@
     <meta name="twitter:image" content="https://grahamspaul.cm/assets/images/grey1.jpg">
     <link rel="icon" type="image/png" href="assets/images/gray1.png">
     <link rel="apple-touch-icon" href="assets/images/gray1.png">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260927-project-header-layout">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260930-experience-timeline">
 </head>
 <body class="contact-page" data-theme="dark">
+    <div class="site-preloader" id="site-preloader" role="status" aria-live="polite" aria-label="Loading page content" hidden>
+        <div class="site-preloader__content">
+            <div class="site-preloader__art" aria-hidden="true">
+                <span class="site-preloader__art-index">FIELD NOTES / 001</span>
+                <svg class="site-preloader__mark" viewBox="0 0 240 240" focusable="false">
+                    <circle class="site-preloader__orbit site-preloader__orbit--outer" cx="120" cy="120" r="108"></circle>
+                    <circle class="site-preloader__orbit site-preloader__orbit--inner" cx="120" cy="120" r="83"></circle>
+                    <path class="site-preloader__crosshair" d="M120 0v29m0 182v29M0 120h29m182 0h29"></path>
+                    <path class="site-preloader__orbit-path" d="M29 179A105 105 0 0 0 202 52"></path>
+                    <circle class="site-preloader__spark" cx="202" cy="52" r="5"></circle>
+                </svg>
+                <img class="site-preloader__favicon" src="assets/images/gray1.png" alt="" width="220" height="220">
+                <span class="site-preloader__art-note">THINK<br>MAKE<br>REFINE</span>
+            </div>
+            <div class="site-preloader__copy">
+                <p class="site-preloader__eyebrow"><span></span> Graham S. Paul <span> / </span> Independent digital practice</p>
+                <p class="site-preloader__name">From first<br><span>principles.</span></p>
+                <p class="site-preloader__caption">Thoughtful design. Practical engineering. Digital experiences made to work for real people.</p>
+                <div class="site-preloader__progress-row">
+                    <span class="site-preloader__phase" aria-live="off">Understanding the brief</span>
+                    <span class="site-preloader__counter"><span>01</span> <i>/</i> 03</span>
+                </div>
+                <div class="site-preloader__progress" aria-hidden="true"><span></span></div>
+            </div>
+        </div>
+        <span class="site-preloader__edge-note">DESIGN <i>×</i> ENGINEERING <i>×</i> DETAIL</span>
+    </div>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="contact-page-header">
         <nav class="contact-page-header__inner" aria-label="Contact page navigation">
@@ -44,7 +72,6 @@
                     <svg class="contact-theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path>
                     </svg>
-                    <span class="contact-theme-toggle__text">Light mode</span>
                 </button>
             </div>
         </nav>
@@ -207,6 +234,7 @@
             <span class="site-bottom-nav__name">Graham S. Paul</span>
         </a>
         <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
         <a href="index.html#skills">Skills</a>
         <a href="index.html#projects">Projects</a>
         <a href="contact.html">Contact</a>

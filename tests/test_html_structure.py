@@ -47,6 +47,8 @@ class PageAuditParser(HTMLParser):
             self.issues.append('Executable inline script is not allowed by the Content Security Policy.')
         if tag == 'script' and attributes.get('src', '').startswith('assets/js/') and '?v=' not in attributes['src']:
             self.issues.append('Local JavaScript must be versioned for immutable caching.')
+        if tag == 'script' and attributes.get('src', '').startswith('assets/js/preloader.js') and 'defer' not in attributes:
+            self.issues.append('The preloader script must not block HTML parsing.')
 
         if tag == 'a':
             href = attributes.get('href', '')
@@ -158,6 +160,7 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('family=Alex+Brush', home)
         self.assertIn('family=Playfair+Display', home)
         self.assertNotIn('family=Allura', home)
+        self.assertIn('family=Bodoni+Moda', home)
 
     def test_service_process_and_project_form_details_are_aligned(self):
         home = Path('index.html').read_text(encoding='utf-8')
@@ -179,6 +182,54 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('Connect front-end experiences, backend workflows, APIs, and data', home)
         self.assertIn('Clarify users, goals, scope, required features, constraints, and success measures', home)
         self.assertIn('identify any follow-up support or improvements needed after release', home)
+
+    def test_brand_preloader_is_shared_fast_and_accessible(self):
+        shared_markup = []
+        for page_name in ('index.html', 'contact.html', 'privacy.html'):
+            html = Path(page_name).read_text(encoding='utf-8')
+            parser = PageAuditParser()
+            parser.feed(html)
+            parser.close()
+            self.assertIn('<html lang="en" class="is-preloading">', html)
+            self.assertIn('assets/js/preloader.js?v=20260929-studio-loader', html)
+            self.assertIn('aria-live="polite"', html)
+            self.assertIn('aria-label="Loading page content"', html)
+            self.assertIn('<img class="site-preloader__favicon" src="assets/images/gray1.png" alt="" width="220" height="220">', html)
+            self.assertNotIn('site-theme-toggle__text', html)
+            self.assertNotIn('contact-theme-toggle__text', html)
+            self.assertNotIn('site-preloader__monogram', html)
+            if page_name == 'index.html':
+                self.assertIn('id="home-theme-toggle"', html)
+            else:
+                self.assertIn('id="contact-theme-toggle"', html)
+            match = re.search(r'<div class="site-preloader".*?</div>\s*</div>', html, re.DOTALL)
+            self.assertIsNotNone(match, f'{page_name} is missing the shared preloader.')
+            shared_markup.append(' '.join(match.group(0).split()))
+        self.assertEqual(shared_markup[0], shared_markup[1])
+        self.assertEqual(shared_markup[1], shared_markup[2])
+
+        script = Path('assets/js/preloader.js').read_text(encoding='utf-8')
+        css = Path('assets/css/style.css').read_text(encoding='utf-8')
+        self.assertIn('const minimumDisplayTime = 5000', script)
+        self.assertIn('const maximumDisplayTime = 10000', script)
+        self.assertIn('Refining the details', script)
+        self.assertIn('Bringing it all together', script)
+        self.assertIn("document.addEventListener('DOMContentLoaded', () => {", script)
+        self.assertIn('pageReady = true;', script)
+        self.assertIn('}, { once: true });', script)
+        self.assertIn('html.is-preloading .site-preloader', css)
+        self.assertIn('radial-gradient(ellipse at 37% 50%, rgba(40, 221, 252, 0.1), transparent 36rem)', css)
+        self.assertIn('radial-gradient(ellipse at 37% 50%, rgba(8, 127, 133, 0.09), transparent 36rem)', css)
+        self.assertNotIn('linear-gradient(rgba(132, 175, 194, 0.035) 1px, transparent 1px)', css)
+        self.assertNotIn('linear-gradient(rgba(36, 74, 96, 0.035) 1px, transparent 1px)', css)
+        self.assertIn('.site-preloader__favicon', css)
+        self.assertIn('.site-preloader__progress', css)
+        self.assertIn('object-fit: cover;', css)
+        self.assertIn('.site-preloader__edge-note', css)
+        self.assertIn('writing-mode: vertical-rl', css)
+        self.assertIn('@keyframes preloader-content-enter', css)
+        self.assertIn('@keyframes preloader-art-enter', css)
+        self.assertIn('@media (prefers-reduced-motion: reduce)', css)
 
     def test_optimized_images_and_identity_details_are_consistent(self):
         optimized_assets = (
@@ -224,6 +275,8 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('href="index.html#projects">Projects</a>', html)
         self.assertNotIn('<footer', html)
         self.assertIn('id="contact-theme-toggle"', html)
+        self.assertIn('aria-label="Switch to light theme"', html)
+        self.assertNotIn('contact-theme-toggle__text', html)
         self.assertIn('assets/js/site-theme.js', html)
         self.assertIn('assets/js/header-scroll.js?v=20260927-brand-palette', html)
         self.assertIn('privacy.html', html)
@@ -273,7 +326,7 @@ class HtmlStructureTests(unittest.TestCase):
             self.assertIn('https://t.me/grahamspaul', html)
             self.assertIn('<small>@grahamspaul</small>', html)
             self.assertIn('assets/js/quick-chat.js?v=20260927-brand-palette', html)
-            self.assertIn('assets/css/style.css?v=20260927-project-header-layout', html)
+            self.assertIn('assets/css/style.css?v=20260930-project-button-match-offer', html)
         self.assertIn('.quick-chat__panel[hidden]', css)
         self.assertIn('.quick-chat__toggle-mark', css)
         self.assertIn('.quick-chat__link-action', css)
@@ -286,17 +339,25 @@ class HtmlStructureTests(unittest.TestCase):
         css = Path('assets/css/style.css').read_text(encoding='utf-8')
         script = Path('assets/js/site-theme.js').read_text(encoding='utf-8')
         self.assertIn('id="home-theme-toggle"', home)
+        self.assertIn('aria-label="Switch to light theme"', home)
+        self.assertNotIn('site-theme-toggle__text', home)
         self.assertIn('data-theme="dark"', home)
         self.assertIn('assets/js/site-theme.js', home)
         self.assertIn('assets/js/header-scroll.js?v=20260927-brand-palette', home)
         self.assertIn('home-theme-toggle', script)
         self.assertIn('.home-page[data-theme="light"]', css)
         self.assertIn('graham-site-theme', script)
+        self.assertIn('.site-theme-toggle svg', css)
+        self.assertIn('width: 40px;', css)
+        self.assertIn('height: 40px;', css)
+        self.assertIn('padding: 0;', css)
+        self.assertIn('@media (prefers-reduced-motion: reduce)', css)
 
     def test_fixed_bottom_navigation_is_consistent_across_pages(self):
         navigation_markup = []
         expected_links = (
             'href="index.html#about">About</a>',
+            'href="index.html#experience">Experience</a>',
             'href="index.html#skills">Skills</a>',
             'href="index.html#projects">Projects</a>',
             'href="contact.html">Contact</a>'
@@ -414,7 +475,7 @@ class HtmlStructureTests(unittest.TestCase):
 
     def test_home_light_theme_covers_page_sections(self):
         css = Path('assets/css/style.css').read_text(encoding='utf-8')
-        for section in ('#welcome', '#about', '#value', '#process', '#skills', '#projects', '#contact'):
+        for section in ('#welcome', '#about', '#value', '#process', '#experience', '#skills', '#projects', '#contact'):
             self.assertIn(f'.home-page[data-theme="light"] {section}', css)
         self.assertIn('.home-page[data-theme="light"] .contact-cta', css)
 
@@ -427,10 +488,7 @@ class HtmlStructureTests(unittest.TestCase):
     def test_project_links_match_the_project_section_copy(self):
         home = Path('index.html').read_text(encoding='utf-8')
         projects = home.split('id="projects"', 1)[1].split('<!--./end-projects-->', 1)[0]
-        self.assertIn(
-            'From client platforms to independent builds, each project pairs thoughtful user experience with practical engineering. Explore the live work and public repositories.',
-            projects
-        )
+        self.assertIn('A closer look at selected work across websites, apps, and interactive experiences.', projects)
         self.assertIn('<header class="project-section-heading">', projects)
         self.assertIn('class="project-section-heading__body"', projects)
         self.assertIn('class="project-section-heading__intro"', projects)
@@ -441,6 +499,10 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertNotIn('View Source Code', projects)
         self.assertNotIn('click "View Project"', projects)
         self.assertEqual(projects.count('project-item"'), 8)
+        self.assertEqual(projects.count('data-project-reveal'), 8)
+        self.assertEqual(projects.count('role="listitem"'), 8)
+        self.assertIn('class="project-reel__track" role="list"', projects)
+        self.assertNotIn('data-aos=', projects)
         self.assertEqual(projects.count('class="project-button"'), 8)
         self.assertEqual(projects.count('class="project-source-link"'), 5)
         for repository in (
@@ -453,8 +515,57 @@ class HtmlStructureTests(unittest.TestCase):
             self.assertIn(f'https://github.com/{repository}', projects)
         self.assertIn('aria-label="Visit the LeoBella Estates live site"', projects)
         self.assertIn('aria-label="View MyCharger source code"', projects)
+        self.assertIn('class="display-5 my-2 project-title--mycharger">MyCharger</h2>', projects)
 
-    def test_button_orange_beam_tracks_its_border(self):
+    def test_project_scroll_reveals_have_fallbacks_and_respect_reduced_motion(self):
+        home = Path('index.html').read_text(encoding='utf-8')
+        css = Path('assets/css/style.css').read_text(encoding='utf-8')
+        script = Path('assets/js/project-scroll.js').read_text(encoding='utf-8')
+        self.assertIn('assets/js/project-scroll.js?', home)
+        self.assertIn('desktopReel.matches', script)
+        self.assertIn('prefers-reduced-motion: reduce', script)
+        self.assertIn('#projects.project-reel-ready .project-item', css)
+        self.assertIn('className = \'project-reel__stage\'', script)
+        self.assertIn('circle(var(--reel-clip, 0%) at 14% 32%)', css)
+        self.assertIn('.project-reel__nav', css)
+        self.assertIn('height: 900svh;', css)
+        self.assertIn('(cards.length + 1) * window.innerHeight', script)
+        self.assertIn('supportsReelMask', script)
+        self.assertIn('project-preview-frame__chrome', css)
+        self.assertIn('#projects.project-reel-ready .project-title--mycharger', css)
+        self.assertIn('white-space: nowrap;', css)
+        self.assertIn('if (!desktopReel.matches || reducedMotion.matches)', script)
+        self.assertIn('function restoreStaticPortfolio()', script)
+        self.assertIn('project-reel-ready', script)
+        self.assertIn('@media (prefers-reduced-motion: reduce)', css)
+
+    def test_experience_timeline_matches_resume_and_has_accessible_progression(self):
+        home = Path('index.html').read_text(encoding='utf-8')
+        css = Path('assets/css/style.css').read_text(encoding='utf-8')
+        script = Path('assets/js/experience-timeline.js').read_text(encoding='utf-8')
+        experience = home.split('id="experience"', 1)[1].split('</section>', 1)[0]
+        self.assertIn('assets/js/experience-timeline.js?', home)
+        self.assertIn('<ol class="experience-list">', experience)
+        self.assertEqual(experience.count('class="experience-entry"'), 6)
+        for employer in (
+            'POAWD Limited',
+            'Grey InfoTech Limited',
+            'Royal Ginad Group',
+            'Cane Services Limited',
+            'Invealth Partners Limited',
+            'Bemztouch International Limited'
+        ):
+            self.assertIn(employer, experience)
+        self.assertIn('Bachelor of Computer Applications', experience)
+        self.assertIn('Oracle Cloud Infrastructure', experience)
+        self.assertIn('aria-hidden="true"', experience)
+        self.assertIn('experience-timeline__cursor', experience)
+        self.assertIn('--experience-progress', css)
+        self.assertIn('--experience-progress-position', script)
+        self.assertIn('IntersectionObserver', script)
+        self.assertIn('prefers-reduced-motion: reduce', css)
+
+    def test_liquid_buttons_keep_brand_colors_drips_and_running_border_beams(self):
         css = Path('assets/css/style.css').read_text(encoding='utf-8')
         self.assertIn('@property --button-beam-angle', css)
         self.assertIn('--button-beam-angle: 360deg;', css)
@@ -467,9 +578,45 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('inset: -1px;', css)
         self.assertIn('from var(--button-beam-angle)', css)
         self.assertIn('from var(--button-beam-reverse-angle)', css)
-        self.assertEqual(css.count('conic-gradient(from var(--button-beam-'), 4)
+        self.assertGreaterEqual(css.count('conic-gradient(from var(--button-beam-'), 10)
         self.assertIn('beam-spin-third 3s linear infinite', css)
         self.assertIn('beam-spin-fourth 3s linear infinite', css)
+        self.assertIn('--button-cyan: #28ddfc;', css)
+        self.assertIn('--button-orange: #ff5a1f;', css)
+        self.assertIn('--button-cyan: #00a9cf;', css)
+        self.assertIn('--button-orange: #e94f24;', css)
+        self.assertIn('@keyframes liquid-button-drip', css)
+        self.assertIn('animation: liquid-button-drip 2.5s ease infinite;', css)
+        self.assertIn('min-height: 2.75rem;', css)
+        self.assertIn('.home-page .project-button.liquid-button', css)
+        self.assertIn('min-height: 3.1rem;', css)
+        self.assertIn('padding: 0.8rem 1rem;', css)
+        self.assertIn('width: fit-content;', css)
+        self.assertIn('min-height: 2.75rem;', css)
+        self.assertIn('min-width: 0;', css)
+        self.assertIn('padding: 0.65rem 1.1rem;', css)
+        self.assertIn('background: linear-gradient(110deg, var(--button-cyan) 0%, var(--button-orange) 100%);', css)
+        self.assertIn('.liquid-button__wave--1', css)
+        self.assertIn('.liquid-button__wave--2', css)
+        self.assertIn('.liquid-button__wave--3', css)
+        self.assertIn('height: 400%;', css)
+        self.assertIn('top: -200%;', css)
+        self.assertIn('transform: translateY(17.5%);', css)
+        self.assertIn('transform: translateY(-2.5%);', css)
+        self.assertIn('border-radius: 44% 56% 51% 49% / 47% 42% 58% 53%;', css)
+        self.assertNotIn('clip-path: polygon(', css)
+        self.assertIn('filter: url("#liquid")', css)
+        self.assertIn('filter: blur(9px);', css)
+        self.assertIn('.button-liquid-filters', css)
+        self.assertIn('rgba(40, 221, 252, 0.16)', css)
+        self.assertIn('rgba(255, 90, 31, 0.13)', css)
+        self.assertIn('rgba(7, 20, 29, 0.34)', css)
+        self.assertIn('rgba(255, 255, 255, 0.62)', css)
+        script = Path('assets/js/liquid-buttons.js').read_text(encoding='utf-8')
+        for generated_class in ('liquid-button__surface', 'liquid-button__wave', 'liquid-button__drop', 'liquid-button__splash', 'liquid-button__content'):
+            self.assertIn(generated_class, script)
+        self.assertIn('body.contact-page .contact-page-actions .btn', css)
+        self.assertIn('.home-page[data-theme="light"] .hero-actions .project-button', css)
         self.assertNotIn('@keyframes beam-spin {\n  to {\n    transform: rotate(360deg);', css)
 
     def test_home_and_contact_pages_have_no_footer(self):
