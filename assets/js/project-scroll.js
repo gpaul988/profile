@@ -22,15 +22,33 @@
   });
   var stage = document.createElement('div');
   stage.className = 'project-reel__stage';
-  stage.setAttribute('role', 'group');
+  stage.setAttribute('role', 'region');
   stage.setAttribute('aria-label', 'Featured project releases');
   track.removeAttribute('role');
   track.setAttribute('aria-label', 'Featured project reel');
   track.appendChild(stage);
 
+  function getInitials(value) {
+    var words = value
+      .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+      .match(/[A-Za-z0-9]+/g) || [];
+    return words.slice(0, 2).map(function (word) {
+      return word.charAt(0);
+    }).join('').toUpperCase() || 'P';
+  }
+
+  function createMark(name, className) {
+    var mark = document.createElement('span');
+    mark.className = className;
+    mark.setAttribute('aria-hidden', 'true');
+    mark.textContent = getInitials(name);
+    return mark;
+  }
+
   cards.forEach(function (card, index) {
     var title = card.querySelector('h2');
     var name = title ? title.textContent.trim() : 'Project ' + (index + 1);
+    var category = card.querySelector('h4');
     var image = card.querySelector('.project-img');
     var imageColumn = image && image.parentElement;
     card.id = 'featured-project-' + (index + 1);
@@ -48,6 +66,9 @@
       'align-items-center',
       'justify-content-center'
     );
+    if (title) {
+      title.before(createMark(name, 'project-release-mark'));
+    }
     stage.appendChild(card);
 
     if (image && imageColumn) {
@@ -55,20 +76,40 @@
       var chrome = document.createElement('div');
       var lights = document.createElement('span');
       var address = document.createElement('span');
+      var status = document.createElement('span');
+      var caption = document.createElement('figcaption');
+      var captionMark = createMark(name, 'project-release-mark');
+      var captionCopy = document.createElement('span');
+      var captionKicker = document.createElement('span');
+      var captionTitle = document.createElement('strong');
       var visitLink = card.querySelector('.project-button');
 
       frame.className = 'project-preview-frame';
       chrome.className = 'project-preview-frame__chrome';
       chrome.setAttribute('aria-hidden', 'true');
       lights.className = 'project-preview-frame__lights';
-      lights.textContent = '\u25CF \u25CF \u25CF';
+      for (var lightIndex = 0; lightIndex < 3; lightIndex += 1) {
+        lights.appendChild(document.createElement('span'));
+      }
       address.className = 'project-preview-frame__address';
       address.textContent = visitLink ? new URL(visitLink.href).hostname : name;
+      status.className = 'project-preview-frame__status';
+      status.textContent = 'Live';
       chrome.appendChild(lights);
       chrome.appendChild(address);
+      chrome.appendChild(status);
+      caption.className = 'project-preview-frame__caption';
+      captionCopy.className = 'project-preview-frame__caption-copy';
+      captionKicker.textContent = 'Live project';
+      captionTitle.textContent = category ? category.textContent.trim() : name;
+      captionCopy.appendChild(captionKicker);
+      captionCopy.appendChild(captionTitle);
+      caption.appendChild(captionMark);
+      caption.appendChild(captionCopy);
       frame.appendChild(chrome);
       imageColumn.insertBefore(frame, image);
       frame.appendChild(image);
+      frame.appendChild(caption);
     }
   });
 
@@ -94,7 +135,14 @@
     link.href = '#' + card.id;
     link.setAttribute('aria-label', 'Go to ' + name);
     link.setAttribute('aria-controls', card.id);
-    link.textContent = String(index + 1).padStart(2, '0');
+    link.setAttribute('title', name);
+    var mark = createMark(name, 'project-reel__nav-mark');
+    mark.removeAttribute('aria-hidden');
+    link.appendChild(mark);
+    var label = document.createElement('span');
+    label.className = 'project-reel__nav-label';
+    label.textContent = name;
+    link.appendChild(label);
     link.addEventListener('click', function (event) {
       event.preventDefault();
       var target = track.getBoundingClientRect().top + window.scrollY + index * window.innerHeight;
@@ -123,6 +171,25 @@
 
   function sizeReel() {
     track.style.height = ((cards.length + 1) * window.innerHeight) + 'px';
+  }
+
+  function updateRevealOrigins() {
+    if (!stage.clientWidth || !stage.clientHeight) {
+      return;
+    }
+
+    cards.forEach(function (card) {
+      var mark = card.querySelector('.project-release-mark');
+      if (!mark) {
+        return;
+      }
+      var cardBounds = card.getBoundingClientRect();
+      var bounds = mark.getBoundingClientRect();
+      var x = ((bounds.left + bounds.width / 2 - cardBounds.left) / cardBounds.width) * 100;
+      var y = ((bounds.top + bounds.height / 2 - cardBounds.top) / cardBounds.height) * 100;
+      card.style.setProperty('--reel-origin-x', Math.max(5, Math.min(95, x)) + '%');
+      card.style.setProperty('--reel-origin-y', Math.max(5, Math.min(95, y)) + '%');
+    });
   }
 
   var frameRequested = false;
@@ -179,12 +246,19 @@
 
     if (projects.classList.contains('project-reel-ready')) {
       sizeReel();
+      updateRevealOrigins();
       requestFrame();
     }
+  };
+  var handleFontsLoaded = function () {
+    updateRevealOrigins();
   };
 
   window.addEventListener('scroll', requestFrame, { passive: true });
   window.addEventListener('resize', handleResize);
+  if (document.fonts && document.fonts.addEventListener) {
+    document.fonts.addEventListener('loadingdone', handleFontsLoaded);
+  }
 
   function restoreStaticPortfolio() {
     if (!projects.classList.contains('project-reel-ready')) {
@@ -193,6 +267,9 @@
 
     window.removeEventListener('scroll', requestFrame);
     window.removeEventListener('resize', handleResize);
+    if (document.fonts && document.fonts.removeEventListener) {
+      document.fonts.removeEventListener('loadingdone', handleFontsLoaded);
+    }
     nav.remove();
     cards.forEach(function (card, index) {
       card.removeAttribute('id');
@@ -203,6 +280,12 @@
       card.className = originalClasses[index];
       card.style.removeProperty('--reel-index');
       card.style.removeProperty('--reel-clip');
+      card.style.removeProperty('--reel-origin-x');
+      card.style.removeProperty('--reel-origin-y');
+      var mark = card.querySelector('.project-release-mark');
+      if (mark) {
+        mark.remove();
+      }
       if ('inert' in card) {
         card.inert = false;
       }
@@ -239,5 +322,7 @@
   });
 
   sizeReel();
+  updateRevealOrigins();
   updateReel();
+  window.requestAnimationFrame(updateRevealOrigins);
 }());

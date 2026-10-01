@@ -81,7 +81,7 @@
         <section class="contact-page-intro" aria-labelledby="contact-page-title">
             <p class="eyebrow">Let’s build something meaningful</p>
             <h1 id="contact-page-title">Start a conversation</h1>
-            <p>Share a little about your goals, or book a complimentary 30-minute call to talk through your idea and possible next steps.</p>
+            <p>Tell me about a project or request a paid one-to-one mentorship session. For project scoping, you can also book a complimentary 30-minute call.</p>
             <div class="contact-page-actions">
                 <a class="btn" href="#contact-form-section">Request a project quote</a>
                 <a class="contact-page-link" href="#book-a-call">Book a call <span aria-hidden="true">↓</span></a>
@@ -91,8 +91,8 @@
         <section class="contact-benefits" aria-label="What to expect">
             <article class="contact-benefit-card">
                 <span class="contact-benefit-card__icon" aria-hidden="true">30</span>
-                <h2>Free 30-minute consultation</h2>
-                <p>No commitment. We’ll discuss your goals, requirements, and the best way to move forward.</p>
+                <h2>Free 30-minute project consultation</h2>
+                <p>No commitment. We’ll discuss your project goals, requirements, and the best way to move forward.</p>
             </article>
             <article class="contact-benefit-card">
                 <span class="contact-benefit-card__icon" aria-hidden="true">01</span>
@@ -108,13 +108,13 @@
 
         <section class="contact-page-form-section" id="contact-form-section" aria-labelledby="contact-form-title">
             <div class="contact-page-section-heading">
-                <p class="eyebrow">Project enquiry</p>
-                <h2 id="contact-form-title">Tell me about your project</h2>
-                <p>Include as much detail as you can. I’ll review your enquiry and reply with clear next steps.</p>
+                <p class="eyebrow">Project &amp; mentorship enquiries</p>
+                <h2 id="contact-form-title">Tell me what you need</h2>
+                <p>Share your project details or the mentorship topic you’re interested in. I’ll review your enquiry and reply with clear next steps.</p>
             </div>
             <div class="contact-card">
                 <form class="form contact-form" method="POST" id="contact-form" action="https://formspree.io/f/xjyvnjzn">
-                    <input type="hidden" name="_subject" value="New website project enquiry">
+                    <input type="hidden" name="_subject" value="New portfolio enquiry">
                     <div class="contact-form-grid">
                         <div class="form-group">
                             <label for="from_name">Full name</label>
@@ -133,7 +133,7 @@
                             <input type="tel" name="phone_number" id="phone_number" autocomplete="tel" placeholder="Optional">
                         </div>
                         <div class="form-group">
-                            <label for="project_type">Project type</label>
+                            <label for="project_type">Enquiry type</label>
                             <select name="project_type" id="project_type" required>
                                 <option value="" selected disabled>Select a project type</option>
                                 <option>Website Design</option>
@@ -144,6 +144,9 @@
                                 <option>Portfolio Site</option>
                                 <option>Business Website</option>
                                 <option>Brand Refresh</option>
+                                <option>Mentorship: Learning with direction ($10 / 30 minutes)</option>
+                                <option>Mentorship: Projects &amp; portfolio ($15 / 30 minutes)</option>
+                                <option>Mentorship: Career perspective ($12 / 30 minutes)</option>
                                 <option>Other</option>
                             </select>
                         </div>
@@ -167,12 +170,15 @@
                                 <option>API and Third-Party Integrations</option>
                                 <option>Performance and Accessibility Improvements</option>
                                 <option>Technical Consultation</option>
+                                <option>Learning with direction ($10 / 30 minutes)</option>
+                                <option>Projects &amp; portfolio ($15 / 30 minutes)</option>
+                                <option>Career perspective ($12 / 30 minutes)</option>
                                 <option>Other</option>
                                 <option>Not sure yet</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="budget">Estimated budget</label>
+                            <label for="budget">Project budget (if applicable)</label>
                             <select name="budget" id="budget">
                                 <option value="" selected disabled>Select a range</option>
                                 <option>Under $500</option>
@@ -184,7 +190,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="timeline">Preferred timeline</label>
+                            <label for="timeline">Project timeline (if applicable)</label>
                             <select name="timeline" id="timeline">
                                 <option value="" selected disabled>Choose a timeline</option>
                                 <option>ASAP</option>
@@ -195,12 +201,12 @@
                             </select>
                         </div>
                         <div class="form-group form-group-wide">
-                            <label for="message">Project goals and details</label>
-                            <textarea name="message" id="message" rows="6" placeholder="Tell me about your goals, audience, requirements, and any references." required></textarea>
+                            <label for="message">Goals and details</label>
+                            <textarea name="message" id="message" rows="6" placeholder="For projects, share your goals, audience, and requirements. For mentorship, name the session topic and what you’d like help with." required></textarea>
                         </div>
                     </div>
                     <div class="contact-form-submit">
-                        <button type="submit" id="button" class="btn">Send project enquiry</button>
+                        <button type="submit" id="button" class="btn">Send enquiry</button>
                     </div>
                     <div id="form-status" class="form-status" aria-live="polite"></div>
                     <p class="contact-form-privacy">Submitting this form sends your details to Formspree so I can respond to your enquiry. <a href="privacy.html">Read the privacy notice</a>.</p>
@@ -212,7 +218,7 @@
             <div class="contact-page-section-heading">
                 <p class="eyebrow">Schedule a conversation</p>
                 <h2 id="book-a-call-title">Book a call</h2>
-                <p>Choose a time that works for you. Your booking and timezone are handled securely by Cal.com.</p>
+                <p>This complimentary call is for project scoping. To ask about a paid mentorship session, send an enquiry using the form above. Your booking and timezone are handled securely by Cal.com.</p>
             </div>
             <div class="contact-booking-frame">
                 <iframe
@@ -271,7 +277,7 @@
         </button>
     </div>
     <script src="assets/js/script.js?v=20261018-enquiry-copy" defer></script>
-    <script src="assets/js/site-theme.js?v=20260927-brand-palette" defer></script>
+    <script src="assets/js/site-theme.js?v=20261002-optional-theme-label" defer></script>
     <script src="assets/js/quick-chat.js?v=20260927-brand-palette" defer></script>
     <script src="assets/js/header-scroll.js?v=20260927-brand-palette" defer></script>
     <script src="assets/js/site-init.js?v=20260927-brand-palette" defer></script>

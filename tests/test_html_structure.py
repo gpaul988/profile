@@ -169,6 +169,10 @@ class HtmlStructureTests(unittest.TestCase):
             r'<option[^>]*>([^<]*)</option>',
             contact.split('id="project_type"', 1)[1].split('</select>', 1)[0]
         )[1:]
+        contact_project_options = [
+            option for option in contact_project_options
+            if not option.startswith('Mentorship:')
+        ]
         intake_project_options = re.findall(
             r'<option[^>]*>([^<]*)</option>',
             home.split('id="intake-type"', 1)[1].split('</select>', 1)[0]
@@ -326,7 +330,7 @@ class HtmlStructureTests(unittest.TestCase):
             self.assertIn('https://t.me/grahamspaul', html)
             self.assertIn('<small>@grahamspaul</small>', html)
             self.assertIn('assets/js/quick-chat.js?v=20260927-brand-palette', html)
-            self.assertIn('assets/css/style.css?v=20260930-project-button-match-offer', html)
+            self.assertIn('assets/css/style.css?', html)
         self.assertIn('.quick-chat__panel[hidden]', css)
         self.assertIn('.quick-chat__toggle-mark', css)
         self.assertIn('.quick-chat__link-action', css)
@@ -345,6 +349,9 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('assets/js/site-theme.js', home)
         self.assertIn('assets/js/header-scroll.js?v=20260927-brand-palette', home)
         self.assertIn('home-theme-toggle', script)
+        self.assertIn('if (themeToggle && (isContactPage || themePage.classList.contains(\'home-page\'))) {', script)
+        self.assertIn('if (themeToggleText) {', script)
+        self.assertIn("themePage.dataset.theme = useLightTheme ? 'light' : 'dark';", script)
         self.assertIn('.home-page[data-theme="light"]', css)
         self.assertIn('graham-site-theme', script)
         self.assertIn('.site-theme-toggle svg', css)
@@ -396,9 +403,14 @@ class HtmlStructureTests(unittest.TestCase):
         css = Path('assets/css/style.css').read_text(encoding='utf-8')
         self.assertIn('id="about" aria-labelledby="about-title"', home)
         self.assertIn('<p class="eyebrow">A little about me</p>', home)
-        self.assertIn('id="about-title">Engineering thoughtful digital products, from first sketch to launch.</h2>', home)
-        self.assertIn('understanding the brief, shaping the interface, building the backend, and preparing the product for launch', home)
-        self.assertIn('responsive, maintainable applications that solve real business needs', home)
+        self.assertIn('id="about-title">From repairing computers to engineering digital products.</h2>', home)
+        self.assertIn('desktop and laptop repair, then extended that hands-on work to servers', home)
+        self.assertIn('WordPress and low- or no-code CMS platforms', home)
+        self.assertIn('Started studying HTML, CSS, JavaScript, and PHP', home)
+        self.assertIn('T. John College in Bangalore, Karnataka, India', home)
+        self.assertIn('class="about-journey__timeline"', home)
+        for milestone in ('2008', '2011', '2012', '2014–2017'):
+            self.assertIn(milestone, home)
         self.assertIn('class="about-focus-list" aria-label="Areas of focus"', home)
         self.assertIn('Product thinking', home)
         self.assertIn('Front-end and backend', home)
@@ -479,6 +491,17 @@ class HtmlStructureTests(unittest.TestCase):
             self.assertIn(f'.home-page[data-theme="light"] {section}', css)
         self.assertIn('.home-page[data-theme="light"] .contact-cta', css)
 
+    def test_homepage_sections_blend_without_hard_divider_lines(self):
+        css = Path('assets/css/style.css').read_text(encoding='utf-8')
+        self.assertIn('.home-page main > section {\n  border-block: 0;\n}', css)
+        transition_styles = css[css.rfind('/* Keep the section artwork visible'):]
+        for image in ('deskspace.webp', 'bg.webp', 'bg4-jpeg.webp', 'projects-background.svg'):
+            self.assertIn(f'url("../images/{image}")', transition_styles)
+        for selector in ('.home-page #welcome', '.home-page[data-theme="light"] #welcome',
+                         '.home-page #projects', '.home-page[data-theme="light"] #projects'):
+            self.assertIn(selector, transition_styles)
+        self.assertIn('background-attachment: scroll;', css)
+
     def test_projects_section_uses_dedicated_background(self):
         css = Path('assets/css/style.css').read_text(encoding='utf-8')
         artwork = Path('assets/images/projects-background.svg')
@@ -488,9 +511,13 @@ class HtmlStructureTests(unittest.TestCase):
     def test_project_links_match_the_project_section_copy(self):
         home = Path('index.html').read_text(encoding='utf-8')
         projects = home.split('id="projects"', 1)[1].split('<!--./end-projects-->', 1)[0]
-        self.assertIn('A closer look at selected work across websites, apps, and interactive experiences.', projects)
+        self.assertIn('A closer look at recent websites, apps, and interactive experiences.', projects)
+        self.assertIn('Now shipping.', projects)
+        self.assertIn('Fresh off the workbench.', projects)
         self.assertIn('<header class="project-section-heading">', projects)
         self.assertIn('class="project-section-heading__body"', projects)
+        self.assertIn('class="project-section-heading__headline"', projects)
+        self.assertIn('class="project-section-heading__subhead">Fresh off the workbench.</p>', projects)
         self.assertIn('class="project-section-heading__intro"', projects)
         self.assertIn('class="project-section-heading__count"', projects)
         self.assertIn('id="projects-title"', projects)
@@ -516,6 +543,61 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('aria-label="Visit the LeoBella Estates live site"', projects)
         self.assertIn('aria-label="View MyCharger source code"', projects)
         self.assertIn('class="display-5 my-2 project-title--mycharger">MyCharger</h2>', projects)
+        for detailed_project_copy in (
+            'property-discovery website for prospective buyers and renters',
+            'business consulting and infrastructure services',
+            'healthcare recruitment agency serving organizations in the United Kingdom',
+            'find a track, then play the selected video',
+            'compares estimated petrol and electric running costs',
+            'short, interactive challenge',
+            'calm visual identity and a clear, mobile-friendly structure'
+        ):
+            self.assertIn(detailed_project_copy, projects)
+
+    def test_mentorship_section_is_focused_priced_and_follows_featured_projects(self):
+        home = Path('index.html').read_text(encoding='utf-8')
+        css = Path('assets/css/style.css').read_text(encoding='utf-8')
+        section = home.split('id="mentorship-products"', 1)[1].split('</section>', 1)[0]
+        projects_end = home.index('<!--./end-projects-->')
+        section_start = home.index('<section class="mentorship-products"')
+        contact_start = home.index('<section class="contact-cta"')
+
+        self.assertLess(projects_end, section_start)
+        self.assertLess(section_start, contact_start)
+        self.assertIn('id="mentorship-products-title"', section)
+        self.assertIn('href="contact.html#contact-form-section"', section)
+        self.assertIn('Three focused 30-minute conversations', section)
+        self.assertIn('transparent, fixed pricing', section)
+        for price in ('$10', '$15', '$12'):
+            self.assertIn(f'<strong>{price}</strong><span>30 MIN</span>', section)
+        self.assertNotIn('US$', section)
+        self.assertEqual(section.count('href="contact.html#contact-form-section">Enquire about a session'), 3)
+        self.assertIn('complimentary call is reserved for project scoping', section)
+        self.assertNotIn('INDEPENDENT BUILDS', section)
+        self.assertNotIn('MORE FROM THE PORTFOLIO', section)
+        self.assertNotIn('mentorship-products__project', section)
+        self.assertNotIn('mentorship-products__portfolio-card', section)
+        self.assertEqual(section.count('class="mentorship-products__mentor-card"'), 3)
+        self.assertIn('Learn with intent.', section)
+        self.assertIn('Each has a clear scope and transparent, fixed pricing.', section)
+        self.assertIn('assets/css/style.css?v=20261002-background-images-theme-toggle', home)
+        contact = Path('contact.html').read_text(encoding='utf-8')
+        for offer in (
+            'Learning with direction ($10 / 30 minutes)',
+            'Projects &amp; portfolio ($15 / 30 minutes)',
+            'Career perspective ($12 / 30 minutes)'
+        ):
+            self.assertIn(offer, contact)
+        self.assertIn('.home-page[data-theme="light"] .mentorship-products', css)
+        self.assertIn('@media (max-width: 520px)', css)
+        self.assertIn('.mentorship-products__mentor-card::after', css)
+        self.assertIn('font-size: clamp(1.85rem, 3vw, 2.35rem);', css)
+        self.assertIn('animation: mentorship-ambient-breathe 13s ease-in-out infinite alternate;', css)
+        self.assertIn('@keyframes mentorship-ambient-breathe', css)
+        self.assertNotIn('.mentorship-products::before {\n  background-image: linear-gradient', css)
+        self.assertIn('@media (max-width: 900px)', css)
+        self.assertIn('@media (max-width: 700px)', css)
+        self.assertIn('.mentorship-products::before {\n    animation: none;', css)
 
     def test_project_scroll_reveals_have_fallbacks_and_respect_reduced_motion(self):
         home = Path('index.html').read_text(encoding='utf-8')
@@ -526,11 +608,15 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('prefers-reduced-motion: reduce', script)
         self.assertIn('#projects.project-reel-ready .project-item', css)
         self.assertIn('className = \'project-reel__stage\'', script)
-        self.assertIn('circle(var(--reel-clip, 0%) at 14% 32%)', css)
+        self.assertIn('circle(var(--reel-clip, 0%) at var(--reel-origin-x, 14%) var(--reel-origin-y, 32%))', css)
         self.assertIn('.project-reel__nav', css)
         self.assertIn('height: 900svh;', css)
         self.assertIn('(cards.length + 1) * window.innerHeight', script)
         self.assertIn('supportsReelMask', script)
+        self.assertIn('function updateRevealOrigins()', script)
+        self.assertIn('project-release-mark', script)
+        self.assertIn('cardBounds', script)
+        self.assertIn('project-preview-frame__caption', css)
         self.assertIn('project-preview-frame__chrome', css)
         self.assertIn('#projects.project-reel-ready .project-title--mycharger', css)
         self.assertIn('white-space: nowrap;', css)

@@ -7,7 +7,7 @@ const themeToggleText = themeToggle?.querySelector(
 );
 const themeStorageKey = 'graham-site-theme';
 
-if (themeToggle && themeToggleText && (isContactPage || themePage.classList.contains('home-page'))) {
+if (themeToggle && (isContactPage || themePage.classList.contains('home-page'))) {
     const readSavedTheme = () => {
         try {
             return window.localStorage.getItem(themeStorageKey)
@@ -48,7 +48,9 @@ if (themeToggle && themeToggleText && (isContactPage || themePage.classList.cont
             useLightTheme ? 'Switch to dark theme' : 'Switch to light theme'
         );
         themeToggle.title = useLightTheme ? 'Switch to dark theme' : 'Switch to light theme';
-        themeToggleText.textContent = useLightTheme ? 'Dark mode' : 'Light mode';
+        if (themeToggleText) {
+            themeToggleText.textContent = useLightTheme ? 'Dark mode' : 'Light mode';
+        }
 
         const bookingFrame = document.querySelector('.contact-booking-frame iframe');
         if (bookingFrame) {
