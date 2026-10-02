@@ -257,6 +257,7 @@ class HtmlStructureTests(unittest.TestCase):
             self.assertIn('assets/js/preloader.js?v=20260929-studio-loader', html)
             self.assertIn('aria-live="polite"', html)
             self.assertIn('aria-label="Loading page content"', html)
+            self.assertNotIn('id="site-preloader" role="status" aria-live="polite" aria-label="Loading page content" hidden', html)
             self.assertIn('<img class="site-preloader__favicon" src="assets/images/gray1.png" alt="" width="220" height="220">', html)
             self.assertNotIn('site-theme-toggle__text', html)
             self.assertNotIn('contact-theme-toggle__text', html)

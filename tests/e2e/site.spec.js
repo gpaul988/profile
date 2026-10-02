@@ -23,6 +23,18 @@ test('homepage and contact page load without JavaScript runtime errors', async (
   expect(runtimeErrors).toEqual([]);
 });
 
+test('homepage preloader appears on first visit and every reload', async ({ page }) => {
+  const preloader = page.locator('#site-preloader');
+
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(preloader).toBeVisible();
+  await expect(preloader).toBeHidden({ timeout: 7000 });
+
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(preloader).toBeVisible();
+  await expect(preloader).toBeHidden({ timeout: 7000 });
+});
+
 test('theme choice toggles and persists across site pages', async ({ page }) => {
   await page.goto('/');
   const initialTheme = await page.locator('body').getAttribute('data-theme');
