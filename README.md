@@ -33,6 +33,22 @@ focus indicators use 3:1 against adjacent colors. The dark page background
 in `assets/css/style.css`. New colors should be checked with a WCAG contrast
 checker before being used for text, controls, or focus indicators.
 
+## Local regression checks
+
+Run the HTML and security configuration checks with:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Run the browser journeys, responsive checks, and axe accessibility scans with:
+
+```sh
+npm ci
+npx playwright install chromium
+npm run test:e2e
+```
+
 ## Formspree delivery
 
 The contact and project enquiry forms submit to Formspree using the endpoint
@@ -43,6 +59,27 @@ notification is delayed or filtered as spam.
 
 The standalone contact page is available at `contact.html` and includes the
 project enquiry form and the Cal.com call-booking calendar.
+
+## Static deployment
+
+This portfolio is plain HTML, CSS, and JavaScript. To deploy it, publish the
+repository root as the site document root; `index.html`, `contact.html`,
+`privacy.html`, `assets/`, `robots.txt`, and `sitemap.xml` are served directly.
+There is no React application, bundler, or production build step. The Node
+dependencies are only for local and CI browser tests, not deployment.
+
+Use a static host that supports the repository's `_headers` file to apply the
+configured security and cache headers.
+
+Paid mentorship has no on-site payment portal or checkout. Availability and
+payment arrangements are confirmed directly after an enquiry; do not submit
+payment credentials through the site's forms.
+
+Project consultations are booked for up to 30 minutes. The first 5 minutes are
+complimentary; if the client chooses to continue, additional time is charged at
+$0.50 per minute, for a total of $12.50 for a full 30-minute call. The rate is
+confirmed before paid time begins, and payment is arranged directly rather than
+processed on the website.
 
 <p align="center">
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=gpaul988&show_icons=true&locale=en&layout=compact" alt="gpaul988" /></p>

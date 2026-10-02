@@ -833,6 +833,59 @@ body.contact-page[data-theme="light"] .contact-theme-toggle__sun {
   line-height: 1.65;
 }
 
+.contact-benefit-card a {
+  display: block;
+  width: fit-content;
+  margin-top: 0.75rem;
+  color: var(--contact-accent);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.contact-benefit-card a:hover,
+.contact-benefit-card a:focus-visible {
+  color: var(--contact-heading);
+}
+
+.contact-mentorship-process {
+  max-width: 1120px;
+  margin: 1.5rem auto 4rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--contact-card-border);
+  border-radius: 20px;
+  background: var(--contact-card);
+  color: var(--contact-text);
+}
+
+.contact-mentorship-process .eyebrow {
+  color: var(--contact-accent);
+}
+
+.contact-mentorship-process h2 {
+  margin-bottom: 1.25rem;
+  color: var(--contact-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.contact-mentorship-process ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.contact-mentorship-process li {
+  padding-left: 0.25rem;
+  color: var(--contact-muted);
+  line-height: 1.7;
+}
+
+.contact-mentorship-process li strong {
+  color: var(--contact-heading);
+}
+
 .contact-page-form-section,
 .contact-booking-section {
   margin-top: clamp(4rem, 9vw, 7rem);
@@ -1123,6 +1176,11 @@ body.contact-page {
 
   .contact-benefits {
     grid-template-columns: 1fr;
+  }
+
+  .contact-mentorship-process ol {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
   .contact-page .contact-form-grid {

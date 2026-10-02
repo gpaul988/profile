@@ -45,9 +45,16 @@ if (form && btn) {
                 throw new Error(errorData?.error || 'Your message could not be sent. Please try again.');
             }
 
+            const enquiryType = form.elements.namedItem('project_type')?.value || '';
+            const isMentorshipEnquiry = enquiryType.startsWith('Mentorship:');
             btn.textContent = 'Sent';
             form.reset();
-            setFormStatus('Thanks for reaching out. Your message has been sent successfully. I will review your enquiry and reply with clear next steps.', 'success');
+            setFormStatus(
+                isMentorshipEnquiry
+                    ? 'Your mentorship enquiry has been sent. I will reply to confirm availability and share payment instructions; no payment has been taken and your session is not booked yet.'
+                    : 'Thanks for reaching out. Your message has been sent successfully. I will review your enquiry and reply with clear next steps.',
+                'success'
+            );
         } catch (error) {
             console.error('Formspree submission failed:', error);
             btn.textContent = 'Try Again';

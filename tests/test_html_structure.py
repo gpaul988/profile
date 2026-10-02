@@ -135,7 +135,7 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('Formspree', privacy)
         self.assertIn('Cal.com', privacy)
         self.assertIn('browser storage', privacy)
-        self.assertIn('assets/js/site-theme.js?v=20260927-brand-palette', privacy)
+        self.assertIn('assets/js/site-theme.js?v=20261002-optional-theme-label', privacy)
         self.assertIn('Submitting this form sends your details to Formspree', contact)
         self.assertIn('local storage', privacy)
         self.assertIn('session storage', privacy)
@@ -147,10 +147,54 @@ class HtmlStructureTests(unittest.TestCase):
         for content in (home, contact, script):
             self.assertNotIn('24–48 hours', content)
         self.assertIn('I’ll review your enquiry and reply with clear next steps.', home)
-        self.assertIn('I’ll review your enquiry and reply with clear next steps.', contact)
+        self.assertIn('the listed rate is for one 30-minute session.', contact)
         self.assertIn('I will review it and reply with clear next steps.', script)
-        self.assertIn('assets/js/script.js?v=20261018-enquiry-copy', home)
-        self.assertIn('assets/js/script.js?v=20261018-enquiry-copy', contact)
+        self.assertIn('assets/js/script.js?v=20261002-quality-pass', home)
+        self.assertIn('assets/js/script.js?v=20261002-quality-pass', contact)
+        self.assertIn('payment instructions; no payment has been taken and your session is not booked yet.', script)
+
+    def test_paid_mentorship_flow_is_transparent_and_uses_existing_proof(self):
+        contact = Path('contact.html').read_text(encoding='utf-8')
+        self.assertIn('A clear request-to-session process', contact)
+        self.assertIn('share payment instructions directly', contact)
+        self.assertIn('No payment portal or checkout is used on this website.', contact)
+        self.assertIn('session details and payment arrangement are agreed', contact)
+        self.assertIn('do not send card or banking credentials in this form.', contact)
+        self.assertIn('Explore selected projects', contact)
+        self.assertIn('View resume', contact)
+        self.assertIn('Verify ALX certificate', contact)
+        self.assertIn('does not collect payment details or process payments.', Path('privacy.html').read_text(encoding='utf-8'))
+
+    def test_project_consultation_pricing_is_clear_before_booking(self):
+        contact = Path('contact.html').read_text(encoding='utf-8')
+        home = Path('index.html').read_text(encoding='utf-8')
+        readme = Path('README.md').read_text(encoding='utf-8')
+        for content in (contact, home, readme):
+            self.assertIn('first 5 minutes', content)
+            self.assertIn('$0.50 per minute', content)
+        self.assertIn('full 30-minute call costs $12.50', contact)
+        self.assertIn('We’ll confirm before paid time begins.', contact)
+        self.assertIn('Payment is arranged directly', contact)
+        self.assertNotIn('free 30-minute consultation call', contact)
+        self.assertNotIn('free 30-minute call', home)
+
+    def test_project_deploys_as_plain_static_site_without_react_build(self):
+        readme = Path('README.md').read_text(encoding='utf-8')
+        package = Path('package.json').read_text(encoding='utf-8')
+        self.assertIn('plain HTML, CSS, and JavaScript', readme)
+        self.assertIn('There is no React application, bundler, or production build step.', readme)
+        self.assertIn('"test:e2e": "playwright test"', package)
+        self.assertNotIn('"build":', package)
+
+    def test_repairs_and_it_support_are_offered_in_both_project_enquiry_paths(self):
+        home = Path('index.html').read_text(encoding='utf-8')
+        contact = Path('contact.html').read_text(encoding='utf-8')
+        for service in ('Computer &amp; Device Repairs', 'IT Support &amp; Troubleshooting'):
+            self.assertIn(f'<h3>{service}</h3>', home)
+            self.assertIn(f'<option>{service}</option>', home)
+            self.assertIn(f'<option>{service}</option>', contact)
+        for service in ('Computer and Laptop Repairs', 'Software Installation and Setup', 'IT Support and Troubleshooting'):
+            self.assertIn(f'<option>{service}</option>', contact)
 
     def test_homepage_removes_absolute_responsive_claim_and_unused_font_requests(self):
         home = Path('index.html').read_text(encoding='utf-8')
@@ -159,8 +203,11 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertNotIn('www.w3schools.com/w3css', home)
         self.assertIn('family=Alex+Brush', home)
         self.assertIn('family=Playfair+Display', home)
+        self.assertIn(
+            'family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap',
+            home
+        )
         self.assertNotIn('family=Allura', home)
-        self.assertIn('family=Bodoni+Moda', home)
 
     def test_service_process_and_project_form_details_are_aligned(self):
         home = Path('index.html').read_text(encoding='utf-8')
@@ -178,10 +225,22 @@ class HtmlStructureTests(unittest.TestCase):
             home.split('id="intake-type"', 1)[1].split('</select>', 1)[0]
         )[1:]
         self.assertEqual(contact_project_options, intake_project_options)
-        for project_type in ('Web Application', 'Website Redesign', 'Portfolio Site', 'Business Website', 'Brand Refresh'):
+        project_types = (
+            'Web Application', 'Website Redesign', 'Portfolio Site', 'Business Website',
+            'Brand Refresh', 'Computer &amp; Device Repairs', 'IT Support &amp; Troubleshooting'
+        )
+        for project_type in project_types:
             self.assertIn(f'<option>{project_type}</option>', home)
-        for project_type in ('Web Application', 'Website Redesign', 'Portfolio Site', 'Business Website', 'Brand Refresh'):
+        for project_type in project_types:
             self.assertIn(f'<option>{project_type}</option>', contact)
+        for service in (
+            'Computer and Laptop Repairs',
+            'Software Installation and Setup',
+            'IT Support and Troubleshooting'
+        ):
+            self.assertIn(f'<option>{service}</option>', contact)
+        self.assertIn('<h3>Computer &amp; Device Repairs</h3>', home)
+        self.assertIn('<h3>IT Support &amp; Troubleshooting</h3>', home)
         self.assertIn('<option>Full-Stack Development</option>', contact)
         self.assertIn('Connect front-end experiences, backend workflows, APIs, and data', home)
         self.assertIn('Clarify users, goals, scope, required features, constraints, and success measures', home)
@@ -451,7 +510,7 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('aria-label="Chat with Graham on WhatsApp at @grahamspaul"', home)
         self.assertIn('aria-label="Chat with Graham on Telegram at @grahamspaul"', home)
         self.assertIn('id="reopen-welcome-offer"', home)
-        self.assertIn('assets/js/script.js?v=20261018-enquiry-copy', home)
+        self.assertIn('assets/js/script.js?v=20261002-quality-pass', home)
         self.assertIn('name="offer_code" id="intake-offer-code"', home)
         self.assertIn('value = \'WELCOME20\'', script)
         self.assertIn("window.setTimeout(() => {", script)
@@ -572,7 +631,7 @@ class HtmlStructureTests(unittest.TestCase):
             self.assertIn(f'<strong>{price}</strong><span>30 MIN</span>', section)
         self.assertNotIn('US$', section)
         self.assertEqual(section.count('href="contact.html#contact-form-section">Enquire about a session'), 3)
-        self.assertIn('complimentary call is reserved for project scoping', section)
+        self.assertIn('first 5 consultation minutes are complimentary', section)
         self.assertNotIn('INDEPENDENT BUILDS', section)
         self.assertNotIn('MORE FROM THE PORTFOLIO', section)
         self.assertNotIn('mentorship-products__project', section)
@@ -580,7 +639,7 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertEqual(section.count('class="mentorship-products__mentor-card"'), 3)
         self.assertIn('Learn with intent.', section)
         self.assertIn('Each has a clear scope and transparent, fixed pricing.', section)
-        self.assertIn('assets/css/style.css?v=20261002-background-images-theme-toggle', home)
+        self.assertIn('assets/css/style.css?v=20261002-quality-pass', home)
         contact = Path('contact.html').read_text(encoding='utf-8')
         for offer in (
             'Learning with direction ($10 / 30 minutes)',
@@ -651,59 +710,27 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertIn('IntersectionObserver', script)
         self.assertIn('prefers-reduced-motion: reduce', css)
 
-    def test_liquid_buttons_keep_brand_colors_drips_and_running_border_beams(self):
+    def test_action_buttons_keep_animated_border_beams_and_theme_contrast(self):
         css = Path('assets/css/style.css').read_text(encoding='utf-8')
         self.assertIn('@property --button-beam-angle', css)
-        self.assertIn('--button-beam-angle: 360deg;', css)
         self.assertIn('@property --button-beam-reverse-angle', css)
-        self.assertIn('--button-beam-reverse-angle: -180deg;', css)
         self.assertIn('@property --button-beam-third-angle', css)
-        self.assertIn('--button-beam-third-angle: 450deg;', css)
         self.assertIn('@property --button-beam-fourth-angle', css)
+        self.assertIn('--button-beam-angle: 360deg;', css)
+        self.assertIn('--button-beam-reverse-angle: -180deg;', css)
+        self.assertIn('--button-beam-third-angle: 450deg;', css)
         self.assertIn('--button-beam-fourth-angle: -90deg;', css)
         self.assertIn('inset: -1px;', css)
-        self.assertIn('from var(--button-beam-angle)', css)
-        self.assertIn('from var(--button-beam-reverse-angle)', css)
-        self.assertGreaterEqual(css.count('conic-gradient(from var(--button-beam-'), 10)
+        for angle in ('angle', 'reverse-angle', 'third-angle', 'fourth-angle'):
+            self.assertIn(f'conic-gradient(from var(--button-beam-{angle})', css)
+        self.assertEqual(css.count('conic-gradient(from var(--button-beam-'), 4)
         self.assertIn('beam-spin-third 3s linear infinite', css)
         self.assertIn('beam-spin-fourth 3s linear infinite', css)
-        self.assertIn('--button-cyan: #28ddfc;', css)
-        self.assertIn('--button-orange: #ff5a1f;', css)
-        self.assertIn('--button-cyan: #00a9cf;', css)
-        self.assertIn('--button-orange: #e94f24;', css)
-        self.assertIn('@keyframes liquid-button-drip', css)
-        self.assertIn('animation: liquid-button-drip 2.5s ease infinite;', css)
-        self.assertIn('min-height: 2.75rem;', css)
-        self.assertIn('.home-page .project-button.liquid-button', css)
-        self.assertIn('min-height: 3.1rem;', css)
-        self.assertIn('padding: 0.8rem 1rem;', css)
-        self.assertIn('width: fit-content;', css)
-        self.assertIn('min-height: 2.75rem;', css)
-        self.assertIn('min-width: 0;', css)
-        self.assertIn('padding: 0.65rem 1.1rem;', css)
-        self.assertIn('background: linear-gradient(110deg, var(--button-cyan) 0%, var(--button-orange) 100%);', css)
-        self.assertIn('.liquid-button__wave--1', css)
-        self.assertIn('.liquid-button__wave--2', css)
-        self.assertIn('.liquid-button__wave--3', css)
-        self.assertIn('height: 400%;', css)
-        self.assertIn('top: -200%;', css)
-        self.assertIn('transform: translateY(17.5%);', css)
-        self.assertIn('transform: translateY(-2.5%);', css)
-        self.assertIn('border-radius: 44% 56% 51% 49% / 47% 42% 58% 53%;', css)
-        self.assertNotIn('clip-path: polygon(', css)
-        self.assertIn('filter: url("#liquid")', css)
-        self.assertIn('filter: blur(9px);', css)
-        self.assertIn('.button-liquid-filters', css)
-        self.assertIn('rgba(40, 221, 252, 0.16)', css)
-        self.assertIn('rgba(255, 90, 31, 0.13)', css)
-        self.assertIn('rgba(7, 20, 29, 0.34)', css)
-        self.assertIn('rgba(255, 255, 255, 0.62)', css)
-        script = Path('assets/js/liquid-buttons.js').read_text(encoding='utf-8')
-        for generated_class in ('liquid-button__surface', 'liquid-button__wave', 'liquid-button__drop', 'liquid-button__splash', 'liquid-button__content'):
-            self.assertIn(generated_class, script)
-        self.assertIn('body.contact-page .contact-page-actions .btn', css)
+        self.assertIn('rgba(234, 88, 12, 0.95)', css)
+        self.assertIn('a.cta-btn::before', css)
+        self.assertIn('.hero-actions .project-button:focus-visible', css)
+        self.assertIn('.contact-page .contact-page-actions .btn', css)
         self.assertIn('.home-page[data-theme="light"] .hero-actions .project-button', css)
-        self.assertNotIn('@keyframes beam-spin {\n  to {\n    transform: rotate(360deg);', css)
 
     def test_home_and_contact_pages_have_no_footer(self):
         home = Path('index.html').read_text(encoding='utf-8')

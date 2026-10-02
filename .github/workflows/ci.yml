@@ -30,6 +30,17 @@ jobs:
           for file in assets/js/*.js; do
             node --check "$file"
           done
+          node --check playwright.config.js
+          node --check tests/e2e/site.spec.js
+
+      - name: Install browser test dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run browser and accessibility tests
+        run: npm run test:e2e
 
       - name: Check for security header config
         run: |
